@@ -219,7 +219,7 @@ img { max-width: 100% }
   <article class="find tcs"><header><span class="id">A2</span><div><h3><code>district_id</code> already exists but it is not reliable</h3><span class="ownertag tcs">TCS</span></div><span class="chip live">Checked live</span></header>
     <div class="body">
       <p>Eleven datasets have a district_id. It cannot be used as a key. This is worse than having no ID at all, because anyone who sees a field called district_id will assume it is safe to join on.</p>
-      <div class="ev">Re-checked live on 2 September across the <b>11</b> datasets that carry it. <b>56</b> distinct values.<br><b>15</b> of the 56 point to more than one district name. <b>10</b> of those are genuinely different districts, not spellings of one:<br>id <b>17</b> is Bapatla and Kakinada. id <b>22</b> is NTR and Palnadu. id <b>23</b> is Palnadu and Tirupati.<br>id <b>26</b> is Tirupati and Nandyal. id <b>27</b> is Polavaram and Markapuram.<br><br>The other 5 are one district spelled several ways, for example id <b>9</b> is SPSR Nellore, S.P.S Nellore and Sri Potti Sriramulu Nellore.<br><br>Separately there are <b>67</b> different district spellings for <b>26</b> real districts.</div>
+      <div class="ev">Re-checked live on 2 September across the <b>11</b> datasets that carry it. <b>56</b> distinct values.<br><b>15</b> of the 56 point to more than one district name. <b>10</b> of those are genuinely different districts, not spellings of one:<br>id <b>17</b> is Bapatla and Kakinada. id <b>22</b> is NTR and Palnadu. id <b>23</b> is Palnadu and Tirupati.<br>id <b>26</b> is Tirupati and Nandyal. id <b>27</b> is Polavaram and Markapuram.<br><br>The other 5 are one district spelled several ways, for example id <b>9</b> is SPSR Nellore, S.P.S Nellore and Sri Potti Sriramulu Nellore.<br><br>Separately there are <b>67</b> different district spellings for the <b>28</b> real districts. Andhra Pradesh moved from 26 districts to 28 on <b>31 December 2025</b>, when Markapuram was carved out of Prakasam and Polavaram out of Alluri Sitharama Raju. Both appear in the retained data, so the sources are current on this. An earlier version of this note said 26, which was my error, not the data's.</div>
       <div class="ask"><b>What would fix this:</b> either make district_id stable, or drop it and use the LGD district code.</div>
     </div>
   </article>
@@ -555,6 +555,14 @@ img { max-width: 100% }
       on filtered requests. Re-tested on 2 September, the count matches the rows returned in
       every case I tried, filtered and unfiltered. B1 has been rewritten around what is actually
       wrong.
+    </p>
+  </div>
+  <div class="correction">
+    <h3>The state has 28 districts, not 26</h3>
+    <p>
+      I also wrote that the state has 26 districts. It has had <b>28</b> since 31 December 2025,
+      when Markapuram and Polavaram were created. Both are present in the data, so the sources
+      were right and I was out of date. Corrected in <b>A2</b>.
     </p>
   </div>
   <div class="correction">
