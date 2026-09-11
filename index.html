@@ -187,6 +187,19 @@ footer.end{margin-top:70px;padding-top:18px;border-top:1px solid var(--rule);fon
   .owners{grid-template-columns:minmax(0,1fr)}
   .tally{grid-template-columns:repeat(2,minmax(0,1fr))}
   .ev{font-size:11.5px}
+  /* the status table becomes a stacked list: ID and status, then the issue, then the owner */
+  .glance-wrap{overflow:visible}
+  table.glance,.glance tbody{display:block;min-width:0;width:100%}
+  .glance thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .glance tr:not(.group){display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"id status" "issue issue" "owner owner";gap:5px 12px;padding:12px 14px;border-bottom:1px solid var(--rule-2)}
+  .glance tbody tr:last-child{border-bottom:0}
+  .glance tr.group{display:block}
+  .glance tr.group td{display:block}
+  .glance tr:not(.group) td{display:block;padding:0;border:0;background:none}
+  .glance tr:not(.group) td:nth-child(1){grid-area:id}
+  .glance tr:not(.group) td:nth-child(2){grid-area:issue;font-size:15px;line-height:1.45}
+  .glance tr:not(.group) td:nth-child(3){grid-area:owner}
+  .glance tr:not(.group) td:nth-child(4){grid-area:status;justify-self:end}
 }
 @media print{
   :root{
