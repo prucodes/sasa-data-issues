@@ -1,13 +1,15 @@
-# SASA data issues, 2 September 2026
+# SASA data issues, updated 11 September 2026
 
-Data and API issues found while building the SASA Intelligence Lab analytics
-prototype on the AP AI Living Labs Data Lake.
+Data and API issues I found while building SASA Intelligence Lab on the AP AI Living Labs
+Data Lake.
 
-Every check in this document was re-run against the live API on 2 September 2026.
-Each finding carries the exact request needed to reproduce it.
+I first shared this on 2 September 2026. On 11 September I checked every item again against
+the live API. Each item shows what I reported then and what I see now. The update also lists
+seven new problems, how I handle these issues in the app, and corrections to my first version.
 
 - Read it: https://prucodes.github.io/sasa-data-issues/
-- PDF: [SASA-data-issues-2026-09-02.pdf](SASA-data-issues-2026-09-02.pdf)
+- PDF, 11 September: [SASA-data-issues-2026-09-11.pdf](SASA-data-issues-2026-09-11.pdf)
+- PDF, 2 September, first version: [SASA-data-issues-2026-09-02.pdf](SASA-data-issues-2026-09-02.pdf)
 
-Findings are grouped by who is most likely to own them. Where an item could sit
-with more than one team it says so rather than guessing.
+Items are grouped by who is most likely to own them. Where one could sit with more than one
+team it says so.

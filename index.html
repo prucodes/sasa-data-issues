@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Data and API issues found while building the SASA Intelligence Lab on the AP Data Lake. Every check re-run live on 2 September 2026.">
+<meta name="description" content="Data and API issues found while building SASA Intelligence Lab on the AP Data Lake. First shared 2 September 2026, every item checked again live on 11 September 2026.">
 <title>Data Issues List</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,575 +13,781 @@
 <style>
 :root{
   color-scheme: dark;
-  --paper:#121314; --surface:#1A1B1D; --sunk:#212224;
-  --ink:#ECEDEE; --ink-2:#A0A4AA; --ink-3:#7A7E85;
+  --paper:#121314; --surface:#1A1B1D; --sunk:#212224; --lift:#1E2023;
+  --ink:#ECEDEE; --ink-2:#A3A7AD; --ink-3:#7E838A;
   --rule:#313336; --rule-2:#28292C;
-  --dept:#E0A25C; --dept-soft:#2E2317;
-  --tcs:#77AEEE; --tcs-soft:#16233A;
-  --ng:#4FC3D9; --ng-soft:#10262E;
-  --joint:#A98CF0; --joint-soft:#241C3B;
-  --stop:#E8756B; --stop-soft:#331A18;
-  --ok:#5CC49A; --ok-soft:#132E24;
+  --dept:#E0A25C; --tcs:#77AEEE; --ng:#4FC3D9; --joint:#A98CF0;
+  --fixed:#5CC49A; --fixed-soft:#132E24;
+  --mostly:#9ACB73; --mostly-soft:#1E2C16;
+  --partly:#E4B560; --partly-soft:#33280F;
+  --notfixed:#E8756B; --notfixed-soft:#331A18;
+  --untested:#A7ADB5; --untested-soft:#26282C;
+  --new:#4FC3D9; --new-soft:#10262E;
+  --link:#77AEEE;
   --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 26px -14px rgba(0,0,0,.65);
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:"Source Serif 4",Georgia,serif;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
-.wrap{max-width:1000px;margin:0 auto;padding:0 24px 110px}
-h1,h2,h3,h4{font-family:Archivo,"Helvetica Neue",Arial,sans-serif;margin:0;text-wrap:balance}
-h1{font-size:clamp(33px,4.6vw,52px);font-weight:800;letter-spacing:-.04em;line-height:1.03}
-h2{font-size:clamp(21px,2.3vw,28px);font-weight:700;letter-spacing:-.028em}
-h3{font-size:16.5px;font-weight:650;letter-spacing:-.015em;line-height:1.3}
-p{margin:0 0 1em}p:last-child{margin:0}
-code,.mono,.eyebrow,.chip,.tag{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
-code{font-size:.87em;background:var(--sunk);padding:1px 5px;border-radius:3px;border:1px solid var(--rule-2);overflow-wrap:anywhere}
-.eyebrow{font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
-:focus-visible{outline:2px solid var(--tcs);outline-offset:3px;border-radius:3px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Source Serif 4",Georgia,"Times New Roman",serif;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:940px;margin:0 auto;padding:0 28px 110px}
+h1,h2,h3{font-family:Archivo,"Helvetica Neue",Arial,sans-serif;margin:0;text-wrap:balance;color:var(--ink)}
+h1{font-size:clamp(34px,4.8vw,54px);font-weight:800;letter-spacing:-.04em;line-height:1.02}
+h2{font-size:clamp(22px,2.4vw,29px);font-weight:700;letter-spacing:-.025em;line-height:1.15}
+h3{font-size:17px;font-weight:650;letter-spacing:-.012em;line-height:1.3}
+p{margin:0 0 .9em}p:last-child{margin-bottom:0}
+a{color:var(--link);text-decoration-thickness:1px;text-underline-offset:2px}
+code,.mono,.eyebrow,.chip,.tag,.label{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+code{font-size:.84em;background:var(--sunk);padding:1px 5px;border-radius:3px;overflow-wrap:anywhere}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3)}
+:focus-visible{outline:2px solid var(--link);outline-offset:3px;border-radius:2px}
 
-header.top{padding:70px 0 0}
-header.top .eyebrow{display:block;margin-bottom:18px}
-.lede{font-size:19.5px;line-height:1.55;color:var(--ink-2);max-width:62ch;margin-top:22px}
+/* top */
+header.top{padding:64px 0 0}
+header.top .eyebrow{display:block;margin-bottom:16px}
+.lede{font-size:19px;line-height:1.55;color:var(--ink-2);max-width:62ch;margin-top:20px}
 .lede b{color:var(--ink);font-weight:600}
-.meta{margin-top:30px;padding-top:16px;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:6px 26px;font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-3)}
+.note{margin-top:28px;padding:22px 24px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;box-shadow:var(--shadow)}
+.note h2{font-size:20px;margin-bottom:12px}
+.note p{color:var(--ink-2);font-size:16px;max-width:68ch}
+.note b{color:var(--ink)}
+.meta{margin-top:26px;padding-top:14px;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:6px 26px;font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-3)}
 .meta b{color:var(--ink-2);font-weight:500}
 
-section{margin-top:58px}
-.sec-h{margin-bottom:10px}
-.sec-lead{color:var(--ink-2);max-width:70ch;margin-bottom:18px}
+/* status vocabulary */
+.chip{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:3px 8px;border-radius:3px;white-space:nowrap;line-height:1.4}
+.st-fixed{color:var(--fixed);background:var(--fixed-soft)}
+.st-mostly{color:var(--mostly);background:var(--mostly-soft)}
+.st-partly{color:var(--partly);background:var(--partly-soft)}
+.st-not{color:var(--notfixed);background:var(--notfixed-soft)}
+.st-untested{color:var(--untested);background:var(--untested-soft)}
+.st-new{color:var(--new);background:var(--new-soft)}
+.tag{font-size:11px;font-weight:500;color:var(--ink-3);white-space:nowrap}
+.tag i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:1px}
+.o-dept i{background:var(--dept)}.o-tcs i{background:var(--tcs)}.o-ng i{background:var(--ng)}.o-joint i{background:var(--joint)}
+
+/* tally */
+.tally{margin-top:22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:6px;overflow:hidden;box-shadow:var(--shadow)}
+.tally div{background:var(--surface);padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.tally .n{font-family:Archivo,sans-serif;font-size:30px;font-weight:700;line-height:1;letter-spacing:-.02em}
+.tally .ids{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-3);line-height:1.6}
+.tally .ids a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--ink-3)}
+.tally .ids a:hover{color:var(--link)}
+
+/* sections */
+section{margin-top:64px}
+.sec-h{display:flex;flex-direction:column;gap:8px;margin-bottom:6px}
+.sec-lead{color:var(--ink-2);max-width:68ch;margin-top:10px}
 .sec-lead b{color:var(--ink)}
 
-/* covering note */
-.coverletter{margin-top:26px;padding:20px 22px;border:1px solid var(--rule);border-left:4px solid var(--ok);border-radius:6px;background:var(--surface);box-shadow:var(--shadow)}
-.coverletter h3{color:var(--ok);margin-bottom:9px}
-.coverletter p{font-size:15.5px;color:var(--ink-2);line-height:1.6}
-.coverletter b{color:var(--ink)}
+/* at a glance */
+.glance-wrap{margin-top:18px;overflow-x:auto;border:1px solid var(--rule);border-radius:6px;background:var(--surface);box-shadow:var(--shadow)}
+.glance tbody tr:not(.group):hover td{background:var(--lift)}
+table.glance{width:100%;border-collapse:collapse;font-size:14px;min-width:620px}
+.glance th{font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);text-align:left;padding:10px 14px;border-bottom:1px solid var(--rule)}
+.glance td{padding:9px 14px;border-bottom:1px solid var(--rule-2);vertical-align:baseline;color:var(--ink-2)}
+.glance tr:last-child td{border-bottom:0}
+.glance td:first-child{font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-weight:600;white-space:nowrap}
+.glance td:first-child a{color:var(--ink);text-decoration:none}
+.glance td:nth-child(2){color:var(--ink)}
+.glance tr.group td{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);background:var(--sunk);padding:6px 14px;font-weight:600}
 
-/* correction */
-.correction{border:1px solid var(--stop);background:var(--stop-soft);border-radius:6px;padding:20px 22px;margin-top:22px}
-.correction h3{color:var(--stop);margin-bottom:9px}
-.correction p{font-size:15.5px;color:var(--ink-2)}
-.correction b{color:var(--ink)}
-
-/* owner chips: a finding can belong to more than one team, so combinations are allowed */
-.find.ng{border-left-color:var(--ng)}
-.find.deptcs{border-left-color:var(--joint)}
-.find.ngtcs{border-left-color:var(--joint)}
-.owner.ng{color:var(--ng);background:var(--ng-soft);border-color:var(--ng)}
-.owner.ng i{background:var(--ng)}
-.actgroup.ng{border-left-color:var(--ng)}
-.who.ng{color:var(--ng);background:var(--ng-soft)}
-.ownertag{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;padding:3px 8px;border-radius:4px;border:1px solid;white-space:nowrap;margin:7px 0 0}
-.ownertag.dept{color:var(--dept);background:var(--dept-soft);border-color:var(--dept)}
-.ownertag.tcs{color:var(--tcs);background:var(--tcs-soft);border-color:var(--tcs)}
-.ownertag.ng{color:var(--ng);background:var(--ng-soft);border-color:var(--ng)}
-.ownertag.mixed{color:var(--joint);background:var(--joint-soft);border-color:var(--joint)}
-
-/* owner legend */
-.legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-.owner{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:5px;font-size:12.5px;border:1px solid}
-.owner i{width:9px;height:9px;border-radius:2px;display:block;flex:0 0 auto}
-.owner.dept{color:var(--dept);background:var(--dept-soft);border-color:var(--dept)}
-.owner.dept i{background:var(--dept)}
-.owner.tcs{color:var(--tcs);background:var(--tcs-soft);border-color:var(--tcs)}
-.owner.tcs i{background:var(--tcs)}
-.owner.joint{color:var(--joint);background:var(--joint-soft);border-color:var(--joint)}
-.owner.joint i{background:var(--joint)}
-
-/* findings */
-.find{margin-top:12px;background:var(--surface);border:1px solid var(--rule);border-left-width:4px;border-radius:6px;box-shadow:var(--shadow);overflow:hidden}
-.find.dept{border-left-color:var(--dept)}
-.find.tcs{border-left-color:var(--tcs)}
-.find.joint{border-left-color:var(--joint)}
-.find>header{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:14px;align-items:baseline;padding:15px 20px 13px}
-.find .id{font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-weight:600;color:var(--ink-3)}
-.chip{flex:0 0 auto;font-size:9.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:4px;border:1px solid;white-space:nowrap}
-.chip.live{color:var(--ok);background:var(--ok-soft);border-color:var(--ok)}
-.chip.doc{color:var(--ink-3);background:var(--sunk);border-color:var(--rule)}
-.find .body{padding:0 20px 16px 78px}
-.find .body p{font-size:15px;color:var(--ink-2);margin-bottom:.7em}
-.find .body b{color:var(--ink)}
-.ev{margin-top:9px;padding:11px 13px;background:var(--sunk);border-radius:5px;font-family:"IBM Plex Mono",monospace;font-size:12px;line-height:1.65;color:var(--ink-2);overflow-wrap:anywhere}
+/* items */
+article.item{display:grid;grid-template-columns:58px minmax(0,1fr);column-gap:18px;padding:26px 0 24px;border-top:1px solid var(--rule)}
+article.item:first-of-type{margin-top:18px}
+.item .id{font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;color:var(--ink-3);padding-top:2px}
+.item .head{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.item .tags{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px}
+.item .body{min-width:0}
+.item .body > p{color:var(--ink-2);font-size:15.5px;max-width:70ch}
+.item .body b{color:var(--ink)}
+.when{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+.when > div{min-width:0;padding:13px 15px;border-radius:5px;background:var(--surface);border:1px solid var(--rule)}
+.when > div.now{border-color:var(--ink-3)}
+.when .label{display:block;font-size:10.5px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
+.when p{font-size:14.5px;color:var(--ink-2);line-height:1.55}
+.when b{color:var(--ink)}
+.ev{margin-top:12px;padding:12px 14px;background:var(--sunk);border-radius:5px;font-family:"IBM Plex Mono",monospace;font-size:12.5px;line-height:1.7;color:var(--ink-2);overflow-wrap:anywhere}
 .ev b{color:var(--ink);font-weight:600}
-.ask{margin-top:10px;padding-top:10px;border-top:1px dashed var(--rule);font-size:14.5px;color:var(--ink-2)}
+.ask{margin-top:12px;font-size:15px;color:var(--ink-2);max-width:70ch}
 .ask b{color:var(--ink)}
-@media(max-width:640px){.find>header{grid-template-columns:36px minmax(0,1fr);gap:6px 12px;align-items:start}.find .body{padding-left:20px}.find>header>div{grid-column:2;grid-row:1}.find .id{grid-row:1}.chip{grid-column:2;grid-row:2;justify-self:start;margin-top:0}.ownertag{margin-top:6px}}
-
-/* demo box */
-.demo{margin-top:20px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:22px;box-shadow:var(--shadow)}
-.demo ol{margin:0;padding-left:20px}
-.demo li{margin-bottom:16px;font-size:15.5px;color:var(--ink-2)}
-.demo li:last-child{margin-bottom:0}
-.demo li b{color:var(--ink)}
-.demo .how{display:block;margin-top:5px;font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-3);line-height:1.6;overflow-wrap:anywhere}
-
-/* asks */
-.asks{margin-top:20px;display:grid;gap:14px}
-.askcard{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:18px 20px;box-shadow:var(--shadow)}
-.askcard h3{margin-bottom:7px}
-.askcard p{font-size:15px;color:var(--ink-2)}
-.askcard .who{display:inline-block;margin-bottom:9px;font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;padding:3px 8px;border-radius:4px}
-.askcard .who.dept{color:var(--dept);background:var(--dept-soft)}
-.askcard .who.tcs{color:var(--tcs);background:var(--tcs-soft)}
-.askcard .who.joint{color:var(--joint);background:var(--joint-soft)}
+.item.single .when{grid-template-columns:minmax(0,1fr)}
+.item[data-status] .when > div.now{background:var(--lift)}
+.item[data-status="fixed"] .now{border-color:color-mix(in srgb,var(--fixed) 55%,var(--rule))}.item[data-status="fixed"] .now .label{color:var(--fixed)}
+.item[data-status="mostly"] .now{border-color:color-mix(in srgb,var(--mostly) 55%,var(--rule))}.item[data-status="mostly"] .now .label{color:var(--mostly)}
+.item[data-status="partly"] .now{border-color:color-mix(in srgb,var(--partly) 55%,var(--rule))}.item[data-status="partly"] .now .label{color:var(--partly)}
+.item[data-status="not"] .now{border-color:color-mix(in srgb,var(--notfixed) 50%,var(--rule))}.item[data-status="not"] .now .label{color:var(--notfixed)}
+.item[data-status="untested"] .now{border-color:color-mix(in srgb,var(--untested) 50%,var(--rule))}
+.item[data-status="new"] .ev{box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--new) 28%,transparent)}
+.tally div[data-status="fixed"] .n{color:var(--fixed)}.tally div[data-status="mostly"] .n{color:var(--mostly)}.tally div[data-status="partly"] .n{color:var(--partly)}
+.tally div[data-status="not"] .n{color:var(--notfixed)}.tally div[data-status="untested"] .n{color:var(--untested)}.tally div[data-status="new"] .n{color:var(--new)}
 
 
-/* consolidated actions */
-.actions{margin-top:20px;display:flex;flex-direction:column;gap:16px}
-.actgroup{background:var(--surface);border:1px solid var(--rule);border-left-width:4px;border-radius:6px;padding:18px 20px;box-shadow:var(--shadow)}
-.actgroup.dept{border-left-color:var(--dept)}
-.actgroup.deptcs{border-left-color:var(--joint)}
-.actgroup.ngtcs{border-left-color:var(--joint)}
-.actgroup.tcs{border-left-color:var(--tcs)}
-.actgroup.joint{border-left-color:var(--joint)}
-.actgroup.ours{border-left-color:var(--ok)}
-.actgroup h3{margin-bottom:4px}
-.actgroup .sub{font-size:12.5px;color:var(--ink-3);margin-bottom:12px;font-family:"IBM Plex Mono",monospace}
-.actgroup ol,.actgroup ul{margin:0;padding-left:20px}
-.actgroup li{margin-bottom:9px;font-size:15px;color:var(--ink-2);line-height:1.55}
-.actgroup li:last-child{margin-bottom:0}
-.actgroup li b{color:var(--ink)}
-.actgroup li .ref{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-3);margin-left:5px}
-footer.end{margin-top:70px;padding-top:20px;border-top:1px solid var(--rule);font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-@media(max-width:620px){
-  body{font-size:15px}.wrap{padding:0 16px 70px}
-  .ev{font-size:11px;padding:10px 11px}
-  .meta,.legend{gap:6px 14px}
-  h1{font-size:31px}
+/* how I built it */
+.built{margin-top:20px;display:flex;flex-direction:column;border-top:1px solid var(--rule)}
+.built .row{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.6fr);gap:10px 28px;padding:18px 0;border-bottom:1px solid var(--rule)}
+.built .row h3{font-size:16px}
+.built .row .refs{margin-top:6px;font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-3)}
+.built .row .refs a{color:inherit}
+.built .row p{font-size:15px;color:var(--ink-2)}
+.built .row b{color:var(--ink)}
+.built-group{margin-top:34px}
+.built-group > .eyebrow{display:block}
+
+/* reproduce */
+.repro{margin:18px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;border-top:1px solid var(--rule)}
+.repro li{padding:16px 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:58px minmax(0,1fr);column-gap:18px}
+.repro .ref{font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-weight:600;color:var(--ink-3)}
+.repro p{font-size:15.5px;color:var(--ink-2)}
+.repro b{color:var(--ink)}
+.repro .how{margin-top:8px;padding:10px 12px;background:var(--sunk);border-radius:5px;font-family:"IBM Plex Mono",monospace;font-size:12px;line-height:1.65;color:var(--ink-2);overflow-wrap:anywhere}
+
+/* actions */
+.owners{margin-top:20px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.owner{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:18px 20px;box-shadow:var(--shadow)}
+.owner.wide{grid-column:1/-1}
+.owner h3{display:flex;align-items:center;gap:9px}
+.owner h3 i{width:10px;height:10px;border-radius:50%;flex:none}
+.owner .sub{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-3);margin:4px 0 12px}
+.owner ol,.owner ul{margin:0;padding-left:20px}
+.owner li{font-size:15px;color:var(--ink-2);margin-bottom:8px;line-height:1.55}
+.owner li:last-child{margin-bottom:0}
+.owner li b{color:var(--ink)}
+.owner li .ref{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-3);margin-left:6px;white-space:nowrap}
+
+/* corrections */
+.fix{margin-top:14px;padding:18px 20px;border:1px solid var(--rule);border-radius:6px;background:var(--surface);box-shadow:var(--shadow)}
+.fix h3{margin-bottom:8px}
+.fix p{font-size:15.5px;color:var(--ink-2)}
+.fix b{color:var(--ink)}
+.fix .label{display:block;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--notfixed);font-weight:600;margin-bottom:6px}
+
+footer.end{margin-top:70px;padding-top:18px;border-top:1px solid var(--rule);font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+@media(max-width:680px){
+  .wrap{padding:0 16px 70px}
+  body{font-size:15px}
+  article.item,.repro li{grid-template-columns:minmax(0,1fr)}
+  .item .id,.repro .ref{margin-bottom:6px}
+  .when{grid-template-columns:minmax(0,1fr)}
+  .built .row{grid-template-columns:minmax(0,1fr)}
+  .owners{grid-template-columns:minmax(0,1fr)}
+  .tally{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ev{font-size:11.5px}
+}
+@media print{
+  :root{
+    color-scheme: light; --lift:#FFFFFF; --shadow:none;
+    --paper:#FFFFFF; --surface:#FFFFFF; --sunk:#EEF1F4;
+    --ink:#14181E; --ink-2:#3E4756; --ink-3:#5F6978;
+    --rule:#CDD3DA; --rule-2:#E1E5EA;
+    --dept:#94560F; --tcs:#1D5BA8; --ng:#0B6F80; --joint:#6447BC;
+    --fixed:#17744A; --fixed-soft:#DDF1E6; --mostly:#3F7F28; --mostly-soft:#E4F1DB;
+    --partly:#8C5B00; --partly-soft:#F6EAD0; --notfixed:#A83528; --notfixed-soft:#F7E0DC;
+    --untested:#5A6270; --untested-soft:#E4E7EB; --new:#0B6F80; --new-soft:#D9EEF1; --link:#1D5BA8;
+  }
+  body{font-size:12.5px;line-height:1.5}
+  .lede{font-size:16px}
+  .when p,.item .body > p,.ask,.built .row p,.repro p,.owner li,.fix p{font-size:12.5px}
+  .ev,.repro .how{font-size:10.5px}
+  article.item{padding:16px 0}
+  .glance td{padding:6px 12px}
+  .wrap{max-width:none;padding:0}
+  header.top{padding-top:0}
+  section{margin-top:34px}
+  .when > div,.item .head,.built .row,.repro li,.owner,.fix,.tally > div,.glance tr{break-inside:avoid}
+  h2{break-after:avoid}
+  .glance-wrap{overflow:visible}
+  a{color:inherit;text-decoration:none}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
-<style>
-/* the artifact host supplied these; a standalone page has to declare them */
-img { max-width: 100% }
-[hidden] { display: none !important }
-</style>
 </head>
 <body>
-
-
 <div class="wrap">
 
 <header class="top">
-  <span class="eyebrow">SASA Intelligence Lab &middot; Data issues &middot; 2 September 2026</span>
+  <span class="eyebrow">SASA Intelligence Lab &middot; Data issues &middot; Updated 11 September 2026</span>
   <h1>What I found<br>in the data.</h1>
   <p class="lede">
-    I have been building an analytics prototype on the SASA datasets in the Data Lake. This
-    is a list of everything that got in the way, grouped by <b>who is most likely to fix it</b>
-    rather than by how serious it is, so each team can find their own part quickly.
+    I am building SASA Intelligence Lab on the SASA datasets in the Data Lake. On 2 September I shared a
+    list of everything that got in my way. This is the same list, checked again against the live API on
+    <b>11 September</b>. For each item it shows what I reported then and what I see now. It also covers
+    what is new since then, and how I have handled these problems in the app so far.
   </p>
-  <div class="coverletter">
-    <h3>What would help</h3>
+
+  <div class="note">
+    <h2>Where things stand on 11 September</h2>
     <p>
-      Three things, and none of them are large. First, a view on the three items in
-      &ldquo;Priorities&rdquo; below, particularly <b>what a zero means</b>, because that one
-      decides whether the new daily datasets can be used at all. Second, confirmation on the
-      ULB code question in <b>A3</b>, which is worth settling before it is built into every
-      dataset. Third, a date for the five CDMA datasets and three PR datasets that are
-      documented but not yet on the portal.
+      Two items are fixed. Gobardhan can be read again, and every dataset that was missing is now live.
+      One item is mostly fixed and four are partly fixed. <b>Seventeen are not fixed yet.</b> One can no
+      longer be tested, because the filter it depended on has been removed.
     </p>
     <p>
-      Everything here can be reproduced. The section near the end gives the exact requests, so
-      nothing needs to be taken on trust. I re-ran every check in this document against the live
-      API on 2 September before sending it, rather than relying on my earlier notes. Three
-      earlier claims did not survive that and are listed at the end rather than removed. Happy to
-      walk through any of it on a call if that is easier than reading.
+      Nothing in the data has been revised since my previous pull on 10 September. The catalogue has the
+      same 42 datasets, every small table is identical row for row, the CDMA daily files still cover
+      12 to 27 August only, and PR door to door still stops at 7 August.
+    </p>
+    <p>
+      The most serious new problem is in how the data comes out of the API. <b>Neither paging nor the
+      export route returns the CDMA daily files complete.</b> Both return the right number of rows, but
+      about half of those rows are repeats. That is <a href="#N1">N1</a> below.
+    </p>
+    <p>
+      I also found mistakes in my own 2 September list. They are corrected at the end, with what went wrong.
     </p>
   </div>
+
+  <div class="tally" aria-label="Status of the 2 September items on 11 September">
+    <div data-status="fixed"><span class="chip st-fixed">Fixed</span><span class="n">2</span><span class="ids"><a href="#B3">B3</a> <a href="#B8">B8</a></span></div>
+    <div data-status="mostly"><span class="chip st-mostly">Mostly fixed</span><span class="n">1</span><span class="ids"><a href="#B2">B2</a></span></div>
+    <div data-status="partly"><span class="chip st-partly">Partly fixed</span><span class="n">4</span><span class="ids"><a href="#A2">A2</a> <a href="#A8">A8</a> <a href="#B7">B7</a> <a href="#C1">C1</a></span></div>
+    <div data-status="not"><span class="chip st-not">Not fixed</span><span class="n">17</span><span class="ids"><a href="#A1">A1</a> <a href="#A3">A3</a> <a href="#A4">A4</a> <a href="#A5">A5</a> <a href="#A6">A6</a> <a href="#A7">A7</a> <a href="#A9">A9</a> <a href="#A10">A10</a> <a href="#A11">A11</a> <a href="#A12">A12</a> <a href="#A13">A13</a> <a href="#A14">A14</a> <a href="#B4">B4</a> <a href="#B5">B5</a> <a href="#B6">B6</a> <a href="#C2">C2</a> <a href="#C3">C3</a></span></div>
+    <div data-status="untested"><span class="chip st-untested">Cannot test</span><span class="n">1</span><span class="ids"><a href="#B1">B1</a></span></div>
+    <div data-status="new"><span class="chip st-new">New</span><span class="n">7</span><span class="ids"><a href="#N1">N1</a> <a href="#N2">N2</a> <a href="#N3">N3</a> <a href="#N4">N4</a> <a href="#N5">N5</a> <a href="#N6">N6</a> <a href="#N7">N7</a></span></div>
+  </div>
+
   <div class="meta">
-    <span><b>Based on:</b> all 33 datasets, re-verified live</span>
-    <span><b>Every check re-run:</b> 2 September 2026</span>
-    <span><b>Docs:</b> integration guide, sections 1 to 15</span>
+    <span><b>Checked:</b> all 42 datasets in the catalogue, live, 11 September 2026</span>
+    <span><b>Previous version:</b> 2 September 2026, 33 datasets</span>
+    <span><b>PDF:</b> <a href="SASA-data-issues-2026-09-11.pdf">11 September</a>, <a href="SASA-data-issues-2026-09-02.pdf">2 September</a></span>
+    <span><b>Owners:</b> <span class="tag o-dept"><i></i>Department</span> <span class="tag o-tcs"><i></i>TCS</span> <span class="tag o-ng"><i></i>NextGen</span> <span class="tag o-joint"><i></i>Either, needs routing</span></span>
   </div>
 </header>
 
 <section>
-  <div class="legend">
-    <span class="owner dept"><i></i>Department, the data owner</span>
-    <span class="owner tcs"><i></i>TCS, processing and API</span>
-    <span class="owner ng"><i></i>NextGen, the platform</span>
-    <span class="owner joint"><i></i>Could be either, needs routing</span>
-  </div>
-  <p class="sec-lead" style="margin-top:14px">I have put a suggested owner on each item, but I do not know your internal split well enough to be certain. Where it could reasonably sit with more than one team it says so, rather than guessing.</p>
-</section>
-
-<section>
-  <div class="sec-h"><span class="eyebrow">Section A · The data</span></div>
-  <h2>Issues in the data itself</h2>
-  <p class="sec-lead">These are about the data itself, what is in the files and how it is named and coded. Some are fixable in processing. The ones about what was never recorded in the first place are not, and those are marked as the department&rsquo;s.</p>
-
-  <article class="find deptcs"><header><span class="id">A1</span><div><h3>The same town has different names in different datasets</h3><span class="ownertag mixed">Dept or TCS</span></div><span class="chip live">Checked live</span></header>
-    <div class="body">
-      <p>ULBs are identified by name, and the spelling changes from file to file. So the data for one town sits in files that cannot be joined together.</p>
-      <div class="ev">Re-checked live on 2 September across <b>29</b> datasets.<br><b>263</b> different ULB name strings. After ignoring capitalisation, <b>195</b>.<br><b>68</b> groups differ only by capitalisation. <b>14</b> differ in actual spelling.<br><br><b>Atmakur has 10 spellings:</b> Atmakur, Atmakur K, Atmakur N, Atmakur (K), Atmakur (N), Atmakur(N), Atmakur (KNL), Atmakur (NLR), ATMAKUR-N, ATMAKUR-KURNOOL.<br><b>Gudur has 10:</b> Gudur (K), Gudur (N), Gudur(K), Gudur(N), Gudur N, Gudur (KNL), Gudur (NLR), Gudur Tpt, Guduru (K), GUDUR_KURNOOL.<br><br>Two ULB names come back with <b>literal double-quote characters inside the value</b>: <code>"JANGAREDDY GUDEM"</code> and <code>"YSR TADIGADAPA"</code>. That looks like a CSV escaping problem that has been carried through into the API.<br><br>Others that differ by more than punctuation: Adanki and Addanki, Akiveedu and Akivedu, Mumidivaram and Mummidivaram, Gollaprollu and Gollaprolu, Yellamanchalli and Yelamanchali.</div>
-      <div class="ask"><b>What would fix this:</b> a permanent ULB ID on every dataset, old and new.</div>
-    </div>
-  </article>
-
-  <article class="find tcs"><header><span class="id">A2</span><div><h3><code>district_id</code> already exists but it is not reliable</h3><span class="ownertag tcs">TCS</span></div><span class="chip live">Checked live</span></header>
-    <div class="body">
-      <p>Eleven datasets have a district_id. It cannot be used as a key. This is worse than having no ID at all, because anyone who sees a field called district_id will assume it is safe to join on.</p>
-      <div class="ev">Re-checked live on 2 September across the <b>11</b> datasets that carry it. <b>56</b> distinct values.<br><b>15</b> of the 56 point to more than one district name. <b>10</b> of those are genuinely different districts, not spellings of one:<br>id <b>17</b> is Bapatla and Kakinada. id <b>22</b> is NTR and Palnadu. id <b>23</b> is Palnadu and Tirupati.<br>id <b>26</b> is Tirupati and Nandyal. id <b>27</b> is Polavaram and Markapuram.<br><br>The other 5 are one district spelled several ways, for example id <b>9</b> is SPSR Nellore, S.P.S Nellore and Sri Potti Sriramulu Nellore.<br><br>Separately there are <b>67</b> different district spellings for the <b>28</b> real districts. Andhra Pradesh moved from 26 districts to 28 on <b>31 December 2025</b>, when Markapuram was carved out of Prakasam and Polavaram out of Alluri Sitharama Raju. Both appear in the retained data, so the sources are current on this. An earlier version of this note said 26, which was my error, not the data's.</div>
-      <div class="ask"><b>What would fix this:</b> either make district_id stable, or drop it and use the LGD district code.</div>
-    </div>
-  </article>
-
-  <article class="find tcs"><header><span class="id">A3</span><div><h3><code>ulb_code</code> has the mandal code in it, not a ULB code</h3><span class="ownertag tcs">TCS</span></div><span class="chip live">Checked live</span></header>
-    <div class="body">
-      <p>A mandal and a ULB are two different things in LGD, with their own separate codes. They look the same in the sample only because Guntakal happens to be both a mandal and a municipality with the same name.</p>
-      <div class="ev">Re-checked live on 2 September across <b>500</b> rows of the door to door dataset.<br><b>487 of 500</b> rows have <code>ulb_code</code> exactly equal to <code>api_lgd_mandal_code</code>. It is the mandal code.<br>Example: <code>ulb_name: "GUNTAKAL"</code>, <code>ulb_code: "1003"</code>, <code>api_mandal_name: "GUNTAKAL"</code>, <code>api_lgd_mandal_code: "1003"</code>.<br><br><b>The 13 rows where they differ are the proof.</b> <code>ulb_name: "VISAKHAPATNAM(GVMC)"</code> has <code>ulb_code: "1086"</code> but <code>api_lgd_mandal_code: "1089"</code>, which is GVMC (Bheemili). GVMC covers more than one mandal, so a mandal code cannot identify it.<br><br>There is <b>no LGD urban local body code column anywhere</b> in any of the 33 datasets.</div>
-      <div class="ask"><b>Worth settling early.</b> As I understand it, this is being added to every dataset now, so it is much cheaper to correct before that than after. The LGD urban local body code would work; the mandal code will not.</div>
-    </div>
-  </article>
-
-  <article class="find dept"><header><span class="id">A4</span><div><h3>There is no way to tell a real zero from "not reported"</h3><span class="ownertag dept">Dept</span></div><span class="chip live">Checked live</span></header>
-    <div class="body">
-      <p>There are four different ways a missing value shows up, and none of them can be told apart from a genuine zero.</p>
-      <div class="ev">In the older datasets there is <code>0</code>, empty string <code>""</code>, <code>null</code>, and the field simply not there.<br>Across 123 entities and 18 sources, <b>1,063 of 2,214</b> possible values (<b>48%</b>) never came back at all.<br><br><b>Now worse in the live CDMA data.</b> Sampled across the whole 64,368-row file on 2 September, <b>93%</b> of rows show <code>collected_households: 0</code> and <b>not one row</b> is blank or null. In the older datasets a non-report at least looked different from a zero. Here every non-report is coming through as a zero, so there is no way at all to tell the two apart. See A13.</div>
-      <div class="ask"><b>What would fix this:</b> one clear code for "not reported". This becomes critical with the new daily data. <code>collected_households: 0</code> against <code>total_households: 886</code> could mean collection failed, or it was a holiday, or nobody submitted that day. There is no way to work out a collection percentage without knowing which.</div>
-    </div>
-  </article>
-
-  <article class="find deptcs"><header><span class="id">A5</span><div><h3>Month number and month name do not match</h3><span class="ownertag mixed">Dept or TCS</span></div><span class="chip live">Checked live</span></header>
-    <div class="body">
-      <p>Inside the same row, the two period fields disagree. On every row of a whole dataset.</p>
-      <div class="ev">Re-checked live on 2 September across <b>374</b> rows that carry both fields.<br><b>35</b> of them have <code>month_number = 7</code> with <code>month_name = JUNE</code>. All 35 are in the FSTP dataset, every July row of it.<br><br>Two more period problems found in the same pass:<br><b>Trailing spaces.</b> In the SERP datasets the month value is <code>"July"</code> on 25 rows and <code>"July&nbsp;"</code> with a trailing space on 3. Those will not group together.<br><b>Inconsistent case.</b> The same month is <code>"July"</code> in the SERP datasets, <code>"july"</code> in the door to door ones and <code>"JULY"</code> in the legacy waste one.<br><br>There are <b>four</b> different names for the month filter across the 33 datasets: <code>mnth_no</code> on 12, <code>month_number</code> on 7, <code>month</code> on 5, <code>month_id</code> on 3.</div>
-      <div class="ask"><b>What would fix this:</b> one standard period field, and the values inside a row should agree with each other.</div>
-    </div>
-  </article>
-
-  <article class="find dept"><header><span class="id">A6</span><div><h3>There is no way to tell if a number is monthly or cumulative</h3><span class="ownertag dept">Dept</span></div><span class="chip live">Checked live</span></header>
-    <div class="body">
-      <p>Similar datasets mix the two with nothing to say which is which, so a correct number looks like a mistake.</p>
-      <div class="ev">SERP circular economy shows <b>11,084</b> against a target of <b>5,000</b>, which is <b>221%</b>.<br>The reason: the field is <code>cummulative_achievement_till_current_month</code> while similar datasets are monthly.</div>
-      <div class="ask"><b>What would fix this:</b> say whether each measure is monthly or cumulative, and give the denominator for every percentage field.</div>
-    </div>
-  </article>
-
-  <article class="find tcs"><header><span class="id">A7</span><div><h3>The same field has different names in files shared the same day</h3><span class="ownertag tcs">TCS</span></div><span class="chip live">Checked live</span></header>
-    <div class="body">
-      <p>Three of the new CDMA datasets went out together and do not agree on what to call the same column.</p>
-      <div class="ev">Confirmed against the live data on 2 September.<br>MSW door to door uses <code>sachivalayam_name</code> and <code>sachivalayam_code</code><br>Bulk waste generators and wet waste processing use <code>secretariat_name</code> and <code>secretariat_code</code><br>Same values in both: <code>GUTTAAREA-02</code> and <code>21003020</code></div>
-      <div class="ask"><b>What would fix this:</b> a shared list of field names agreed before release, not after.</div>
-    </div>
-  </article>
-
-  <article class="find tcs"><header><span class="id">A8</span><div><h3>No record ID, submission date or revision number</h3><span class="ownertag tcs">TCS</span></div><span class="chip live">Checked live</span></header>
-    <div class="body">
-      <p>There is no way to point to a specific record, know when it was submitted, or tell that it has changed since it was last read.</p>
-      <div class="ev">Re-checked live on 2 September against every readable dataset.<br><b>0 of 32</b> have a record ID. <b>0 of 32</b> have a submission or created date. <b>0 of 32</b> have a revision or version number.<br><br>This is what makes the duplicate rows in <b>A14</b> impossible to resolve. When the same place and month comes back twice with different numbers, there is nothing on either row that says which one is current.</div>
-      <div class="ask"><b>What would fix this:</b> record ID, submission date and revision number on every row. This was on the list I shared earlier and has not been done yet.</div>
-    </div>
-  </article>
-
-  <article class="find dept"><header><span class="id">A9</span><div><h3>Units and denominators are missing</h3><span class="ownertag dept">Dept</span></div><span class="chip doc">From the docs</span></header>
-    <div class="body">
-      <div class="ev"><code>garbage_segregation</code> does not say whether it is households, a percentage, or tonnes.<br><code>month: "202701"</code> with <code>fin_year: "2026-2027"</code>. If that is YYYYMM it is January 2027, which is in the future for data reported in September 2026.<br><code>achivement: ""</code> is misspelled and empty.</div>
-      <div class="ask"><b>What would fix this:</b> units and denominators stated for each measure, and the period format explained.</div>
-    </div>
-  </article>
-
-  <article class="find tcs"><header><span class="id">A10</span><div><h3>Some fields are not documented at all</h3><span class="ownertag tcs">TCS</span></div><span class="chip live">Checked live</span></header>
-    <div class="body">
-      <p>Smaller than I first wrote it. I had listed four fields from an earlier reading of the documentation. Checking the live data on 2 September, only two of them are actually there.</p>
-      <div class="ev">Present and undocumented: <code>active_indicator</code> and <code>i_ts</code>, both in the new CDMA datasets.<br>Not present in any live dataset: <code>a_in</code>, <code>s_no</code>, <code>u_ts</code>. Treat those three as withdrawn.</div>
-      <div class="ask"><b>What would fix this:</b> document <code>active_indicator</code> and <code>i_ts</code>, or take them out.</div>
-    </div>
-  </article>
-
-  <article class="find deptcs"><header><span class="id">A11</span><div><h3>Datasets do not say how many entities they should cover</h3><span class="ownertag mixed">Dept or TCS</span></div><span class="chip live">Checked live</span></header>
-    <div class="body">
-      <p>If a ULB is not in a dataset, there is no way to tell whether it has no facility or whether it was simply never submitted. So the gap cannot be measured.</p>
-      <div class="ask"><b>What would fix this:</b> each dataset says what it is meant to cover, for example "all 123 ULBs". Then a gap becomes a fact instead of a guess.</div>
-    </div>
-  </article>
-
-  <article class="find tcs"><header><span class="id">A12</span><div><h3>Mistakes in the documentation</h3><span class="ownertag tcs">TCS</span></div><span class="chip doc">From the docs</span></header>
-    <div class="body">
-      <p>Small things, but they hold up integration because there is no way to tell which version is right.</p>
-      <div class="ev">The table key is spelled two ways. The index says <code>waste_egregation_api</code>, everything else says <code>waste_segregation_api</code>.<br>The Soak Pits sample is a copy of the Compost Pits one. It says <code>work_name: "Compost Pits"</code> with the same units and target.<br>The index lists items 1 to 10 but rows 6 and 7 are empty.<br>Table keys are capitalised in the headings and lowercase in the requests.<br>The JSON sample for 15.3 is broken.</div>
-      <div class="ask"><b>What would fix this:</b> confirm which table key is live, and send a correct Soak Pits sample.</div>
-    </div>
-  </article>
-
-  <article class="find dept"><header><span class="id">A13</span><div><h3>In the new daily data, most collection values are zero and none are blank</h3><span class="ownertag dept">Dept</span></div><span class="chip live">Checked live</span></header>
-    <div class="body">
-      <p>This is the most important thing I found today, and it decides whether the new datasets can be used at all.</p>
-      <div class="ev">Re-sampled properly on 2 September. <b>23</b> sample points spread evenly across the whole file, <b>2,300</b> rows, covering all <b>64,368</b>.<br><br><b>2,144 of 2,300 are zero. That is 93%.</b><br><b>0 are blank. 0 are null.</b><br><br><b>11 of the 23 sample points are 100 of 100 zero</b>, including YSR Kadapa, East Godavari, Visakhapatnam, West Godavari, Konaseema, Palnadu, Sri Sathya Sai, Nandyal and Markapuram.<br>Only one sample point is mostly non-zero: Anantapuram, at 28 zero out of 100.<br><br><b>The denominator is fine, the numerator is not.</b> <code>total_households</code> is filled in on every row, with only 3 zeros in 2,300. It is <code>collected_households</code> that is zero 93% of the time.<br><br>An earlier note of mine put this at 79% from a single slice of the file. Sampled across the whole thing it is worse.</div>
-      <div class="ask"><b>What cannot be told apart:</b> whether collection genuinely is not happening in those districts, which would be a serious finding, or whether it simply is not being reported. Because there is not one blank value anywhere in the file, the two look identical. Until this is answered I cannot publish a collection percentage from this data.</div>
-    </div>
-  </article>
-
-  <article class="find deptcs"><header><span class="id">A14</span><div><h3>The same place and month comes back twice, with different numbers</h3><span class="ownertag mixed">Dept or TCS</span></div><span class="chip live">Checked live</span></header>
-    <div class="body">
-      <p>Found on 2 September while re-checking everything else. This is the one I would look at first, ahead of anything in this list except the zero question.</p>
-      <p><b>8 of the 29 monthly datasets contain more than one row for the same place in the same month.</b> Sometimes the copies are identical, which is untidy but harmless once you spot it. Sometimes they carry different numbers, and then there is no way to tell which is the real one.</p>
-      <div class="ev"><b>ODF Plus model villages.</b> 84 rows. Every one of the 28 districts appears twice for MAY. <b>18</b> of those pairs are identical. <b>10</b> contradict each other:<br><br>ALLURI SITHARAMA RAJU, MAY: achievement <b>1296</b> (<b>97.96%</b>) or <b>389</b> (<b>29.4%</b>)<br>ANAKAPALLI, MAY: achievement <b>180</b> (<b>59.6%</b>) or <b>301</b> (<b>99.67%</b>)<br>CHITTOOR, MAY: achievement <b>0</b> (<b>0%</b>) or <b>18</b> (<b>38.3%</b>)<br><br><b>Sweeping machines.</b> 28 rows, 2 duplicate pairs, both contradictory. Nellore in June and again in July: <code>no_of_machines_supplied</code> is <b>19</b> on one row and <b>4</b> on the other.<br><br>Identical copies, less urgent: IHHL 6 pairs, legacy waste 3, greencover 1, e-autos service model 1.</div>
-      <div class="ask"><b>What would fix this:</b> for the contradictory ones, someone needs to say which row is right. Going forward this is <b>A8</b>: with a record ID and a revision number the newer row wins and the question answers itself. Without them, a reader has to guess, and a dashboard will silently pick whichever row it happened to read last.</div>
-    </div>
-  </article>
-</section>
-
-<section>
-  <div class="sec-h"><span class="eyebrow">Section B · The API</span></div>
-  <h2>Issues with the platform</h2>
-  <p class="sec-lead">These have nothing to do with the data. They affect anyone building on the API, and most of them only show up once you start pulling data properly.</p>
-
-  <article class="find tcs"><header><span class="id">B1</span><div><h3>Filtering by month gives a different answer than reading the whole dataset</h3><span class="ownertag tcs">TCS</span></div><span class="chip live">Checked live</span></header>
-    <div class="body">
-      <p>I had this one written up as a wrong record count. When I re-tested it properly on 2 September the count itself was fine, so I have rewritten it. The underlying problem is real and it is worse than a bad count: <b>the same dataset gives two different answers depending on how you ask for it.</b></p>
-      <div class="ev">IHHL, every page pulled and counted, 2 September.<br><br>Read the whole dataset: <b>246</b> rows, and totalRecordCount says 246. Correct.<br>Count the months inside it: June <b>127</b>, July <b>119</b>.<br><br>Now filter instead.<br>Filter to July: <b>123</b> rows, count says 123. Filter to June: <b>123</b> rows, count says 123.<br><br>Both add up to 246, but they disagree about which month the rows belong to.<br><br><b>Six ULBs come back as JUNE when you read the whole dataset and as JULY when you filter to July.</b> Kurnool, Yemmiganur, Naidupet, Sullurpeta and Tirupati among them. Same district, same ULB, same figures, different month.<br><br>It is not a fluke. I pulled the whole dataset twice and got byte-identical results both times.<br><br>Reading the whole dataset covers all <b>123</b> ULBs. Each filtered read covers only <b>121</b>.</div>
-      <div class="ask"><b>Why this matters:</b> the two normal ways to get a month of data disagree, and neither announces it. A monthly figure built by filtering will not match the same figure built by reading the dataset and grouping. There is no way from the outside to tell which is right.</div>
-    </div>
-  </article>
-
-  <article class="find tcs"><header><span class="id">B2</span><div><h3>The filter names in the docs are wrong, and a wrong name gives a 502</h3><span class="ownertag tcs">TCS</span></div><span class="chip live">Checked live</span></header>
-    <div class="body">
-      <div class="ev"><code>GET /api/v1/datasets</code> says legacy waste takes <code>dstrt_nm</code>, <code>mnth_no</code> and <code>year</code>.<br>All three give <b>HTTP 502</b>. The one that actually works is <code>month_id</code> with <code>year</code>.<br>A wrong filter name gives a 502 with no list of valid names, so there is no way to find the right one.</div>
-      <div class="ask"><b>What would fix this:</b> correct the published filter names, and return a <b>400 with the accepted filters</b> instead of a 502.</div>
-    </div>
-  </article>
-
-  <article class="find ngtcs"><header><span class="id">B3</span><div><h3>Gobardhan is the only dataset of the 33 that cannot be read at all</h3><span class="ownertag mixed">NextGen or TCS</span></div><span class="chip live">Checked live</span></header>
-    <div class="body">
-      <p>I saw the message in the group saying Gobardhan data had been uploaded, so I went back and checked it again on 2 September. Whatever was loaded, it still cannot be read through the API. I had been treating this as a dataset I did not have access to. It is not an access problem, it is a broken table, which is probably the quicker thing to fix.</p>
-      <div class="ev">Checked all <b>33</b> datasets with the same token and the same request shape.<br><b>32 returned 200. Gobardhan is the only one that fails.</b><br><br>Every route fails with <b>502 internal_error</b>:<br>query with no filter, query with <code>year</code> and <code>mnth_no</code>, query with <code>dstrt_id</code>, and <code>/export</code>.<br><br>Authorisation is not the problem. Asking with <code>purpose: AUDIT</code> returns a clean <b>403</b> naming the allowed purpose, so the access layer knows the table and permits it. Asking with the allowed <code>BENEFIT_DISBURSEMENT</code> is what returns the 502, so the failure is behind the access check, not at it.</div>
-      <div class="ask"><b>What would fix this:</b> raise it as a bug on <code>sasa_establishment_of_gobardhan_units_api</code> rather than as an access request. If the upload has already happened, then the load worked and the serving side did not, so it is worth checking whether the table was created but never registered or indexed.</div>
-    </div>
-  </article>
-
-  <article class="find ngtcs"><header><span class="id">B4</span><div><h3>Page size is stuck at 100 and the token expires in 300 seconds</h3><span class="ownertag mixed">NextGen or TCS</span></div><span class="chip live">Checked live</span></header>
-    <div class="body">
-      <p>There is no way to ask for a bigger page. And the token runs out well before a large pull finishes, so it has to be refreshed halfway through.</p>
-      <div class="ev">Re-checked live on 2 September.<br><b>pageSize is ignored, not rejected.</b> I asked for <code>pageSize: 2</code> and got <code>returnedRecordCount: 100</code> back, with no warning.<br><b>The token lifetime is exactly 300 seconds</b>, read straight off the JWT (<code>exp</code> minus <code>iat</code>).<br>My own sweep today hit a <b>401 part way through a pull</b> and had to re-authenticate and resume.<br><br>The CDMA datasets are about <b>64,000</b> rows each, so around <b>644</b> calls each and <b>1,900</b> for the three.<br>The PR door-to-door one is <b>1,241,643</b> rows, which is about <b>12,400</b> calls.</div>
-      <div class="ask"><b>What would fix this:</b> either a settable page size, or a bulk export option. This needs sorting before the 26 extra KPIs arrive.</div>
-    </div>
-  </article>
-
-  <article class="find ngtcs"><header><span class="id">B5</span><div><h3>Allowed purposes are different per dataset but not published</h3><span class="ownertag mixed">NextGen or TCS</span></div><span class="chip live">Checked live</span></header>
-    <div class="body">
-      <div class="ev">Asking for Gobardhan with <code>purpose: AUDIT</code> gives:<br><i>"Purpose 'AUDIT' is not allowed for tableKey ... Allowed: BENEFIT_DISBURSEMENT"</i><br>Nothing in the catalogue says which purposes each dataset accepts.</div>
-      <div class="ask"><b>What would fix this:</b> show the allowed purposes for each dataset in <code>GET /api/v1/datasets</code>.</div>
-    </div>
-  </article>
-
-  <article class="find ngtcs"><header><span class="id">B6</span><div><h3>No way to check whether a dataset changed</h3><span class="ownertag mixed">NextGen or TCS</span></div><span class="chip live">Checked live</span></header>
-    <div class="body">
-      <p>To find out if anything changed, the whole dataset has to be downloaded again. Together with A8, there is no change signal at all.</p>
-      <div class="ask"><b>What would fix this:</b> a content hash per dataset per month. It is a small change and it lets anyone check for changes without pulling everything again.</div>
-    </div>
-  </article>
-
-  <article class="find tcs"><header><span class="id">B7</span><div><h3>The same filter has a different name on different datasets</h3><span class="ownertag tcs">TCS</span></div><span class="chip live">Checked live</span></header>
-    <div class="body">
-      <p>This one is now measurable rather than a documentation observation. I read the filter list off all 33 datasets in the catalogue.</p>
-      <div class="ev"><b>District has three names:</b> <code>dstrt_id</code> on 4 datasets, <code>district_id</code> on 3, <code>dstrt_nm</code> on 1. The other 25 offer no district filter at all.<br><br><b>Month has four names:</b> <code>mnth_no</code> on 12, <code>month_number</code> on 7, <code>month</code> on 5, <code>month_id</code> on 3.<br><br>Only <code>year</code> is consistent, on 27 of the 33.<br><br>So anything that reads across datasets needs a lookup table of filter names per dataset before it can ask a single question.</div>
-      <div class="ask"><b>What would fix this:</b> one name per concept across all datasets. <code>district</code>, <code>month</code>, <code>year</code>.</div>
-    </div>
-  </article>
-
-  <article class="find ng"><header><span class="id">B8</span><div><h3>Three of the eight CDMA datasets are now live. Five are not</h3><span class="ownertag ng">NextGen</span></div><span class="chip live">Checked live</span></header>
-    <div class="body">
-      <p>This changed on 2 September. The catalogue went from 30 to 33 datasets.</p>
-      <div class="ev"><b>Now live:</b> msw_door_to_door_collection_api, identification_of_bulk_waste_generators_api, onsite_processing_of_wet_waste_bwg_api<br><b>Still missing:</b> waste_segregation_api, construction_of_csc_api, compost_pits_api, magic_drains_api, soak_pits_api<br>The three PR keys still give <code>dataset_not_found</code>.</div>
-      <div class="ask"><b>What would fix this:</b> a date for the remaining five and the three PR ones.</div>
-    </div>
-  </article>
-</section>
-
-
-</section>
-
-<section>
-  <div class="sec-h"><span class="eyebrow">Section C · Decisions</span></div>
-  <h2>Things that need to be agreed together</h2>
-  <p class="sec-lead">These are not one team's job. They are conventions, and once they are set everything else follows.</p>
-
-  <article class="find joint"><header><span class="id">C1</span><div><h3>Agree on LGD codes, and on which LGD code</h3><span class="ownertag mixed">All three</span></div><span class="chip live">Checked live</span></header>
-    <div class="body">
-      <p>LGD is the national standard and it is already partly in the data, so this is mostly tidying up rather than new work. The question is <b>which</b> code, and A3 shows the data is currently heading for the wrong one.</p>
-      <div class="ev">What is needed is <code>lgd_district_code</code> and a proper <b>LGD urban local body code</b>.<br>There are already two different conventions in one section: <code>api_lgd_dist_code</code> in 15.1 to 15.5, and <code>lgd_district_name</code> (empty) in 15.6 to 15.8.</div>
-      <div class="ask"><b>Also to agree:</b> will the new columns be added to old rows too, or only new data? And will the old columns be removed? A row already has both <code>district_name</code> and <code>api_district_name</code>. Adding a third without removing the others makes it harder, not easier.</div>
-    </div>
-  </article>
-
-  <article class="find dept"><header><span class="id">C2</span><div><h3>Agree what a zero means, before the daily data arrives</h3><span class="ownertag dept">Dept</span></div><span class="chip live">Checked live</span></header>
-    <div class="body">
-      <p>This is the one answer that decides whether the new CDMA data is usable. At monthly level the ambiguity was survivable. At daily level there is no way to work out a collection percentage without it.</p>
-      <div class="ev">From the live data on 2 September, sampled at 23 points across all 64,368 rows: <b>93%</b> show zero collection and <b>not one</b> is blank. <b>11 of the 23</b> sample points are zero on every row. So a day where nobody collected and a day where nobody submitted look identical in the file.</div>
-      <div class="ask"><b>Decision needed:</b> one code for "not reported", different from a real zero, used the same way everywhere.</div>
-    </div>
-  </article>
-
-  <article class="find deptcs"><header><span class="id">C3</span><div><h3>Check the data before it is accepted</h3><span class="ownertag mixed">Dept or TCS</span></div><span class="chip doc">Suggestion</span></header>
-    <div class="body">
-      <p>Many of the items in Section A are the kind of thing an automated check at submission would catch, including the misspelled table key and the duplicated sample in A12.</p>
-      <div class="ask"><b>Suggestion:</b> validate against the schema at ingestion and send the errors back to whoever submitted, instead of it being found downstream.</div>
-    </div>
-  </article>
-</section>
-
-<section>
-  <div class="sec-h"><span class="eyebrow">Verify it yourself</span></div>
-  <h2>Six you can reproduce in a few minutes</h2>
-  <p class="sec-lead">None of this needs to be taken on trust. Each of these can be checked directly in the Data Lake playground, and each takes under a minute. Every one was re-run on 2 September before this went out.</p>
-  <div class="demo">
-    <ol>
-      <li><b>A14. The same row twice with different numbers.</b> Query <code>sasa_declaration_of_odf_plus_model_villages_api</code> with no filter. It returns 84 rows. Group them by district and month.
-        <span class="how">Every one of the 28 districts appears twice for MAY.<br>ALLURI SITHARAMA RAJU comes back as achievement 1296 (97.96%) and as 389 (29.4%).<br>Nothing on either row says which is current. There is no record ID and no revision number.</span></li>
-      <li><b>A13. Most of the new data is zero.</b> Query <code>msw_door_to_door_collection_api</code> and page into the middle of the file.
-        <span class="how">Page token for row 45,000 (Konaseema):<br>eyJtb2RlIjogIm9mZnNldCIsICJ2YWx1ZSI6IDQ1MDAwfQ==<br>Page token for row 60,000 (Sri Sathya Sai):<br>eyJtb2RlIjogIm9mZnNldCIsICJ2YWx1ZSI6IDYwMDAwfQ==<br><br>Both return 100 rows and all 100 have collected_households = 0.<br>Across 23 sample points spanning the whole file, 93% are zero and not one is blank.<br>Then ask the room: is that no collection, or no reporting? Nobody can tell from the file.</span></li>
-      <li><b>B1. Filtering gives a different answer than reading it all.</b> Take <code>sasa_sac_identification_of_new_ihhls_api</code>. Pull every page with no filter and count the months yourself. Then filter to July.
-        <span class="how">No filter: 246 rows, of which 127 say June and 119 say July.<br>Filtered to July: 123 rows. Filtered to June: 123 rows.<br>Six ULBs, Kurnool and Tirupati among them, say JUNE in the first read and JULY in the second.</span></li>
-      <li><b>B3. Gobardhan.</b> Query it twice, once with the purpose it does not accept and once with the one it does. The two answers together show the problem is not access.
-        <span class="how">purpose AUDIT gives a clean 403 naming the allowed purpose, so the table is known and permitted.<br>purpose BENEFIT_DISBURSEMENT gives 502 internal_error. So does /export. 32 of the 33 datasets answer 200 to the same call.</span></li>
-      <li><b>B2. A documented filter that returns a 502.</b> Take <code>sasa_100_percent_clearance_of_legacy_waste_api</code>. The catalogue advertises three filters for it.
-        <span class="how">dstrt_nm gives 502. mnth_no gives 502. year gives 200.<br>month_id gives 200 but is not advertised anywhere.<br>district_name is a real column in the data, and filtering on it gives 502.</span></li>
-      <li><b>A1. The naming problem.</b> Pull <code>ulb_name</code> from any few datasets and compare the spellings.
-        <span class="how">Atmakur appears as Atmakur, Atmakur K, Atmakur N, Atmakur (K), Atmakur (N), Atmakur(N), Atmakur (KNL), Atmakur (NLR), ATMAKUR-N and ATMAKUR-KURNOOL. Ten spellings.<br>Gudur has ten as well.<br>Two names arrive with double-quote characters inside the value: "JANGAREDDY GUDEM" and "YSR TADIGADAPA".</span></li>
-    </ol>
+  <div class="sec-h"><span class="eyebrow">At a glance</span><h2>Every item and its status</h2></div>
+  <p class="sec-lead">I have put a suggested owner on each item. I do not know your internal split well enough to be sure, so where it could sit with more than one team it says so.</p>
+  <div class="glance-wrap">
+    <table class="glance">
+      <thead><tr><th>ID</th><th>Issue</th><th>Suggested owner</th><th>11 September</th></tr></thead>
+      <tbody>
+        <tr class="group"><td colspan="4">New since 2 September</td></tr>
+        <tr><td><a href="#N1">N1</a></td><td>Paging and export do not return the CDMA daily files complete</td><td><span class="tag o-joint"><i></i>NextGen or TCS</span></td><td><span class="chip st-new">New</span></td></tr>
+        <tr><td><a href="#N2">N2</a></td><td>Monthly history removed, and an old key now returns a different table</td><td><span class="tag o-tcs"><i></i>TCS</span></td><td><span class="chip st-new">New</span></td></tr>
+        <tr><td><a href="#N3">N3</a></td><td>One table served under several dataset names</td><td><span class="tag o-tcs"><i></i>TCS</span></td><td><span class="chip st-new">New</span></td></tr>
+        <tr><td><a href="#N4">N4</a></td><td>Some new LGD codes put a town in the wrong district</td><td><span class="tag o-tcs"><i></i>TCS</span></td><td><span class="chip st-new">New</span></td></tr>
+        <tr><td><a href="#N5">N5</a></td><td>Markapuram has no district code in the CDMA daily files</td><td><span class="tag o-tcs"><i></i>TCS</span></td><td><span class="chip st-new">New</span></td></tr>
+        <tr><td><a href="#N6">N6</a></td><td>Place names spilling into a count column</td><td><span class="tag o-joint"><i></i>Dept or TCS</span></td><td><span class="chip st-new">New</span></td></tr>
+        <tr><td><a href="#N7">N7</a></td><td>PR door to door stops at 7 August and stores every day three times</td><td><span class="tag o-joint"><i></i>Dept or TCS</span></td><td><span class="chip st-new">New</span></td></tr>
+        <tr class="group"><td colspan="4">A &middot; The data</td></tr>
+        <tr><td><a href="#A1">A1</a></td><td>The same town has different names in different datasets</td><td><span class="tag o-joint"><i></i>Dept or TCS</span></td><td><span class="chip st-not">Not fixed</span></td></tr>
+        <tr><td><a href="#A2">A2</a></td><td><code>district_id</code> is not reliable</td><td><span class="tag o-tcs"><i></i>TCS</span></td><td><span class="chip st-partly">Partly fixed</span></td></tr>
+        <tr><td><a href="#A3">A3</a></td><td><code>ulb_code</code> holds the mandal code</td><td><span class="tag o-tcs"><i></i>TCS</span></td><td><span class="chip st-not">Not fixed</span></td></tr>
+        <tr><td><a href="#A4">A4</a></td><td>No way to tell a real zero from not reported</td><td><span class="tag o-dept"><i></i>Dept</span></td><td><span class="chip st-not">Not fixed</span></td></tr>
+        <tr><td><a href="#A5">A5</a></td><td>Month number and month name do not match</td><td><span class="tag o-joint"><i></i>Dept or TCS</span></td><td><span class="chip st-not">Not fixed</span></td></tr>
+        <tr><td><a href="#A6">A6</a></td><td>No way to tell monthly from cumulative</td><td><span class="tag o-dept"><i></i>Dept</span></td><td><span class="chip st-not">Not fixed</span></td></tr>
+        <tr><td><a href="#A7">A7</a></td><td>Same field, different names, in files shared together</td><td><span class="tag o-tcs"><i></i>TCS</span></td><td><span class="chip st-not">Not fixed</span></td></tr>
+        <tr><td><a href="#A8">A8</a></td><td>No record ID, submission date or revision number</td><td><span class="tag o-tcs"><i></i>TCS</span></td><td><span class="chip st-partly">Partly fixed</span></td></tr>
+        <tr><td><a href="#A9">A9</a></td><td>Units and period formats are not stated</td><td><span class="tag o-dept"><i></i>Dept</span></td><td><span class="chip st-not">Not fixed</span></td></tr>
+        <tr><td><a href="#A10">A10</a></td><td>Fields with no documentation</td><td><span class="tag o-tcs"><i></i>TCS</span></td><td><span class="chip st-not">Not fixed</span></td></tr>
+        <tr><td><a href="#A11">A11</a></td><td>Datasets do not say what they should cover</td><td><span class="tag o-joint"><i></i>Dept or TCS</span></td><td><span class="chip st-not">Not fixed</span></td></tr>
+        <tr><td><a href="#A12">A12</a></td><td>Documentation mistakes, now in the live data</td><td><span class="tag o-tcs"><i></i>TCS</span></td><td><span class="chip st-not">Not fixed</span></td></tr>
+        <tr><td><a href="#A13">A13</a></td><td>Most daily collection values are zero and none are blank</td><td><span class="tag o-dept"><i></i>Dept</span></td><td><span class="chip st-not">Not fixed</span></td></tr>
+        <tr><td><a href="#A14">A14</a></td><td>The same place and month twice, with different numbers</td><td><span class="tag o-joint"><i></i>Dept or TCS</span></td><td><span class="chip st-not">Not fixed</span></td></tr>
+        <tr class="group"><td colspan="4">B &middot; The API</td></tr>
+        <tr><td><a href="#B1">B1</a></td><td>A month filter and a whole read disagree</td><td><span class="tag o-tcs"><i></i>TCS</span></td><td><span class="chip st-untested">Cannot test</span></td></tr>
+        <tr><td><a href="#B2">B2</a></td><td>Wrong filter names in the docs, and errors that say nothing</td><td><span class="tag o-tcs"><i></i>TCS</span></td><td><span class="chip st-mostly">Mostly fixed</span></td></tr>
+        <tr><td><a href="#B3">B3</a></td><td>Gobardhan could not be read</td><td><span class="tag o-joint"><i></i>NextGen or TCS</span></td><td><span class="chip st-fixed">Fixed</span></td></tr>
+        <tr><td><a href="#B4">B4</a></td><td>Page size stuck at 100, token lasts 300 seconds</td><td><span class="tag o-joint"><i></i>NextGen or TCS</span></td><td><span class="chip st-not">Not fixed</span></td></tr>
+        <tr><td><a href="#B5">B5</a></td><td>Allowed purposes are not published</td><td><span class="tag o-joint"><i></i>NextGen or TCS</span></td><td><span class="chip st-not">Not fixed</span></td></tr>
+        <tr><td><a href="#B6">B6</a></td><td>No way to check whether a dataset changed</td><td><span class="tag o-joint"><i></i>NextGen or TCS</span></td><td><span class="chip st-not">Not fixed</span></td></tr>
+        <tr><td><a href="#B7">B7</a></td><td>The same filter has different names</td><td><span class="tag o-tcs"><i></i>TCS</span></td><td><span class="chip st-partly">Partly fixed</span></td></tr>
+        <tr><td><a href="#B8">B8</a></td><td>Documented datasets not yet live</td><td><span class="tag o-ng"><i></i>NextGen</span></td><td><span class="chip st-fixed">Fixed</span></td></tr>
+        <tr class="group"><td colspan="4">C &middot; Decisions</td></tr>
+        <tr><td><a href="#C1">C1</a></td><td>Agree on LGD codes, and which LGD code</td><td><span class="tag o-joint"><i></i>All three</span></td><td><span class="chip st-partly">Partly fixed</span></td></tr>
+        <tr><td><a href="#C2">C2</a></td><td>Agree what a zero means</td><td><span class="tag o-dept"><i></i>Dept</span></td><td><span class="chip st-not">Not fixed</span></td></tr>
+        <tr><td><a href="#C3">C3</a></td><td>Check the data before it is accepted</td><td><span class="tag o-joint"><i></i>Dept or TCS</span></td><td><span class="chip st-not">Not fixed</span></td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
+<section>
+  <div class="sec-h"><span class="eyebrow">New since 2 September</span><h2>Problems that were not on the first list</h2></div>
+  <p class="sec-lead">I found these while checking the old list. Most of them came in with the platform revision in the first week of September.</p>
+
+  <article data-status="new" class="item single" id="N1"><span class="id">N1</span><div class="body">
+    <div class="head"><h3>Paging and export do not return the CDMA daily files complete</h3><div class="tags"><span class="tag o-joint"><i></i>NextGen or TCS</span><span class="chip st-new">New</span></div></div>
+    <p>The row count is always right. The rows are not. Both ways of getting the data out return the correct number of rows, but about half of them are repeats standing in for rows that never arrive. Nothing in the response says so.</p>
+    <div class="ev"><b>msw_door_to_door_collection_api</b>, checked 11 September.<br>
+The file should hold one row per secretariat per day. 4,023 secretariats &times; 16 days = <b>64,368</b>, which is exactly the total the API reports.<br><br>
+<b>Export</b>, one call per district for all 26 district codes: 64,368 rows back, only <b>32,206</b> different. Some rows arrive up to 8 times.<br>
+<b>Paging</b> through the whole file on 8 September: 64,368 rows back, <b>40,636</b> different.<br>
+The two routes miss different rows. In Visakhapatnam export gave 4,614 different rows and paging gave 5,067, and only 2,741 were in both.<br>
+Paging again does not help. A second full pass over Visakhapatnam found no new rows at all.<br>
+I exported six districts a second time. <b>The same rows came back, repeated the same number of times, in all six.</b> This is not random. The export gives the same half every time: 1,439 of 2,880 rows in Anantapuram, 4,614 of 9,216 in Visakhapatnam.<br><b>Waste segregation and wet waste processing</b> lose rows the same way. In the same six districts, 12,507 of 25,024 and 12,539 of 25,088 rows were different, 50.0% each.<br><br>
+Everything I could get by every route put together: <b>50,634 of 64,368 rows (78.7%)</b>.<br>
+The gaps are not spread evenly. 1 row is missing for 13 August and 2,858 are missing for 27 August.<br><br>
+<b>identification_of_bulk_waste_generators_api</b> behaves the same way: 64,528 rows back by export, 32,286 different, 50,777 of 64,528 (78.7%) by every route together.</div>
+    <p class="ask"><b>What would fix this:</b> every row served exactly once, by paging and by export. My guess is that the query underneath has no fixed sort order, so each page is cut from a different ordering, but I cannot confirm that from outside. Until it is fixed, any total built from these files is built on a partial file.</p>
+  </div></article>
+
+  <article data-status="new" class="item single" id="N2"><span class="id">N2</span><div class="body">
+    <div class="head"><h3>Monthly history was removed, and an old key now returns a different table</h3><div class="tags"><span class="tag o-tcs"><i></i>TCS</span><span class="chip st-new">New</span></div></div>
+    <div class="ev"><b>ODF Plus model villages:</b> 84 rows for May, June and July in my 28 August copy. Now 28 rows and no month columns at all.<br>
+<b>Plastic waste management units:</b> the same change, 84 rows down to 28 with no months.<br>
+<b>E-autos service model:</b> 166 rows down to 84.<br>
+<b>FSTPs:</b> the old key <code>sasa_sac_establishing_fstps_information_api</code> used to return 70 ULB rows of plant capacity. It now returns 28 district rows of targets and achievement. The plant data moved to <code>fstps_stps_cotreatment_new1_api</code>.<br><br>
+The old keys still answer, so anyone reading them gets different data under the same name, with no notice.</div>
+    <p class="ask"><b>What would fix this:</b> keep the monthly history, or publish it separately. If a key starts returning a different table, give it a new key.</p>
+  </div></article>
+
+  <article data-status="new" class="item single" id="N3"><span class="id">N3</span><div class="body">
+    <div class="head"><h3>One table served under several dataset names</h3><div class="tags"><span class="tag o-tcs"><i></i>TCS</span><span class="chip st-new">New</span></div></div>
+    <div class="ev">The door to door e-autos, push carts and tri-cycles keys, and the machinery e-autos service model key, all return the <b>same 84 rows</b>. The API names <code>d2d_collection_vehicles_api</code> as the table behind all four.<br>
+The three 50 percent green programme keys return the <b>same 400 rows</b>, from <code>apgbc_info_new1_api</code>.<br>
+<code>soak_pits_api</code> returns all <b>336 Compost Pits rows</b>, identical, and its own <code>work_name</code> column says Compost Pits.<br><code>waste_egregation_api</code> is the door to door collection file without the <code>collected_households</code> column. In the six districts I exported, all 25,024 segregation rows match a collection row column for column.<br><br>
+Read as separate programmes, these get counted two, three or four times.</div>
+    <p class="ask"><b>What would fix this:</b> one key per table. Where keys have to share a table, say so in the catalogue.</p>
+  </div></article>
+
+  <article data-status="new" class="item single" id="N4"><span class="id">N4</span><div class="body">
+    <div class="head"><h3>Some of the new LGD codes put a town in the wrong district</h3><div class="tags"><span class="tag o-tcs"><i></i>TCS</span><span class="chip st-new">New</span></div></div>
+    <p>The new LGD columns look as if they were matched on name, so a town can land on a mandal with the same name in another district.</p>
+    <div class="ev"><b>Guduru</b>, listed under Kurnool, is coded as Guduru mandal in <b>Krishna</b> (<code>swacch_survekshan_info_new1_api</code>).<br>
+<b>Gudur</b>, listed under SPSR Nellore, is coded as Gudur mandal in <b>Kurnool</b> (same dataset).<br>
+<b>Ramachandrapuram</b>, listed under Konaseema, is coded as Ramachandrapuram mandal in <b>Tirupati</b>, in both the Swachh Survekshan table and the 50 percent green programme table.<br>
+<b>Rajampet</b> carries two different mandal codes, 1120 and 5246, inside the same green programme table.<br><br>
+Some other changes, such as Giddalur to Markapuram and Kandukur to Prakasam, match the district reorganisation, so I have not counted those as errors.</div>
+    <p class="ask"><b>What would fix this:</b> check the name matching against LGD before it goes into every dataset. A wrong code is harder to catch than a missing one.</p>
+  </div></article>
+
+  <article data-status="new" class="item single" id="N5"><span class="id">N5</span><div class="body">
+    <div class="head"><h3>Markapuram has no district code in the CDMA daily files</h3><div class="tags"><span class="tag o-tcs"><i></i>TCS</span><span class="chip st-new">New</span></div></div>
+    <div class="ev">In both daily files <code>district_code</code> is the text <b>NULL</b> for Markapuram: 816 rows each, covering Markapur, Kanigiri, Giddalur and Podili. Every other district has a number. Filtering on <code>district_code: "NULL"</code> does return them.<br><br>
+Markapuram became a district on 31 December 2025, so it looks as if the new district was never given a code in this feed.</div>
+    <p class="ask"><b>What would fix this:</b> give Markapuram its LGD district code in the CDMA feeds.</p>
+  </div></article>
+
+  <article data-status="new" class="item single" id="N6"><span class="id">N6</span><div class="body">
+    <div class="head"><h3>Place names spilling into a count column</h3><div class="tags"><span class="tag o-joint"><i></i>Dept or TCS</span><span class="chip st-new">New</span></div></div>
+    <div class="ev">In <code>identification_of_bulk_waste_generators_api</code>, <code>no_of_bwgs</code> should be a number. For some Vijayawada secretariats it holds text:<br>
+<code>secretariat_name: "62-Fire Station Area"</code>, <code>no_of_bwgs: " Prakash Nagar"</code>, <code>i_ts: "1"</code><br>
+<code>secretariat_name: "02-Machavaram Masi"</code>, <code>no_of_bwgs: "id Area"</code>, <code>i_ts: "0"</code><br><br>
+The secretariat name has been split at a comma or cut short, and the rest has been pushed into the next columns. In the rows I could retrieve there are 18 counts like this and 15 that are missing.</div>
+    <p class="ask"><b>What would fix this:</b> quote text fields properly when the file is loaded. The same fix would also remove the stray quote marks in <a href="#A1">A1</a>.</p>
+  </div></article>
+
+  <article data-status="new" class="item single" id="N7"><span class="id">N7</span><div class="body">
+    <div class="head"><h3>PR door to door stops at 7 August and stores every day three times</h3><div class="tags"><span class="tag o-joint"><i></i>Dept or TCS</span><span class="chip st-new">New</span></div></div>
+    <div class="ev">July: 13,351 gram panchayats &times; 31 days &times; 3 copies = <b>1,241,643</b>, exactly the total the API reports.<br>
+August: 13,351 &times; 7 days &times; 3 copies = <b>280,371</b>, again exactly the reported total.<br><br>
+On 11 September August still holds only 1 to 7 August, more than five weeks after the month ended. There is no September data. May, June and July are unchanged.</div>
+    <p class="ask"><b>What would fix this:</b> one copy of each panchayat day, and the rest of August. If the three copies are deliberate, say what makes them different.</p>
+  </div></article>
+</section>
 
 <section>
-  <div class="sec-h"><span class="eyebrow">Actions</span></div>
-  <h2>What would help</h2>
-  <p class="sec-lead">Everything from above in one place, grouped by who is most likely to own it. I do not know your internal split well enough to be certain, so where an item could reasonably sit with either team it is listed that way rather than guessed at. Most urgent first in each list.</p>
-  <div class="actions">
+  <div class="sec-h"><span class="eyebrow">Section A &middot; The data</span><h2>Issues in the data itself</h2></div>
+  <p class="sec-lead">What is in the files, and how it is named and coded. Some of this can be fixed in processing. The parts about what was never recorded cannot, and those are marked as the department&rsquo;s.</p>
 
-    <div class="actgroup dept">
-      <h3>Department</h3>
-      <div class="sub">4 items &middot; about what was recorded</div>
+  <article data-status="not" class="item" id="A1"><span class="id">A1</span><div class="body">
+    <div class="head"><h3>The same town has different names in different datasets</h3><div class="tags"><span class="tag o-joint"><i></i>Dept or TCS</span><span class="chip st-not">Not fixed</span></div></div>
+    <div class="when">
+      <div><span class="label">2 September</span><p>ULB names changed from file to file. Atmakur had 10 spellings and Gudur had 10. Two names came back with quote marks inside the value, <code>"JANGAREDDY GUDEM"</code> and <code>"YSR TADIGADAPA"</code>.</p></div>
+      <div class="now"><span class="label">11 September</span><p>Every example is still there, and the new datasets added more. <b>Atmakur now has 14 spellings and Gudur 13.</b> Quote marks now appear inside <b>17 names across 10 datasets</b>, for example <code>"Palasa Kasibugga"</code> and <code>"GVMC VISAKHAPATNAM"</code>. There is still no ULB ID.</p></div>
+    </div>
+    <p class="ask"><b>What would fix this:</b> a permanent ULB ID on every dataset, old and new. The counts are higher partly because the catalogue grew from 33 to 42 datasets.</p>
+  </div></article>
+
+  <article data-status="partly" class="item" id="A2"><span class="id">A2</span><div class="body">
+    <div class="head"><h3><code>district_id</code> is not reliable</h3><div class="tags"><span class="tag o-tcs"><i></i>TCS</span><span class="chip st-partly">Partly fixed</span></div></div>
+    <div class="when">
+      <div><span class="label">2 September</span><p>The same <code>district_id</code> pointed to different districts. id 17 was Bapatla and Kakinada.</p></div>
+      <div class="now"><span class="label">11 September</span><p>Inside each dataset it is now consistent, except id 20, which is both NTR and VMC in the three MEPMA datasets. Across datasets it still means different places. LGD district codes have been added beside it, which is the better key.</p></div>
+    </div>
+    <div class="ev">id 17 is <b>Anakapalli</b> in compost pits, magic drains and soak pits, <b>Bapatla</b> in community sanitary complexes and SBM IHHL, <b>Prakasam</b> in the CDMA e-waste and plastic ban datasets, and <b>Kakinada</b> in the three MEPMA datasets.</div>
+    <p class="ask"><b>What would fix this:</b> use the LGD district code everywhere and drop <code>district_id</code>, or make it mean one thing.</p>
+  </div></article>
+
+  <article data-status="not" class="item" id="A3"><span class="id">A3</span><div class="body">
+    <div class="head"><h3><code>ulb_code</code> holds the mandal code, not a ULB code</h3><div class="tags"><span class="tag o-tcs"><i></i>TCS</span><span class="chip st-not">Not fixed</span></div></div>
+    <div class="when">
+      <div><span class="label">2 September</span><p>487 of 500 rows checked had <code>ulb_code</code> equal to <code>api_lgd_mandal_code</code>. GVMC showed that a mandal code cannot identify a ULB that covers several mandals.</p></div>
+      <div class="now"><span class="label">11 September</span><p>Checked on every row I could retrieve: <b>31,362 of 32,206 (97.4%)</b> still match the mandal code. GVMC still has <code>ulb_code</code> 1086 alongside four mandal codes: 1086, 1087, 1089 and 4865. No dataset has an LGD urban local body code.</p></div>
+    </div>
+    <p class="ask"><b>What would fix this:</b> the LGD urban local body code. This is going into every dataset now, so it is cheaper to correct before that than after.</p>
+  </div></article>
+
+  <article data-status="not" class="item" id="A4"><span class="id">A4</span><div class="body">
+    <div class="head"><h3>There is no way to tell a real zero from not reported</h3><div class="tags"><span class="tag o-dept"><i></i>Dept</span><span class="chip st-not">Not fixed</span></div></div>
+    <div class="when">
+      <div><span class="label">2 September</span><p>Missing values showed up four ways: <code>0</code>, empty text, <code>null</code>, or no field at all. In the CDMA daily data not one value was blank, so a non report looked exactly like a zero.</p></div>
+      <div class="now"><span class="label">11 September</span><p>Unchanged. No dataset has a code for not reported, and no collection value in the CDMA daily files is blank or null. PR door to door does mark each day <code>IS_COLLECTED: Yes</code> or <code>No</code>, but it has no code for a day nobody reported either.</p></div>
+    </div>
+    <p class="ask"><b>What would fix this:</b> one code for not reported, different from zero, used the same way everywhere. See <a href="#C2">C2</a>.</p>
+  </div></article>
+
+  <article data-status="not" class="item" id="A5"><span class="id">A5</span><div class="body">
+    <div class="head"><h3>Month number and month name do not match</h3><div class="tags"><span class="tag o-joint"><i></i>Dept or TCS</span><span class="chip st-not">Not fixed</span></div></div>
+    <div class="when">
+      <div><span class="label">2 September</span><p>All 35 July FSTP rows had month number 7 and month name JUNE. SERP had <code>"July "</code> with a trailing space. Case varied between datasets.</p></div>
+      <div class="now"><span class="label">11 September</span><p>The same 35 rows are unchanged, and they have been copied into the replacement dataset <code>fstps_stps_cotreatment_new1_api</code>. Each SERP dataset still has 3 rows with <code>"July "</code>. Case still varies: May and may, June, JUNE and june, July, july and JULY.</p></div>
+    </div>
+    <p class="ask"><b>What would fix this:</b> one standard period field, and values in a row that agree with each other.</p>
+  </div></article>
+
+  <article data-status="not" class="item" id="A6"><span class="id">A6</span><div class="body">
+    <div class="head"><h3>There is no way to tell if a number is monthly or cumulative</h3><div class="tags"><span class="tag o-dept"><i></i>Dept</span><span class="chip st-not">Not fixed</span></div></div>
+    <div class="when">
+      <div><span class="label">2 September</span><p>SERP circular economy showed 11,084 against a target of 5,000, which is 221%, because the field is cumulative while similar datasets are monthly.</p></div>
+      <div class="now"><span class="label">11 September</span><p>The same 11,084 against 5,000. One of the three SERP catalogue descriptions now says cumulative. The other two do not, and nothing in the data marks it.</p></div>
+    </div>
+    <p class="ask"><b>What would fix this:</b> say for each measure whether it is monthly or cumulative, and give the denominator for every percentage.</p>
+  </div></article>
+
+  <article data-status="not" class="item" id="A7"><span class="id">A7</span><div class="body">
+    <div class="head"><h3>The same field has different names in files shared together</h3><div class="tags"><span class="tag o-tcs"><i></i>TCS</span><span class="chip st-not">Not fixed</span></div></div>
+    <div class="when">
+      <div><span class="label">2 September</span><p>Door to door collection used <code>sachivalayam_code</code>. Bulk waste generators and wet waste processing used <code>secretariat_code</code> for the same values.</p></div>
+      <div class="now"><span class="label">11 September</span><p>Unchanged, and waste segregation arrived using the <code>sachivalayam</code> spelling. Two daily files use one name and two use the other.</p></div>
+    </div>
+    <p class="ask"><b>What would fix this:</b> one agreed list of field names before a release.</p>
+  </div></article>
+
+  <article data-status="partly" class="item" id="A8"><span class="id">A8</span><div class="body">
+    <div class="head"><h3>No record ID, submission date or revision number</h3><div class="tags"><span class="tag o-tcs"><i></i>TCS</span><span class="chip st-partly">Partly fixed</span></div></div>
+    <div class="when">
+      <div><span class="label">2 September</span><p>0 of 32 readable datasets had a record ID, a submission date or a revision number.</p></div>
+      <div class="now"><span class="label">11 September</span><p>Four datasets that arrived later carry insert and update times (<code>i_ts</code>, <code>u_ts</code>): community sanitary complexes, housing IHHL, SBM IHHL and sewage treatment. Sewage treatment also has <code>rec_id</code>. <b>No dataset has a revision number</b>, and none of the older datasets gained any of these.</p></div>
+    </div>
+    <div class="ev">The formats already differ. Sewage treatment gives <code>"14-08-2026 14:09"</code> with quote marks inside the value. Housing IHHL gives <code>2026-08-28 16:14:52</code>.</div>
+    <p class="ask"><b>What would fix this:</b> a record ID, submission date and revision number on every row, in one format. This is also what would settle <a href="#A14">A14</a>.</p>
+  </div></article>
+
+  <article data-status="not" class="item" id="A9"><span class="id">A9</span><div class="body">
+    <div class="head"><h3>Units and period formats are not stated</h3><div class="tags"><span class="tag o-dept"><i></i>Dept</span><span class="chip st-not">Not fixed</span></div></div>
+    <div class="when">
+      <div><span class="label">2 September</span><p>From the documentation: <code>garbage_segregation</code> had no unit, a month of <code>202701</code> looked like a future date, and <code>achivement</code> was misspelled.</p></div>
+      <div class="now"><span class="label">11 September</span><p>Now visible in the live data. <code>garbage_segregation</code> still has no unit, though its values (300, 650, 1000) look like household counts. Compost pits, magic drains and soak pits run from <code>202604</code> to <code>202703</code>, one row per district per month of the financial year, with a target every month and achievement only up to <code>202608</code>. That explains <code>202701</code>, but it is written down nowhere. <code>achivement</code> is still misspelled.</p></div>
+    </div>
+    <p class="ask"><b>What would fix this:</b> a unit and a denominator for each measure, and a line explaining the period format.</p>
+  </div></article>
+
+  <article data-status="not" class="item" id="A10"><span class="id">A10</span><div class="body">
+    <div class="head"><h3>Fields with no documentation</h3><div class="tags"><span class="tag o-tcs"><i></i>TCS</span><span class="chip st-not">Not fixed</span></div></div>
+    <div class="when">
+      <div><span class="label">2 September</span><p><code>active_indicator</code> and <code>i_ts</code> were undocumented. I withdrew <code>a_in</code>, <code>s_no</code> and <code>u_ts</code> because no live dataset had them.</p></div>
+      <div class="now"><span class="label">11 September</span><p><code>active_indicator</code> is still there and is 1 on every row. <code>i_ts</code> is still undocumented. <b>The three fields I withdrew now exist</b> in the four datasets that arrived later. The integration guide I have does not describe any of them.</p></div>
+    </div>
+    <p class="ask"><b>What would fix this:</b> document these fields or take them out.</p>
+  </div></article>
+
+  <article data-status="not" class="item" id="A11"><span class="id">A11</span><div class="body">
+    <div class="head"><h3>Datasets do not say what they should cover</h3><div class="tags"><span class="tag o-joint"><i></i>Dept or TCS</span><span class="chip st-not">Not fixed</span></div></div>
+    <div class="when">
+      <div><span class="label">2 September</span><p>If a ULB is missing from a dataset there is no way to know whether it has nothing to report or never submitted.</p></div>
+      <div class="now"><span class="label">11 September</span><p>Unchanged. The catalogue has no field for expected coverage.</p></div>
+    </div>
+    <p class="ask"><b>What would fix this:</b> each dataset states what it covers, for example all 123 ULBs, so a gap is a fact and not a guess.</p>
+  </div></article>
+
+  <article data-status="not" class="item" id="A12"><span class="id">A12</span><div class="body">
+    <div class="head"><h3>Documentation mistakes, now in the live data</h3><div class="tags"><span class="tag o-tcs"><i></i>TCS</span><span class="chip st-not">Not fixed</span></div></div>
+    <div class="when">
+      <div><span class="label">2 September</span><p>The waste segregation key was spelled two ways, and the Soak Pits sample in the guide was a copy of Compost Pits.</p></div>
+      <div class="now"><span class="label">11 September</span><p><code>waste_segregation_api</code> spelled correctly returns <b>404 dataset_not_found</b>. The live key is the misspelled <code>waste_egregation_api</code>. The Soak Pits copy is no longer only in the guide: the live <code>soak_pits_api</code> returns the Compost Pits rows (<a href="#N3">N3</a>).</p></div>
+    </div>
+    <p class="ask"><b>What would fix this:</b> the correct key, and real Soak Pits data.</p>
+  </div></article>
+
+  <article data-status="not" class="item" id="A13"><span class="id">A13</span><div class="body">
+    <div class="head"><h3>Most daily collection values are zero and none are blank</h3><div class="tags"><span class="tag o-dept"><i></i>Dept</span><span class="chip st-not">Not fixed</span></div></div>
+    <div class="when">
+      <div><span class="label">2 September</span><p>From 23 samples of 100 rows across the file: 93% of <code>collected_households</code> values were zero and none were blank.</p></div>
+      <div class="now"><span class="label">11 September</span><p>The closest I can get to a full count is <b>95.2% zero: 48,180 of the 50,634</b> different secretariat days I could retrieve. It cannot be a complete count, because the API does not return the whole file (<a href="#N1">N1</a>). Still no blank or null values, and still only 12 to 27 August.</p></div>
+    </div>
+    <p class="ask"><b>What cannot be told apart:</b> whether collection is not happening, which would be serious, or whether it is not being reported. Until that is answered I will not publish a collection rate from this file. My 2 September wording about districts was also wrong, see the corrections at the end.</p>
+  </div></article>
+
+  <article data-status="not" class="item" id="A14"><span class="id">A14</span><div class="body">
+    <div class="head"><h3>The same place and month comes back twice, with different numbers</h3><div class="tags"><span class="tag o-joint"><i></i>Dept or TCS</span><span class="chip st-not">Not fixed</span></div></div>
+    <div class="when">
+      <div><span class="label">2 September</span><p>ODF Plus had every district twice for May, and 10 pairs disagreed. Alluri Sitharama Raju was 1,296 or 389. Sweeping machines had Nellore as 19 and 4 machines in June and again in July.</p></div>
+      <div class="now"><span class="label">11 September</span><p>ODF Plus has no duplicates now, but only because the table was replaced by 28 rows with no months and different targets (<a href="#N2">N2</a>). Alluri Sitharama Raju&rsquo;s target went from 1,323 to 2,115. The May question was never answered. <b>Sweeping machines is unchanged</b>: Nellore is still 19 and 4 in both months.</p></div>
+    </div>
+    <div class="ev">Identical copies still in the data: legacy waste 3 pairs, IHHL 2 pairs, and the new sewage treatment dataset 6 pairs. PR SWPC operators lists every one of its 28 districts twice.</div>
+    <p class="ask"><b>What would fix this:</b> someone who knows the source says which Nellore row is right. After that, <a href="#A8">A8</a> would stop this happening again.</p>
+  </div></article>
+</section>
+
+<section>
+  <div class="sec-h"><span class="eyebrow">Section B &middot; The API</span><h2>Issues with the platform</h2></div>
+  <p class="sec-lead">These are about getting data out, not about the data. <a href="#N1">N1</a> belongs here too and is the most serious of them.</p>
+
+  <article data-status="untested" class="item" id="B1"><span class="id">B1</span><div class="body">
+    <div class="head"><h3>A month filter and a whole read disagree</h3><div class="tags"><span class="tag o-tcs"><i></i>TCS</span><span class="chip st-untested">Cannot test</span></div></div>
+    <div class="when">
+      <div><span class="label">2 September</span><p>In IHHL, six ULBs came back as June in a whole read and as July when filtered to July.</p></div>
+      <div class="now"><span class="label">11 September</span><p>The month filter has been removed. The new IHHL dataset accepts only <code>lgd_dist_code</code>, and the old key now serves the same new table, so this test cannot be run any more. I cannot tell whether the problem underneath was fixed.</p></div>
+    </div>
+  </div></article>
+
+  <article data-status="mostly" class="item" id="B2"><span class="id">B2</span><div class="body">
+    <div class="head"><h3>Wrong filter names in the docs, and errors that say nothing</h3><div class="tags"><span class="tag o-tcs"><i></i>TCS</span><span class="chip st-mostly">Mostly fixed</span></div></div>
+    <div class="when">
+      <div><span class="label">2 September</span><p>The catalogue listed filters for legacy waste that returned 502. A wrong filter name gave a 502 with no hint of the right one.</p></div>
+      <div class="now"><span class="label">11 September</span><p>The catalogue now lists <code>month_id</code> and <code>year</code>, which work. A wrong filter name now gets <b>a 400 that names the allowed filters</b>. A valid filter with a value that matches nothing, for example <code>month_id: "99"</code>, still gets a bare 502 instead of an empty result.</p></div>
+    </div>
+    <div class="ev">400: "Unknown filter field(s) for tableKey 'sasa_100_percent_clearance_of_legacy_waste_api': __probe__. Allowed: month_id, year."<br>502: "The Data Lake API could not complete this request."</div>
+    <p class="ask"><b>What would still help:</b> an empty result, not a 502, when nothing matches.</p>
+  </div></article>
+
+  <article data-status="fixed" class="item" id="B3"><span class="id">B3</span><div class="body">
+    <div class="head"><h3>Gobardhan could not be read</h3><div class="tags"><span class="tag o-joint"><i></i>NextGen or TCS</span><span class="chip st-fixed">Fixed</span></div></div>
+    <div class="when">
+      <div><span class="label">2 September</span><p>Every route returned 502, including export, while 32 other datasets answered.</p></div>
+      <div class="now"><span class="label">11 September</span><p>It returns <b>28 district rows</b>. Only 4 of the 28 districts report any achievement. The response names the table <code>gobardhanunits_api</code>, not the key I asked for.</p></div>
+    </div>
+  </div></article>
+
+  <article data-status="not" class="item" id="B4"><span class="id">B4</span><div class="body">
+    <div class="head"><h3>Page size stuck at 100, token lasts 300 seconds</h3><div class="tags"><span class="tag o-joint"><i></i>NextGen or TCS</span><span class="chip st-not">Not fixed</span></div></div>
+    <div class="when">
+      <div><span class="label">2 September</span><p><code>pageSize</code> was ignored without a warning, and a large pull outlived its token.</p></div>
+      <div class="now"><span class="label">11 September</span><p>Asking for <code>pageSize</code> 2 or 1,000 still returns 100. The access token still lasts 300 seconds, though a refresh token now lets a long pull carry on. There is an export route that returns a whole filtered result in one call, which helps, but it loses rows the same way paging does (<a href="#N1">N1</a>).</p></div>
+    </div>
+    <p class="ask"><b>What would fix this:</b> a page size that can be set, and an export that returns each row once.</p>
+  </div></article>
+
+  <article data-status="not" class="item" id="B5"><span class="id">B5</span><div class="body">
+    <div class="head"><h3>Allowed purposes are not published</h3><div class="tags"><span class="tag o-joint"><i></i>NextGen or TCS</span><span class="chip st-not">Not fixed</span></div></div>
+    <div class="when">
+      <div><span class="label">2 September</span><p>Each dataset accepts different purposes and the catalogue did not say which.</p></div>
+      <div class="now"><span class="label">11 September</span><p>The catalogue still does not list them. The error message does: "Purpose 'AUDIT' is not allowed for tableKey 'compost_pits_api'. Allowed: BENEFIT_DISBURSEMENT."</p></div>
+    </div>
+    <p class="ask"><b>What would fix this:</b> the allowed purposes for each dataset in <code>GET /api/v1/datasets</code>.</p>
+  </div></article>
+
+  <article data-status="not" class="item" id="B6"><span class="id">B6</span><div class="body">
+    <div class="head"><h3>No way to check whether a dataset changed</h3><div class="tags"><span class="tag o-joint"><i></i>NextGen or TCS</span><span class="chip st-not">Not fixed</span></div></div>
+    <div class="when">
+      <div><span class="label">2 September</span><p>The only way to know was to download everything again.</p></div>
+      <div class="now"><span class="label">11 September</span><p>Responses now carry an ETag header, but <b>it changes on every call</b>, even when the rows are identical, so it cannot show a change. Six datasets now say which older dataset they replace, which helps with keys but not with content.</p></div>
+    </div>
+    <p class="ask"><b>What would fix this:</b> a content hash for each dataset and month, or an ETag that only changes when the rows do.</p>
+  </div></article>
+
+  <article data-status="partly" class="item" id="B7"><span class="id">B7</span><div class="body">
+    <div class="head"><h3>The same filter has different names</h3><div class="tags"><span class="tag o-tcs"><i></i>TCS</span><span class="chip st-partly">Partly fixed</span></div></div>
+    <div class="when">
+      <div><span class="label">2 September</span><p>District had three filter names on 8 of 33 datasets. Month had four. Only <code>year</code> was consistent, on 27.</p></div>
+      <div class="now"><span class="label">11 September</span><p><b>District filtering now works on 32 of 42 datasets</b>, but under six names. Month still has four. <code>year</code> is offered on only 10 datasets, and one of those spells it <code>YEAR</code>.</p></div>
+    </div>
+    <div class="ev">District: lgd_dist_code 9, lgd_district_code 8, district_name 5, district_id 4, district_code 4, DISTRICT_ID 2<br>Month: month 5, month_id 4, month_number 3, MONTH_ID 1</div>
+    <p class="ask"><b>What would fix this:</b> one name per concept, for example <code>district</code>, <code>month</code>, <code>year</code>.</p>
+  </div></article>
+
+  <article data-status="fixed" class="item" id="B8"><span class="id">B8</span><div class="body">
+    <div class="head"><h3>Documented datasets not yet live</h3><div class="tags"><span class="tag o-ng"><i></i>NextGen</span><span class="chip st-fixed">Fixed</span></div></div>
+    <div class="when">
+      <div><span class="label">2 September</span><p>Five CDMA datasets and three PR datasets were documented but not on the portal.</p></div>
+      <div class="now"><span class="label">11 September</span><p>All eight are live. The catalogue went from 33 to 42 datasets. The PR keys carry a date, for example <code>sasa_pr_no_of_swpcs_operationalised_api_27_aug_2026</code>, and waste segregation is live under the misspelled key (<a href="#A12">A12</a>).</p></div>
+    </div>
+  </div></article>
+</section>
+
+<section>
+  <div class="sec-h"><span class="eyebrow">Section C &middot; Decisions</span><h2>Things that need to be agreed together</h2></div>
+  <p class="sec-lead">These are conventions rather than one team&rsquo;s job. Once they are settled, a lot of the rest follows.</p>
+
+  <article data-status="partly" class="item" id="C1"><span class="id">C1</span><div class="body">
+    <div class="head"><h3>Agree on LGD codes, and on which LGD code</h3><div class="tags"><span class="tag o-joint"><i></i>All three</span><span class="chip st-partly">Partly fixed</span></div></div>
+    <div class="when">
+      <div><span class="label">2 September</span><p>LGD was partly in the data under two conventions, and there was no LGD urban local body code.</p></div>
+      <div class="now"><span class="label">11 September</span><p>LGD district and mandal codes are now in many datasets. There is still no LGD urban local body code. The district code appears under three column names, and the old name columns were kept, so one row can carry <code>dstrt_nm</code>, <code>district_name</code> and <code>lgd_district_name</code>. Some of the new codes are wrong (<a href="#N4">N4</a>).</p></div>
+    </div>
+    <div class="ev">LGD district code columns: lgd_dist_code, lgd_district_code, api_lgd_dist_code</div>
+    <p class="ask"><b>Still to agree:</b> the ULB code, one column name for each code, and whether the old name columns go.</p>
+  </div></article>
+
+  <article data-status="not" class="item" id="C2"><span class="id">C2</span><div class="body">
+    <div class="head"><h3>Agree what a zero means</h3><div class="tags"><span class="tag o-dept"><i></i>Dept</span><span class="chip st-not">Not fixed</span></div></div>
+    <div class="when">
+      <div><span class="label">2 September</span><p>Without this decision no collection percentage can be worked out from the daily data.</p></div>
+      <div class="now"><span class="label">11 September</span><p>No decision yet, and the daily files still have no way to mark a missing report (<a href="#A13">A13</a>).</p></div>
+    </div>
+    <p class="ask"><b>Decision needed:</b> one code for not reported, different from zero, used everywhere.</p>
+  </div></article>
+
+  <article data-status="not" class="item" id="C3"><span class="id">C3</span><div class="body">
+    <div class="head"><h3>Check the data before it is accepted</h3><div class="tags"><span class="tag o-joint"><i></i>Dept or TCS</span><span class="chip st-not">Not fixed</span></div></div>
+    <div class="when">
+      <div><span class="label">2 September</span><p>A schema check at submission would catch much of Section A.</p></div>
+      <div class="now"><span class="label">11 September</span><p>The Soak Pits copy, the FSTP month mismatch, quote marks in names, text in a count column and a district coded as NULL all reached the live API.</p></div>
+    </div>
+    <p class="ask"><b>Suggestion:</b> validate at ingestion and send the errors back to whoever submitted.</p>
+  </div></article>
+</section>
+
+<section>
+  <div class="sec-h"><span class="eyebrow">What I did with the data</span><h2>How I built SASA Intelligence Lab around these problems</h2></div>
+  <p class="sec-lead">I could not wait for every item above to be fixed, so the app handles them itself. None of this changes a source value. It decides what gets counted, what gets held out, and what the app refuses to say. The item references show which problem each rule answers.</p>
+
+  <div class="built-group">
+    <span class="eyebrow">Keeping the data</span>
+    <div class="built">
+      <div class="row"><div><h3>I keep my own copy of every dataset</h3><div class="refs"><a href="#B6">B6</a> <a href="#A8">A8</a></div></div>
+        <p>The app reads saved copies, not the live API. Each copy records the table key, response ID, filters, retrieval time, row counts and a fingerprint of its content, so I can see when a dataset changes and accept each new version on purpose. On 10 September I kept 36 of the 42 datasets in the catalogue: 27 unchanged and 9 revised.</p></div>
+      <div class="row"><div><h3>I kept the older copies that still have history</h3><div class="refs"><a href="#N2">N2</a></div></div>
+        <p>ODF Plus, plastic waste units and FSTPs lost their months in the September revision. My 28 August copies still have May to July, so I kept them beside the new versions instead of replacing them.</p></div>
+      <div class="row"><div><h3>A pull is complete only when the rows are</h3><div class="refs"><a href="#N1">N1</a> <a href="#N7">N7</a></div></div>
+        <p>Getting as many rows as the API reports proves only that enough requests were made. I count different records, not rows returned, and I state coverage as what was retrieved against what should exist.</p></div>
+    </div>
+  </div>
+
+  <div class="built-group">
+    <span class="eyebrow">Counting</span>
+    <div class="built">
+      <div class="row"><div><h3>Identical duplicates are counted once</h3><div class="refs"><a href="#A14">A14</a> <a href="#N7">N7</a></div></div>
+        <p>Where the same place and period appears more than once with the same values, it counts once. For PR door to door that took <b>3,965,247</b> rows down to <b>1,285,814</b> panchayat days across May to August.</p></div>
+      <div class="row"><div><h3>Conflicting duplicates are held out of every total</h3><div class="refs"><a href="#A14">A14</a> <a href="#A8">A8</a></div></div>
+        <p>Where the same place and period has two different values, both rows are left out of totals and both numbers are shown, because nothing in the data says which is right. Nellore&rsquo;s 19 and 4 sweeping machines are shown that way.</p></div>
+      <div class="row"><div><h3>Datasets that serve the same table count once</h3><div class="refs"><a href="#N3">N3</a> <a href="#A12">A12</a></div></div>
+        <p>I detect this from the rows, not the names. Soak Pits is excluded from totals because it returns Compost Pits rows, and the three green programmes each read their own column from the shared table. If the platform separates them again, the flag drops off on the next pull.</p></div>
+      <div class="row"><div><h3>Missing is never zero</h3><div class="refs"><a href="#A4">A4</a> <a href="#A13">A13</a> <a href="#A11">A11</a></div></div>
+        <p>Every measure keeps separate counts for reported, zero and missing. A rate is not shown unless its denominator was reported, and a place with no record shows as <b>Not returned</b>, never as 0.</p></div>
+      <div class="row"><div><h3>Months are compared on the same days</h3><div class="refs"><a href="#N7">N7</a></div></div>
+        <p>August stops at day 7, so I compare May to August on days 1 to 7 only, for a fixed group of <b>85,769</b> panchayat days that have a valid value in every month. On that basis reported rural collection went from <b>74.71% to 73.42%</b>. I do not compare months of different lengths on their own totals.</p></div>
+      <div class="row"><div><h3>Sundays and second Saturdays are shown separately</h3><div class="refs"><a href="#A13">A13</a></div></div>
+        <p>Sundays report 1.8% to 3.0% statewide and second Saturdays about 11%, against 82% to 94% on working days. Those are scheduled non collection days, not failures. The app shows the rate with every day counted and with working days only (<b>86.82% to 85.24%</b>), says which one is on screen, and lists the days it left out.</p></div>
+      <div class="row"><div><h3>Capacity is not output</h3><div class="refs"><a href="#A9">A9</a></div></div>
+        <p>TPD and KLD figures are shown as configured capacity, never as waste processed. Legacy waste cleared is shown as reported, not as verified.</p></div>
+    </div>
+  </div>
+
+  <div class="built-group">
+    <span class="eyebrow">Identity and comparison</span>
+    <div class="built">
+      <div class="row"><div><h3>A name match is a candidate, not an identity</h3><div class="refs"><a href="#A1">A1</a> <a href="#A2">A2</a> <a href="#A3">A3</a></div></div>
+        <p>Matching two spellings of a town is a guess, so the app never treats it as an approved join. Anything that depends on it stays unscored. Today no ULB profile is scored.</p></div>
+      <div class="row"><div><h3>I use the LGD codes as the source&rsquo;s claim, and report where they disagree</h3><div class="refs"><a href="#N4">N4</a> <a href="#C1">C1</a></div></div>
+        <p>Where a row states its own LGD code, I can use that as evidence. Where the codes contradict each other, the app lists the disagreement for review. It never fills in a code for a row that does not have one.</p></div>
+      <div class="row"><div><h3>Two sources are combined only if they agree</h3><div class="refs"><a href="#A6">A6</a> <a href="#A11">A11</a></div></div>
+        <p>When I joined two sources on district and month, <b>84 district months</b> lined up and <b>none</b> agreed on the target. The app shows that result and refuses to add the two together.</p></div>
+      <div class="row"><div><h3>The one cross source reading that passes its checks</h3><div class="refs"><a href="#A7">A7</a> <a href="#A3">A3</a></div></div>
+        <p>Door to door collection and waste segregation both key on the numeric secretariat code, and on 12 August they report the same 3,024 codes with the same household counts. That opens three of the five checks the app requires. The other two stay closed: one day is not a basis for judging performance, and no scoring policy has been approved. So the app shows positions, never a rank.</p></div>
+      <div class="row"><div><h3>Data I hold back</h3><div class="refs"><a href="#A5">A5</a> <a href="#A13">A13</a></div></div>
+        <p>The 35 FSTP rows with conflicting months are kept but not scored. The 2024 Swachh Survekshan results are kept apart from 2026 operations. I have not published a statewide collection rate from the CDMA daily files, because the zero question and <a href="#N1">N1</a> are both open.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="eyebrow">Check it yourself</span><h2>Six you can reproduce in a few minutes</h2></div>
+  <p class="sec-lead">Each of these can be run in the Data Lake playground. I ran every one on 11 September.</p>
+  <ol class="repro">
+    <li><span class="ref">N1</span><div><p><b>The export returns repeats instead of rows.</b> Export <code>msw_door_to_door_collection_api</code> with the filter <code>district_code: "NULL"</code>.</p>
+      <div class="how">It returns 816 rows. Count the different pairs of date1 and sachivalayam_code: there are 409. The file should have 816, one for each secretariat on each of 16 days.<br>Run the same export again and the same 409 come back, each repeated the same number of times.</div></div></li>
+    <li><span class="ref">N3</span><div><p><b>Soak Pits is Compost Pits.</b> Query <code>soak_pits_api</code> and <code>compost_pits_api</code> with no filter.</p>
+      <div class="how">Both return 336 rows. The rows are identical, and every Soak Pits row says work_name: "Compost Pits".</div></div></li>
+    <li><span class="ref">A14</span><div><p><b>Two answers for Nellore.</b> Query <code>sasa_sac_sweeping_machines_information_api</code> with no filter.</p>
+      <div class="how">Nellore appears four times: 19 machines and 4 machines for JUNE, and 19 and 4 again for JULY. Nothing on the rows says which is current.</div></div></li>
+    <li><span class="ref">A5</span><div><p><b>July rows labelled June.</b> Query <code>fstps_stps_cotreatment_new1_api</code> with no filter.</p>
+      <div class="how">All 35 rows with mnth_no "7" have mnth_nm "JUNE".</div></div></li>
+    <li><span class="ref">B2</span><div><p><b>A clear error and an unclear one.</b> Query <code>sasa_100_percent_clearance_of_legacy_waste_api</code> twice.</p>
+      <div class="how">With filter { "__probe__": "x" }: 400, naming the allowed filters month_id and year.<br>With filter { "month_id": "99", "year": "2026" }: 502 upstream_request_failed.</div></div></li>
+    <li><span class="ref">A1</span><div><p><b>Names with quote marks, and Bobbilli.</b> Query <code>sasa_mepma_entrepreneurs_promoted_for_circular_economy_api</code> with no filter.</p>
+      <div class="how">ulb_name includes "JANGAREDDY GUDEM" and "YSR TADIGADAPA" with the quote marks inside the value, and BOBBILLI, which other datasets spell Bobbili.</div></div></li>
+  </ol>
+</section>
+
+<section>
+  <div class="sec-h"><span class="eyebrow">Actions</span><h2>What would help</h2></div>
+  <p class="sec-lead">Everything still open, grouped by who is most likely to own it, most urgent first. Fixed items are left out.</p>
+  <div class="owners">
+    <div class="owner wide">
+      <h3><i style="background:var(--joint)"></i>If only three things get picked up</h3>
+      <div class="sub">in this order</div>
       <ol>
-        <li><b>Define what a zero means.</b> One clear code for &ldquo;not reported&rdquo;, different from a real zero.<span class="ref">A4, A13</span></li>
-        <li><b>Explain the zero districts.</b> Eleven of twenty-three sample points are zero on every row, including Konaseema, Visakhapatnam, West Godavari and Nandyal. It needs confirming whether that is real.<span class="ref">A13</span></li>
-        <li><b>Say whether each measure is monthly or cumulative</b>, and give the denominator for every percentage.<span class="ref">A6</span></li>
-        <li><b>State the units for each measure</b>, and explain the period format used in compost pits, magic drains and soak pits.<span class="ref">A9</span></li>
+        <li><b>Make paging and export return every row once.</b> Every figure built from the daily files depends on it.<span class="ref">N1</span></li>
+        <li><b>Decide what a zero means.</b> Until then no collection rate can be published from the daily data.<span class="ref">C2 A13</span></li>
+        <li><b>Fix the codes before they spread.</b> The LGD urban local body code in place of the mandal code, and a check on the name matched LGD codes.<span class="ref">A3 N4</span></li>
       </ol>
     </div>
-
-    <div class="actgroup deptcs">
-      <h3>Department or TCS</h3>
-      <div class="sub">5 items &middot; depends where the field is set</div>
+    <div class="owner">
+      <h3><i style="background:var(--dept)"></i>Department</h3>
+      <div class="sub">about what was recorded</div>
       <ol>
-        <li><b>Say which row is right where two contradict.</b> Ten cases across ODF Plus and sweeping machines, listed in A14. These need a person, not a rule.<span class="ref">A14</span></li>
-        <li><b>Add a permanent ULB ID to every dataset</b>, old and new. Whether that is added at source or during processing is your call.<span class="ref">A1</span></li>
-        <li><b>One standard period field</b>, and the month number and month name inside a row should agree.<span class="ref">A5</span></li>
-        <li><b>Say what each dataset is meant to cover</b>, for example all 123 ULBs, so the gap can be measured.<span class="ref">A11</span></li>
-        <li><b>Validate against the schema at submission</b> and send the errors back to whoever submitted.<span class="ref">C3</span></li>
+        <li><b>One code for not reported,</b> different from zero.<span class="ref">A4 C2</span></li>
+        <li><b>The rest of August for PR door to door,</b> and September.<span class="ref">N7</span></li>
+        <li><b>Monthly or cumulative</b> for each measure, with its denominator.<span class="ref">A6</span></li>
+        <li><b>Units, and the period format</b> for compost pits, magic drains and soak pits.<span class="ref">A9</span></li>
       </ol>
     </div>
-
-    <div class="actgroup tcs">
-      <h3>TCS</h3>
-      <div class="sub">10 items &middot; processing, naming and the API contract</div>
+    <div class="owner">
+      <h3><i style="background:var(--joint)"></i>Department or TCS</h3>
+      <div class="sub">depends where the field is set</div>
       <ol>
-        <li><b>Use the LGD urban local body code for ULBs, not the mandal code.</b> This is going into every dataset now, so it is the one to fix first.<span class="ref">A3</span></li>
-        <li><b>Either make district_id stable or drop it</b> and use the LGD district code instead.<span class="ref">A2</span></li>
-        <li><b>Add record ID, submission date and revision number</b> to every row. This is also what makes the duplicate rows in A14 resolvable instead of a guess.<span class="ref">A8, A14</span></li>
-        <li><b>Make a filtered read and a full read agree.</b> Six ULBs come back in a different month depending on which way you ask.<span class="ref">B1</span></li>
-        <li><b>Correct the published filter names</b>, and return a 400 with the accepted filters instead of a 502.<span class="ref">B2</span></li>
-        <li><b>Agree field names before release.</b> Same concept, same name, across all files.<span class="ref">A7</span></li>
-        <li><b>One name per concept in the filters.</b> District has three names across the catalogue and month has four.<span class="ref">B7</span></li>
-        <li><b>Publish the allowed purposes per dataset</b> in the catalogue.<span class="ref">B5</span></li>
-        <li><b>Document active_indicator and i_ts</b>, or remove them.<span class="ref">A10</span></li>
-        <li><b>Confirm which waste segregation table key is live</b>, and send a correct Soak Pits sample.<span class="ref">A12</span></li>
+        <li><b>Say which Nellore sweeping machine row is right,</b> and whether the ODF Plus May history can come back.<span class="ref">A14 N2</span></li>
+        <li><b>A permanent ULB ID</b> on every dataset.<span class="ref">A1</span></li>
+        <li><b>One period field,</b> with values that agree inside a row.<span class="ref">A5</span></li>
+        <li><b>What each dataset should cover.</b><span class="ref">A11</span></li>
+        <li><b>Validation and proper quoting</b> at submission.<span class="ref">C3 N6</span></li>
       </ol>
     </div>
-
-    <div class="actgroup ngtcs">
-      <h3>NextGen or TCS</h3>
-      <div class="sub">4 items &middot; platform behaviour, wherever it is configured</div>
+    <div class="owner">
+      <h3><i style="background:var(--tcs)"></i>TCS</h3>
+      <div class="sub">processing, naming and the API contract</div>
       <ol>
-        <li><b>A page size that can be set, or a bulk export.</b> Needed before the 26 extra KPIs arrive.<span class="ref">B4</span></li>
-        <li><b>Raise Gobardhan as a bug</b> rather than an access issue. It is the only one of the 33 that cannot be read, and it fails on every route including export. Checked again on 2 September after the group said the data had been uploaded.<span class="ref">B3</span></li>
-        <li><b>Add a content hash per dataset per month</b> so changes can be checked without downloading everything.<span class="ref">B6</span></li>
-        <li><b>A date for the remaining five CDMA datasets</b> and the three PR ones.<span class="ref">B8</span></li>
+        <li><b>A code for Markapuram</b> in the CDMA feeds.<span class="ref">N5</span></li>
+        <li><b>Keep monthly history,</b> and a new key when a key changes table.<span class="ref">N2</span></li>
+        <li><b>One key per table,</b> or say which keys share one.<span class="ref">N3</span></li>
+        <li><b>Record ID and revision number</b> on every row.<span class="ref">A8</span></li>
+        <li><b>Drop or fix district_id.</b><span class="ref">A2</span></li>
+        <li><b>One filter name per concept.</b><span class="ref">B7</span></li>
+        <li><b>An empty result, not a 502,</b> when a filter value matches nothing.<span class="ref">B2</span></li>
+        <li><b>One field name per concept.</b><span class="ref">A7</span></li>
+        <li><b>Document or remove</b> active_indicator, i_ts, a_in, s_no and u_ts.<span class="ref">A10</span></li>
+        <li><b>The correct waste segregation key,</b> and real Soak Pits data.<span class="ref">A12</span></li>
       </ol>
     </div>
-
-    <div class="actgroup joint">
-      <h3>To settle together</h3>
-      <div class="sub">2 decisions &middot; department, TCS and NextGen</div>
+    <div class="owner">
+      <h3><i style="background:var(--ng)"></i>NextGen or TCS</h3>
+      <div class="sub">platform behaviour</div>
       <ol>
-        <li><b>What does a zero mean.</b> Nothing else can move until this is settled.<span class="ref">C2</span></li>
-        <li><b>Which LGD code to standardise on</b>, whether the new columns go onto old rows as well, and whether the old columns get removed.<span class="ref">C1</span></li>
+        <li><b>Every row once,</b> by paging and by export.<span class="ref">N1</span></li>
+        <li><b>A page size that can be set.</b><span class="ref">B4</span></li>
+        <li><b>A change signal</b> that only changes when the rows do.<span class="ref">B6</span></li>
+        <li><b>Allowed purposes</b> in the catalogue.<span class="ref">B5</span></li>
       </ol>
     </div>
-
-    <div class="actgroup ours">
-      <h3>What I will do</h3>
+    <div class="owner wide">
+      <h3><i style="background:var(--fixed)"></i>What I will do</h3>
       <div class="sub">so this is not only a list of requests</div>
       <ul>
-        <li>Re-run every check after each change and confirm in writing what is fixed. I did this today and it took under an hour.</li>
-        <li>Share the exact request and response for any issue on this list, so nothing has to be taken on trust.</li>
-        <li>Hold off loading the daily data until the zero question is answered, so I do not publish a collection figure I cannot stand behind.</li>
-        <li>Keep the ingestion ready so the remaining datasets can be loaded within a day of them going live.</li>
+        <li>Check every item again after each change and write down what is fixed, as I did here.</li>
+        <li>Share the exact request and response for anything on this list.</li>
+        <li>Label any figure from the daily files as partial until <a href="#N1">N1</a> is fixed.</li>
+        <li>Keep my saved copies, so history removed from the API is not lost.</li>
       </ul>
     </div>
-
   </div>
 </section>
 
 <section>
-  <div class="sec-h"><span class="eyebrow">Priorities</span></div>
-  <h2>If only three things get picked up</h2>
-  <div class="asks">
-    <div class="askcard"><span class="who dept">Department</span><h3>C2 and A13. What does zero mean</h3><p>Sampled across the whole file on 2 September, <b>93%</b> of collection values are zero and not one is blank. Eleven of twenty-three sample points are zero on every single row. The household totals are filled in properly, so it is only the collection figure that is missing. Until it is known whether that means no collection or no reporting, nothing can be published from the most valuable dataset shared so far.</p></div>
-    <div class="askcard"><span class="who joint">Dept or TCS</span><h3>A14. Two rows, two different numbers</h3><p>New on 2 September. Eight datasets return more than one row for the same place and month, and in ten cases the two rows disagree. One district is either 97.96% or 29.4% complete for May. With no record ID or revision number there is nothing to break the tie, and any dashboard reading this will quietly pick one.</p></div>
-    <div class="askcard"><span class="who tcs">TCS</span><h3>A3. The ULB code is a mandal code</h3><p>Of everything on the list, this is the one that becomes harder to unpick over time, because anything joined on it inherits the problem. 487 of 500 rows checked have the mandal code sitting in the ULB code field. A short decision now saves a lot of rework.</p></div>
-  </div>
-</section>
+  <div class="sec-h"><span class="eyebrow">Corrections</span><h2>What I got wrong</h2></div>
+  <p class="sec-lead">I would rather list my own mistakes than leave them for someone else to find. These are the ones in my 2 September list.</p>
 
+  <div class="fix"><span class="label">Wrong on 2 September</span><h3>Bobbilli does exist</h3>
+    <p>My 2 September corrections said Bobbilli does not exist in the live data. <b>That was wrong.</b> BOBBILLI is in the three MEPMA datasets, both in my 28 August copy and live today. My check was case sensitive and missed the all capitals spelling. The original A1 example was right.</p></div>
 
-<section>
-  <div class="sec-h"><span class="eyebrow">Footnote</span></div>
-  <h2>What I corrected before sending this</h2>
-  <p class="sec-lead">I re-ran every check in this document against the live API on 2 September rather than trusting my earlier notes. Most held up and several turned out to be worse than I had written. Three did not survive, and they are recorded here rather than quietly deleted.</p>
-  <div class="correction">
-    <h3>Rows are not being re-dated over time</h3>
-    <p>
-      In an earlier note I suggested records were being moved between months without a marker.
-      Tested properly, <b>that is not happening</b>: the export today is identical to the copy
-      taken on 28 August and all 29 datasets match. What is true is narrower and is written up
-      as <b>B1</b>. At a single moment in time, reading a dataset whole and reading it through a
-      month filter give different months for six ULBs. That is a read problem, not rows being
-      edited underneath us.
-    </p>
-  </div>
-  <div class="correction">
-    <h3>The record count is not wrong</h3>
-    <p>
-      I had <b>B1</b> written up as <code>totalRecordCount</code> returning a fixed entity count
-      on filtered requests. Re-tested on 2 September, the count matches the rows returned in
-      every case I tried, filtered and unfiltered. B1 has been rewritten around what is actually
-      wrong.
-    </p>
-  </div>
-  <div class="correction">
-    <h3>The state has 28 districts, not 26</h3>
-    <p>
-      I also wrote that the state has 26 districts. It has had <b>28</b> since 31 December 2025,
-      when Markapuram and Polavaram were created. Both are present in the data, so the sources
-      were right and I was out of date. Corrected in <b>A2</b>.
-    </p>
-  </div>
-  <div class="correction">
-    <h3>Two naming examples I could not reproduce</h3>
-    <p>
-      <b>A1</b> previously cited Bobbili and Bobbilli as the same town under two spellings.
-      <b>Bobbilli does not exist in the live data.</b> Only Bobbili, in 8 datasets. The finding
-      still stands and the replacement examples are stronger, but the old one would not have
-      survived being checked. <b>A10</b> listed four undocumented fields; only two of them are
-      actually in the data, and the other three are withdrawn.
-    </p>
-  </div>
+  <div class="fix"><span class="label">Wrong on 2 September</span><h3>No district is zero on every row</h3>
+    <p>I wrote that eleven of twenty three sample points were zero on every row, and the actions listed Konaseema, Visakhapatnam, West Godavari and Nandyal as zero districts. The sample points were slices of 100 rows, not whole districts. Counted over every row I could retrieve, no district is entirely zero.</p></div>
+
+  <div class="fix"><span class="label">Out of date</span><h3>The PDF and the link did not match</h3>
+    <p>The PDF I shared on 2 September still said 26 districts in A2. The link had already been corrected to 28. This version replaces both.</p></div>
+
+  <div class="fix"><span class="label">Changed since 2 September</span><h3>Some counts are higher because there is more data</h3>
+    <p>The catalogue grew from 33 to 42 datasets, so counts such as spellings per town are higher partly for that reason, not only because things got worse. I have said so where it matters.</p></div>
+
+  <div class="fix"><span class="label">Carried over</span><h3>Earlier corrections that still stand</h3>
+    <p>Rows were not being moved between months over time. The record count on filtered requests was not wrong. The state has had 28 districts since 31 December 2025.</p></div>
 </section>
 
 <footer class="end">
-  <span>SASA Intelligence Lab, data issues</span>
-  <span>Checked live 2 September 2026</span>
+  <span>SASA Intelligence Lab &middot; Data issues</span>
+  <span>Checked live 11 September 2026 &middot; first shared 2 September 2026</span>
 </footer>
 </div>
-
 </body>
 </html>
