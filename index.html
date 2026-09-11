@@ -40,6 +40,21 @@ code{font-size:.84em;background:var(--sunk);padding:1px 5px;border-radius:3px;ov
 .eyebrow{font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3)}
 :focus-visible{outline:2px solid var(--link);outline-offset:3px;border-radius:2px}
 
+/* ground: a ledger grid and two owner-colour glows behind the header, grain everywhere */
+body{position:relative;background:radial-gradient(1100px 720px at 100% 100%, color-mix(in srgb,var(--tcs) 7%,transparent), transparent 70%) fixed, radial-gradient(900px 600px at 0% 60%, color-mix(in srgb,var(--ng) 4%,transparent), transparent 70%) fixed, var(--paper)}
+body::before{content:"";position:absolute;top:0;left:0;right:0;height:1500px;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(780px 470px at 6% -8%, color-mix(in srgb,var(--ng) 15%,transparent), transparent 72%),
+    radial-gradient(640px 430px at 97% 0%, color-mix(in srgb,var(--dept) 9%,transparent), transparent 70%),
+    linear-gradient(to right, color-mix(in srgb,var(--ink) 5%,transparent) 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(to bottom, color-mix(in srgb,var(--ink) 5%,transparent) 1px, transparent 1px) 0 0 / 32px 32px;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0,#000 28%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 0,#000 28%,transparent 100%)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
+.wrap{position:relative;z-index:1}
+.note{position:relative;overflow:hidden}
+.note::before{content:"";position:absolute;top:0;left:6%;right:6%;height:1px;background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--ng) 60%,transparent),transparent)}
+
 /* top */
 header.top{padding:64px 0 0}
 header.top .eyebrow{display:block;margin-bottom:16px}
@@ -185,6 +200,8 @@ footer.end{margin-top:70px;padding-top:18px;border-top:1px solid var(--rule);fon
     --untested:#5A6270; --untested-soft:#E4E7EB; --new:#0B6F80; --new-soft:#D9EEF1; --link:#1D5BA8;
   }
   body{font-size:12.5px;line-height:1.5}
+  body{background:var(--paper)}
+  body::before,body::after,.note::before{display:none}
   .lede{font-size:16px}
   .when p,.item .body > p,.ask,.built .row p,.repro p,.owner li,.fix p{font-size:12.5px}
   .ev,.repro .how{font-size:10.5px}
