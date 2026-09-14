@@ -7,16 +7,16 @@ Checked 40 datasets on 2026-09-14 with `validate.mjs`. Each number counts rows, 
 | cd_waste_process_plants_revival_new1_api | 6 |  |  |  | 3 |  |  |  |  |  |  |  |
 | compost_pits_api | 336 |  |  |  | 27 |  |  |  |  |  |  |  |
 | construction_of_csc_api | 84 |  |  |  |  |  |  |  |  |  |  |  |
-| fstps_stps_cotreatment_new1_api | 70 |  |  |  |  | 35 |  |  | 5 | 8 |  |  |
+| fstps_stps_cotreatment_new1_api | 70 |  |  |  | 35 | 35 |  |  | 5 | 8 |  |  |
 | housing_construction_of_ihhls_new1_api | 84 |  |  |  |  |  |  |  |  |  |  |  |
 | ihhl_new_identification_new1_api | 246 |  |  |  | 123 |  |  |  | 14 | 44 | 1 |  |
 | itc_wow_schools_api | 24 |  |  |  |  |  |  |  |  |  |  |  |
 | magic_drains_api | 336 |  |  |  | 83 |  |  |  |  |  |  |  |
 | msw_cbg_units_new1_api | 12 |  |  |  | 6 |  |  |  | 4 | 2 |  |  |
 | sasa_100_percent_clearance_of_legacy_waste_api | 246 |  |  |  |  |  |  | 569 |  |  |  |  |
-| sasa_50_percent_green_spaces_api | 400 |  | 5 |  |  |  |  |  | 12 | 40 | 2 |  |
-| sasa_50_percent_greencover_api | 400 |  | 5 |  |  |  |  |  | 12 | 40 | 2 |  |
-| sasa_50_percent_rejuvenation_api | 400 |  | 5 |  |  |  |  |  | 12 | 40 | 2 |  |
+| sasa_50_percent_green_spaces_api | 400 |  |  |  |  |  |  |  | 12 | 40 | 2 |  |
+| sasa_50_percent_greencover_api | 400 |  |  |  |  |  |  |  | 12 | 40 | 2 |  |
+| sasa_50_percent_rejuvenation_api | 400 |  |  |  |  |  |  |  | 12 | 40 | 2 |  |
 | sasa_cdma_ulbs_ewaste_collection_mechanism_api | 26 |  |  |  |  |  |  |  |  |  |  |  |
 | sasa_cdma_ulbs_single_use_plastic_ban_api | 26 |  |  |  |  |  |  |  |  |  |  |  |
 | sasa_declaration_of_odf_plus_model_villages_api | 28 |  |  |  |  |  |  |  |  |  |  |  |
@@ -37,7 +37,7 @@ Checked 40 datasets on 2026-09-14 with `validate.mjs`. Each number counts rows, 
 | serp_circular_economy_api | 28 |  |  |  |  |  |  |  |  |  |  |  |
 | serp_kitchen_garden_api | 28 |  |  |  |  |  |  |  |  |  |  |  |
 | serp_swachhata_awareness_api | 28 |  |  |  |  |  |  |  |  |  |  |  |
-| sewage_treated_qty_new1_api | 242 |  |  |  |  |  |  |  | 25 |  | 2 |  |
+| sewage_treated_qty_new1_api | 242 |  |  |  | 121 |  |  |  | 25 |  | 2 |  |
 | soak_pits_api | 336 |  |  |  | 27 |  |  |  |  |  |  |  |
 | swacch_survekshan_info_new1_api | 206 |  |  |  |  |  | 3 |  | 16 | 12 | 3 |  |
 | msw_door_to_door_collection_api (12 August, complete) | 4,023 |  |  |  |  |  |  |  |  | 51 | 1 | 3,917 |
@@ -81,6 +81,8 @@ Checked 40 datasets on 2026-09-14 with `validate.mjs`. Each number counts rows, 
 
 ### fstps_stps_cotreatment_new1_api
 
+* 2026-06 to 2026-07: identical for 35 of 35 places.
+* N8, Almost every place repeats the previous month exactly: 35. Example: `{"months":"2026-06 to 2026-07","identical":35,"places":35}`
 * A5, Month number and month name disagree: 35. Example: `{"row":0,"name":"JUNE","number":"7"}`
 * A1, Quote marks left inside a text value: 5. Example: `{"column":"dstrt_nm","value":"\"YSR Kadapa\""}`
 * N5 C1, A code is blank or the text NULL where the rest of the file has one: 8. Example: `{"row":62,"columns":["lgd_dist_code","lgd_mandal_code"],"label":"NTR"}`
@@ -120,24 +122,21 @@ Checked 40 datasets on 2026-09-14 with `validate.mjs`. Each number counts rows, 
 
 ### sasa_50_percent_green_spaces_api
 
-* 2026-06 to 2026-07: identical for 157 of 193 places.
-* N7, The same row appears more than once: 5. Example: `{"row":101,"sameAs":99}`
+* 2026-06 to 2026-07: identical for 161 of 198 places.
 * A1, Quote marks left inside a text value: 12. Example: `{"column":"dstrt_nm","value":"\"East Godavari\""}`
 * N5 C1, A code is blank or the text NULL where the rest of the file has one: 40. Example: `{"row":355,"columns":["lgd_dist_code","lgd_mandal_code"],"label":"\"Parvathipuram Manyam\""}`
 * N4, One district label carries more than one district code in the same file: 2. Example: `{"labelColumn":"dstrt_nm","label":"Annamayya","codeColumn":"lgd_dist_code","codes":["504","753"]}`
 
 ### sasa_50_percent_greencover_api
 
-* 2026-06 to 2026-07: identical for 157 of 193 places.
-* N7, The same row appears more than once: 5. Example: `{"row":101,"sameAs":99}`
+* 2026-06 to 2026-07: identical for 161 of 198 places.
 * A1, Quote marks left inside a text value: 12. Example: `{"column":"dstrt_nm","value":"\"East Godavari\""}`
 * N5 C1, A code is blank or the text NULL where the rest of the file has one: 40. Example: `{"row":355,"columns":["lgd_dist_code","lgd_mandal_code"],"label":"\"Parvathipuram Manyam\""}`
 * N4, One district label carries more than one district code in the same file: 2. Example: `{"labelColumn":"dstrt_nm","label":"Annamayya","codeColumn":"lgd_dist_code","codes":["504","753"]}`
 
 ### sasa_50_percent_rejuvenation_api
 
-* 2026-06 to 2026-07: identical for 157 of 193 places.
-* N7, The same row appears more than once: 5. Example: `{"row":101,"sameAs":99}`
+* 2026-06 to 2026-07: identical for 161 of 198 places.
 * A1, Quote marks left inside a text value: 12. Example: `{"column":"dstrt_nm","value":"\"East Godavari\""}`
 * N5 C1, A code is blank or the text NULL where the rest of the file has one: 40. Example: `{"row":355,"columns":["lgd_dist_code","lgd_mandal_code"],"label":"\"Parvathipuram Manyam\""}`
 * N4, One district label carries more than one district code in the same file: 2. Example: `{"labelColumn":"dstrt_nm","label":"Annamayya","codeColumn":"lgd_dist_code","codes":["504","753"]}`
@@ -220,6 +219,8 @@ Checked 40 datasets on 2026-09-14 with `validate.mjs`. Each number counts rows, 
 
 ### sewage_treated_qty_new1_api
 
+* 2026-06 to 2026-07: identical for 121 of 121 places.
+* N8, Almost every place repeats the previous month exactly: 121. Example: `{"months":"2026-06 to 2026-07","identical":121,"places":121}`
 * A1, Quote marks left inside a text value: 25. Example: `{"column":"pckg_nm","value":"\"STPs Package-II\""}`
 * N4, One district label carries more than one district code in the same file: 2. Example: `{"labelColumn":"dstrt_nm","label":"Chittoor","codeColumn":"lgd_dist_code","codes":["503","753"]}`
 

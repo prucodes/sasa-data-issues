@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-14T18:21:10.697Z",
+  "checkedAt": "2026-09-14T19:27:08.559Z",
   "rules": {
     "response.reconcile": {
       "issue": "N1",
@@ -48,7 +48,7 @@
   },
   "datasets": [
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/cd_waste_process_plants_revival_new1_api.json",
+      "source": "data/current-snapshots/cd_waste_process_plants_revival_new1_api.json",
       "dataset": "cd_waste_process_plants_revival_new1_api",
       "rows": 6,
       "distinctRows": 6,
@@ -113,7 +113,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/compost_pits_api.json",
+      "source": "data/current-snapshots/compost_pits_api.json",
       "dataset": "compost_pits_api",
       "rows": 336,
       "distinctRows": 336,
@@ -190,7 +190,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/construction_of_csc_api.json",
+      "source": "data/current-snapshots/construction_of_csc_api.json",
       "dataset": "construction_of_csc_api",
       "rows": 84,
       "distinctRows": 84,
@@ -253,11 +253,17 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/fstps_stps_cotreatment_new1_api.json",
+      "source": "data/current-snapshots/fstps_stps_cotreatment_new1_api.json",
       "dataset": "fstps_stps_cotreatment_new1_api",
       "rows": 70,
       "distinctRows": 70,
       "pages": 1,
+      "monthPairs": {
+        "2026-06 to 2026-07": {
+          "places": 35,
+          "identical": 35
+        }
+      },
       "findings": {
         "response.reconcile": {
           "count": 0,
@@ -272,8 +278,14 @@
           "examples": []
         },
         "month.carried-forward": {
-          "count": 0,
-          "examples": []
+          "count": 35,
+          "examples": [
+            {
+              "months": "2026-06 to 2026-07",
+              "identical": 35,
+              "places": 35
+            }
+          ]
         },
         "period.mismatch": {
           "count": 35,
@@ -360,7 +372,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/housing_construction_of_ihhls_new1_api.json",
+      "source": "data/current-snapshots/housing_construction_of_ihhls_new1_api.json",
       "dataset": "housing_construction_of_ihhls_new1_api",
       "rows": 84,
       "distinctRows": 84,
@@ -423,7 +435,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/ihhl_new_identification_new1_api.json",
+      "source": "data/current-snapshots/ihhl_new_identification_new1_api.json",
       "dataset": "ihhl_new_identification_new1_api",
       "rows": 246,
       "distinctRows": 246,
@@ -536,7 +548,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/itc_wow_schools_api.json",
+      "source": "data/current-snapshots/itc_wow_schools_api.json",
       "dataset": "itc_wow_schools_api",
       "rows": 24,
       "distinctRows": 24,
@@ -589,7 +601,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/magic_drains_api.json",
+      "source": "data/current-snapshots/magic_drains_api.json",
       "dataset": "magic_drains_api",
       "rows": 336,
       "distinctRows": 336,
@@ -676,7 +688,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/msw_cbg_units_new1_api.json",
+      "source": "data/current-snapshots/msw_cbg_units_new1_api.json",
       "dataset": "msw_cbg_units_new1_api",
       "rows": 12,
       "distinctRows": 12,
@@ -771,7 +783,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_100_percent_clearance_of_legacy_waste_api.json",
+      "source": "data/current-snapshots/sasa_100_percent_clearance_of_legacy_waste_api.json",
       "dataset": "sasa_100_percent_clearance_of_legacy_waste_api",
       "rows": 246,
       "distinctRows": 246,
@@ -843,15 +855,15 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_50_percent_green_spaces_api.json",
+      "source": "data/current-snapshots/sasa_50_percent_green_spaces_api.json",
       "dataset": "sasa_50_percent_green_spaces_api",
       "rows": 400,
-      "distinctRows": 395,
+      "distinctRows": 400,
       "pages": 1,
       "monthPairs": {
         "2026-06 to 2026-07": {
-          "places": 193,
-          "identical": 157
+          "places": 198,
+          "identical": 161
         }
       },
       "findings": {
@@ -860,21 +872,8 @@
           "examples": []
         },
         "row.exact-duplicate": {
-          "count": 5,
-          "examples": [
-            {
-              "row": 101,
-              "sameAs": 99
-            },
-            {
-              "row": 200,
-              "sameAs": 196
-            },
-            {
-              "row": 201,
-              "sameAs": 199
-            }
-          ]
+          "count": 0,
+          "examples": []
         },
         "row.conflicting-duplicate": {
           "count": 0,
@@ -973,15 +972,15 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_50_percent_greencover_api.json",
+      "source": "data/current-snapshots/sasa_50_percent_greencover_api.json",
       "dataset": "sasa_50_percent_greencover_api",
       "rows": 400,
-      "distinctRows": 395,
+      "distinctRows": 400,
       "pages": 1,
       "monthPairs": {
         "2026-06 to 2026-07": {
-          "places": 193,
-          "identical": 157
+          "places": 198,
+          "identical": 161
         }
       },
       "findings": {
@@ -990,21 +989,8 @@
           "examples": []
         },
         "row.exact-duplicate": {
-          "count": 5,
-          "examples": [
-            {
-              "row": 101,
-              "sameAs": 99
-            },
-            {
-              "row": 200,
-              "sameAs": 196
-            },
-            {
-              "row": 201,
-              "sameAs": 199
-            }
-          ]
+          "count": 0,
+          "examples": []
         },
         "row.conflicting-duplicate": {
           "count": 0,
@@ -1103,15 +1089,15 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_50_percent_rejuvenation_api.json",
+      "source": "data/current-snapshots/sasa_50_percent_rejuvenation_api.json",
       "dataset": "sasa_50_percent_rejuvenation_api",
       "rows": 400,
-      "distinctRows": 395,
+      "distinctRows": 400,
       "pages": 1,
       "monthPairs": {
         "2026-06 to 2026-07": {
-          "places": 193,
-          "identical": 157
+          "places": 198,
+          "identical": 161
         }
       },
       "findings": {
@@ -1120,21 +1106,8 @@
           "examples": []
         },
         "row.exact-duplicate": {
-          "count": 5,
-          "examples": [
-            {
-              "row": 101,
-              "sameAs": 99
-            },
-            {
-              "row": 200,
-              "sameAs": 196
-            },
-            {
-              "row": 201,
-              "sameAs": 199
-            }
-          ]
+          "count": 0,
+          "examples": []
         },
         "row.conflicting-duplicate": {
           "count": 0,
@@ -1233,7 +1206,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_cdma_ulbs_ewaste_collection_mechanism_api.json",
+      "source": "data/current-snapshots/sasa_cdma_ulbs_ewaste_collection_mechanism_api.json",
       "dataset": "sasa_cdma_ulbs_ewaste_collection_mechanism_api",
       "rows": 26,
       "distinctRows": 26,
@@ -1286,7 +1259,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_cdma_ulbs_single_use_plastic_ban_api.json",
+      "source": "data/current-snapshots/sasa_cdma_ulbs_single_use_plastic_ban_api.json",
       "dataset": "sasa_cdma_ulbs_single_use_plastic_ban_api",
       "rows": 26,
       "distinctRows": 26,
@@ -1339,7 +1312,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_declaration_of_odf_plus_model_villages_api.json",
+      "source": "data/current-snapshots/sasa_declaration_of_odf_plus_model_villages_api.json",
       "dataset": "sasa_declaration_of_odf_plus_model_villages_api",
       "rows": 28,
       "distinctRows": 28,
@@ -1392,7 +1365,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_establishment_of_gobardhan_units_api.json",
+      "source": "data/current-snapshots/sasa_establishment_of_gobardhan_units_api.json",
       "dataset": "sasa_establishment_of_gobardhan_units_api",
       "rows": 28,
       "distinctRows": 28,
@@ -1445,7 +1418,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_establishment_of_plastic_waste_management_units_api.json",
+      "source": "data/current-snapshots/sasa_establishment_of_plastic_waste_management_units_api.json",
       "dataset": "sasa_establishment_of_plastic_waste_management_units_api",
       "rows": 28,
       "distinctRows": 28,
@@ -1498,7 +1471,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_households_promoted_for_terrace_gardening_kitchen_gardens_api.json",
+      "source": "data/current-snapshots/sasa_households_promoted_for_terrace_gardening_kitchen_gardens_api.json",
       "dataset": "sasa_households_promoted_for_terrace_gardening_kitchen_gardens_api",
       "rows": 615,
       "distinctRows": 615,
@@ -1578,7 +1551,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_mepma_entrepreneurs_promoted_for_circular_economy_api.json",
+      "source": "data/current-snapshots/sasa_mepma_entrepreneurs_promoted_for_circular_economy_api.json",
       "dataset": "sasa_mepma_entrepreneurs_promoted_for_circular_economy_api",
       "rows": 615,
       "distinctRows": 615,
@@ -1658,7 +1631,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_mepma_households_promoted_for_home_composite_api.json",
+      "source": "data/current-snapshots/sasa_mepma_households_promoted_for_home_composite_api.json",
       "dataset": "sasa_mepma_households_promoted_for_home_composite_api",
       "rows": 615,
       "distinctRows": 615,
@@ -1738,7 +1711,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_pr_no_of_swpcs_operationalised_api_27_aug_2026.json",
+      "source": "data/current-snapshots/sasa_pr_no_of_swpcs_operationalised_api_27_aug_2026.json",
       "dataset": "sasa_pr_no_of_swpcs_operationalised_api_27_aug_2026",
       "rows": 56,
       "distinctRows": 28,
@@ -1804,7 +1777,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_sac_door_to_door_e_autos_api.json",
+      "source": "data/current-snapshots/sasa_sac_door_to_door_e_autos_api.json",
       "dataset": "sasa_sac_door_to_door_e_autos_api",
       "rows": 84,
       "distinctRows": 84,
@@ -1891,7 +1864,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_sac_door_to_door_push_carts_api.json",
+      "source": "data/current-snapshots/sasa_sac_door_to_door_push_carts_api.json",
       "dataset": "sasa_sac_door_to_door_push_carts_api",
       "rows": 84,
       "distinctRows": 84,
@@ -1978,7 +1951,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_sac_door_to_door_tri_cycles_api.json",
+      "source": "data/current-snapshots/sasa_sac_door_to_door_tri_cycles_api.json",
       "dataset": "sasa_sac_door_to_door_tri_cycles_api",
       "rows": 84,
       "distinctRows": 84,
@@ -2065,7 +2038,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_sac_machinery_compactors_api.json",
+      "source": "data/current-snapshots/sasa_sac_machinery_compactors_api.json",
       "dataset": "sasa_sac_machinery_compactors_api",
       "rows": 24,
       "distinctRows": 24,
@@ -2130,7 +2103,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_sac_machinery_e_autos_service_model_api.json",
+      "source": "data/current-snapshots/sasa_sac_machinery_e_autos_service_model_api.json",
       "dataset": "sasa_sac_machinery_e_autos_service_model_api",
       "rows": 84,
       "distinctRows": 84,
@@ -2217,7 +2190,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_sac_msw_processing_facilities_iswm_facilities_api.json",
+      "source": "data/current-snapshots/sasa_sac_msw_processing_facilities_iswm_facilities_api.json",
       "dataset": "sasa_sac_msw_processing_facilities_iswm_facilities_api",
       "rows": 216,
       "distinctRows": 216,
@@ -2282,7 +2255,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_sac_sweeping_machines_information_api.json",
+      "source": "data/current-snapshots/sasa_sac_sweeping_machines_information_api.json",
       "dataset": "sasa_sac_sweeping_machines_information_api",
       "rows": 28,
       "distinctRows": 28,
@@ -2406,7 +2379,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sbm_construction_of_ihhls_new1_api.json",
+      "source": "data/current-snapshots/sbm_construction_of_ihhls_new1_api.json",
       "dataset": "sbm_construction_of_ihhls_new1_api",
       "rows": 84,
       "distinctRows": 84,
@@ -2469,7 +2442,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/serp_circular_economy_api.json",
+      "source": "data/current-snapshots/serp_circular_economy_api.json",
       "dataset": "serp_circular_economy_api",
       "rows": 28,
       "distinctRows": 28,
@@ -2522,7 +2495,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/serp_kitchen_garden_api.json",
+      "source": "data/current-snapshots/serp_kitchen_garden_api.json",
       "dataset": "serp_kitchen_garden_api",
       "rows": 28,
       "distinctRows": 28,
@@ -2575,7 +2548,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/serp_swachhata_awareness_api.json",
+      "source": "data/current-snapshots/serp_swachhata_awareness_api.json",
       "dataset": "serp_swachhata_awareness_api",
       "rows": 28,
       "distinctRows": 28,
@@ -2628,11 +2601,17 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sewage_treated_qty_new1_api.json",
+      "source": "data/current-snapshots/sewage_treated_qty_new1_api.json",
       "dataset": "sewage_treated_qty_new1_api",
       "rows": 242,
       "distinctRows": 242,
       "pages": 1,
+      "monthPairs": {
+        "2026-06 to 2026-07": {
+          "places": 121,
+          "identical": 121
+        }
+      },
       "findings": {
         "response.reconcile": {
           "count": 0,
@@ -2647,8 +2626,14 @@
           "examples": []
         },
         "month.carried-forward": {
-          "count": 0,
-          "examples": []
+          "count": 121,
+          "examples": [
+            {
+              "months": "2026-06 to 2026-07",
+              "identical": 121,
+              "places": 121
+            }
+          ]
         },
         "period.mismatch": {
           "count": 0,
@@ -2713,7 +2698,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/soak_pits_api.json",
+      "source": "data/current-snapshots/soak_pits_api.json",
       "dataset": "soak_pits_api",
       "rows": 336,
       "distinctRows": 336,
@@ -2790,7 +2775,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/swacch_survekshan_info_new1_api.json",
+      "source": "data/current-snapshots/swacch_survekshan_info_new1_api.json",
       "dataset": "swacch_survekshan_info_new1_api",
       "rows": 206,
       "distinctRows": 206,
@@ -2925,7 +2910,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/large-snapshots/reference-day/msw_door_to_door_collection_api",
+      "source": "data/large-snapshots/reference-day/msw_door_to_door_collection_api",
       "dataset": "msw_door_to_door_collection_api (12 August, complete)",
       "rows": 4023,
       "distinctRows": 4023,
@@ -3019,7 +3004,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/large-snapshots/reference-day/waste_egregation_api",
+      "source": "data/large-snapshots/reference-day/waste_egregation_api",
       "dataset": "waste_egregation_api (12 August, complete)",
       "rows": 4023,
       "distinctRows": 4023,
@@ -3113,7 +3098,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/large-snapshots/identification_of_bulk_waste_generators_api",
+      "source": "data/large-snapshots/identification_of_bulk_waste_generators_api",
       "dataset": "identification_of_bulk_waste_generators_api (8 September paged pull)",
       "rows": 64528,
       "distinctRows": 40827,
@@ -3229,7 +3214,7 @@
       }
     },
     {
-      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/large-snapshots/onsite_processing_of_wet_waste_bwg_api",
+      "source": "data/large-snapshots/onsite_processing_of_wet_waste_bwg_api",
       "dataset": "onsite_processing_of_wet_waste_bwg_api (8 September paged pull)",
       "rows": 64528,
       "distinctRows": 40827,

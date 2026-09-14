@@ -1,0 +1,1267 @@
+{
+  "msw_door_to_door_collection_api": {
+    "expectedRows": 64368,
+    "districtExportsCaptured": 26,
+    "exportRowsReturned": 64368,
+    "exportSumOfReportedTotals": 64368,
+    "exportDistinct": 32206,
+    "exportDistinctShare": 50.03,
+    "exportMaxRepeats": 8,
+    "exportKeysWithDifferentContent": 0,
+    "routes": {
+      "export 14 Sept": {
+        "rows": 64368,
+        "distinct": 32206
+      },
+      "paging 8 Sept": {
+        "rows": 64368,
+        "distinct": 40636
+      },
+      "reference day 12 Aug": {
+        "rows": 4023,
+        "distinct": 4023
+      },
+      "sample pages 14 Sept": {
+        "rows": 4000,
+        "distinct": 3915
+      },
+      "district paging 14 Sept": {
+        "rows": 4352,
+        "distinct": 2178
+      }
+    },
+    "unionDistinct": 50477,
+    "unionShare": 78.42,
+    "missingByDay": {
+      "2026-08-12": 0,
+      "2026-08-13": 1,
+      "2026-08-14": 46,
+      "2026-08-15": 52,
+      "2026-08-16": 374,
+      "2026-08-17": 426,
+      "2026-08-18": 340,
+      "2026-08-19": 533,
+      "2026-08-20": 803,
+      "2026-08-21": 1021,
+      "2026-08-22": 1187,
+      "2026-08-23": 1197,
+      "2026-08-24": 1630,
+      "2026-08-25": 1322,
+      "2026-08-26": 2099,
+      "2026-08-27": 2860
+    },
+    "byDistrict": {
+      "502": {
+        "rows": 2880,
+        "distinct": 1439,
+        "status": 200,
+        "total": 2880,
+        "responseId": "resp-9aa18a49-00dc-465b-9a28-12ba79ed28d5",
+        "generatedAt": "2026-09-14T19:08:25.750238+00:00",
+        "sha256": "3ce4c565f852d8d2149263f8a142b45979e612eb3cdc6fb415cd150a7c680767"
+      },
+      "503": {
+        "rows": 1472,
+        "distinct": 739,
+        "status": 200,
+        "total": 1472,
+        "responseId": "resp-50465a87-3762-4d75-bd4f-fca7e6a834cb",
+        "generatedAt": "2026-09-14T19:09:09.311278+00:00",
+        "sha256": "29eec9b0f98ad4c7d9fa5998779b18c7dfd539277ee4ce3bd9616d06c2d309f3"
+      },
+      "504": {
+        "rows": 3760,
+        "distinct": 1870,
+        "status": 200,
+        "total": 3760,
+        "responseId": "resp-b85e4c35-c382-473c-a976-c5e0ae0c4fcb",
+        "generatedAt": "2026-09-14T19:09:31.565108+00:00",
+        "sha256": "214fc23ddf0f4de3eb2ff704ca827821f0fab6d1c18a73f42c8cad09dd541680"
+      },
+      "505": {
+        "rows": 2160,
+        "distinct": 1085,
+        "status": 200,
+        "total": 2160,
+        "responseId": "resp-3ebae90b-a59d-41e3-8380-f907865bad76",
+        "generatedAt": "2026-09-14T19:10:27.979238+00:00",
+        "sha256": "e09a25f0eed9705e4bef759b60a0a31e48b71ffbb4f4365a18f16c850fed5c2b"
+      },
+      "506": {
+        "rows": 5376,
+        "distinct": 2681,
+        "status": 200,
+        "total": 5376,
+        "responseId": "resp-79c42489-0c99-49ba-99d1-f44d8d624bd9",
+        "generatedAt": "2026-09-14T19:11:01.325352+00:00",
+        "sha256": "8576ad294c37b9bd57db3fc20a201a914851cea3f3154357ec09777488b27a01"
+      },
+      "510": {
+        "rows": 1968,
+        "distinct": 989,
+        "status": 200,
+        "total": 1968,
+        "responseId": "resp-fb5e2760-f49d-44a7-94e3-5519f244463c",
+        "generatedAt": "2026-09-14T19:12:21.048167+00:00",
+        "sha256": "5289201855b683e90fa2039ccf9fb43b37aa19020fb395cbff25ced0d4f729ba"
+      },
+      "511": {
+        "rows": 3312,
+        "distinct": 1650,
+        "status": 200,
+        "total": 3312,
+        "responseId": "resp-fdaf399d-660e-4257-b2ba-78946d88cd8f",
+        "generatedAt": "2026-09-14T19:12:51.639075+00:00",
+        "sha256": "7ed2764a367e4ee348bd8ff6ac2e584be4fab418014e8f391702f7145803d253"
+      },
+      "515": {
+        "rows": 3968,
+        "distinct": 1973,
+        "status": 200,
+        "total": 3968,
+        "responseId": "resp-c11c8c18-d8b9-4b67-9f79-ebac3cc66ae4",
+        "generatedAt": "2026-09-14T19:13:43.119985+00:00",
+        "sha256": "793f481d69fbcaadf3d172966159d696f1ec4b199cdd6a89786e57e6b0c5af32"
+      },
+      "517": {
+        "rows": 1776,
+        "distinct": 892,
+        "status": 200,
+        "total": 1776,
+        "responseId": "resp-98bbe39b-c708-40e0-b493-34cafa3e086a",
+        "generatedAt": "2026-09-14T19:14:42.484271+00:00",
+        "sha256": "7902180e01302cdda3d97e2bd2fb140ed97c46c7664f0ec4bf0f0ee5daa87fe6"
+      },
+      "519": {
+        "rows": 1360,
+        "distinct": 682,
+        "status": 200,
+        "total": 1360,
+        "responseId": "resp-e35739f5-8a1a-4c19-b1c9-c891e4a3bfa5",
+        "generatedAt": "2026-09-14T19:15:08.805192+00:00",
+        "sha256": "e410e342ce2f9195fbd07884035633f34f68e51124e2c741575e1e2f36e1ee18"
+      },
+      "520": {
+        "rows": 9216,
+        "distinct": 4614,
+        "status": 200,
+        "total": 9216,
+        "responseId": "resp-45740aa5-dacb-421d-bbe3-e1610408df71",
+        "generatedAt": "2026-09-14T19:15:29.858345+00:00",
+        "sha256": "d736198613873c6cd4bb5fdf3d340b01ee1e608ad7a0a7dd543cb43de571f29a"
+      },
+      "521": {
+        "rows": 1536,
+        "distinct": 771,
+        "status": 200,
+        "total": 1536,
+        "responseId": "resp-1b178518-81fd-45be-a4ae-f76d717a7f77",
+        "generatedAt": "2026-09-14T19:17:43.715642+00:00",
+        "sha256": "9d6dc2bed61a430396d2014b59fd5c34eca49ecb5a740402e6134a8974e98039"
+      },
+      "523": {
+        "rows": 2192,
+        "distinct": 1101,
+        "status": 200,
+        "total": 2192,
+        "responseId": "resp-cfe041b0-dd94-4c40-94f2-fa08bd6b10d4",
+        "generatedAt": "2026-09-14T19:18:10.560830+00:00",
+        "sha256": "0883a3ec34475d0f039441fa76e4a52c829adf89b6f52a7449eb382bc12d6f23"
+      },
+      "743": {
+        "rows": 608,
+        "distinct": 307,
+        "status": 200,
+        "total": 608,
+        "responseId": "resp-1b651e21-da14-43a4-96bf-f18299ae8098",
+        "generatedAt": "2026-09-14T19:18:43.607408+00:00",
+        "sha256": "d71495db4a74e5ab1b76ea0cd74ce6cddf251059cc5923c9c7e79e124fbf045a"
+      },
+      "744": {
+        "rows": 480,
+        "distinct": 243,
+        "status": 200,
+        "total": 480,
+        "responseId": "resp-0ac9da6b-3287-4e71-a86e-d6b11527a4de",
+        "generatedAt": "2026-09-14T19:18:54.208839+00:00",
+        "sha256": "df8e45ce4e2bb3769a8ee3f64d8a6a62b70e5d093af812ce097e2a59892d376e"
+      },
+      "746": {
+        "rows": 2800,
+        "distinct": 1400,
+        "status": 200,
+        "total": 2800,
+        "responseId": "resp-d1bb1e71-0226-43a6-8f90-ad4df01b72eb",
+        "generatedAt": "2026-09-14T19:19:02.275362+00:00",
+        "sha256": "5f8f6b91600d4f216657d2881282ea638a4f0aee71b437ee6b8970c2da171ed2"
+      },
+      "747": {
+        "rows": 544,
+        "distinct": 274,
+        "status": 200,
+        "total": 544,
+        "responseId": "resp-6753dabb-f9bd-4a55-8bfd-7a54b6a2fbbc",
+        "generatedAt": "2026-09-14T19:19:47.131455+00:00",
+        "sha256": "65609e5c7782e578239e371c8e4a1cc9e7b01c3241716931cd798f4fbb8ec997"
+      },
+      "748": {
+        "rows": 1744,
+        "distinct": 876,
+        "status": 200,
+        "total": 1744,
+        "responseId": "resp-afe4174b-4ec4-4007-b2a2-06668ed744d6",
+        "generatedAt": "2026-09-14T19:19:56.950798+00:00",
+        "sha256": "fc19d0e09c8330c53bc5bcca8284541e383f47bc157b4ae30bb1cc0a52d5a0dd"
+      },
+      "749": {
+        "rows": 5264,
+        "distinct": 2625,
+        "status": 200,
+        "total": 5264,
+        "responseId": "resp-96e4b9e5-a50e-499d-8b7a-64b84de5724f",
+        "generatedAt": "2026-09-14T19:20:23.758715+00:00",
+        "sha256": "b2cb8bf16f3b01d8f6d38635d7097e56ee07d16119e2d1c9be6e62bcd8d63c65"
+      },
+      "750": {
+        "rows": 944,
+        "distinct": 473,
+        "status": 200,
+        "total": 944,
+        "responseId": "resp-41ccb256-dd94-4f72-bb92-fdbf374fbe32",
+        "generatedAt": "2026-09-14T19:21:41.227666+00:00",
+        "sha256": "3b677feab7385e9cb0ba0265e0b5b216e40a69a221eb384714288dab66988e19"
+      },
+      "751": {
+        "rows": 2144,
+        "distinct": 1077,
+        "status": 200,
+        "total": 2144,
+        "responseId": "resp-647f91ea-106e-4537-8f1b-543ab46a5895",
+        "generatedAt": "2026-09-14T19:21:57.077535+00:00",
+        "sha256": "3aeca79758a9fe1a78457bcc52e7123d9dd04d0be1f19f9187681fb7310f01da"
+      },
+      "752": {
+        "rows": 2816,
+        "distinct": 1407,
+        "status": 200,
+        "total": 2816,
+        "responseId": "resp-cb9f5fc6-2aaf-4cde-965b-f34bf9a12bd3",
+        "generatedAt": "2026-09-14T19:22:29.524312+00:00",
+        "sha256": "3548263c0c7d8994eea400bfe2e5dace1df5b770d17d20b6d0ce271398a98f10"
+      },
+      "753": {
+        "rows": 1440,
+        "distinct": 723,
+        "status": 200,
+        "total": 1440,
+        "responseId": "resp-38d5776a-1393-411e-8de7-0a73e83fc55e",
+        "generatedAt": "2026-09-14T19:23:17.526802+00:00",
+        "sha256": "0abd3d93ac53cb3a516811378fad9885f021615ad486a01e6cdc867a6ac741f5"
+      },
+      "754": {
+        "rows": 2096,
+        "distinct": 1054,
+        "status": 200,
+        "total": 2096,
+        "responseId": "resp-a6976a22-2ffe-4006-a138-fef6e1c5be0a",
+        "generatedAt": "2026-09-14T19:23:40.907028+00:00",
+        "sha256": "7ac90bd099cd9c2770a1abb4582da211aac31313f859e64243239e62d1c46dd4"
+      },
+      "755": {
+        "rows": 1696,
+        "distinct": 852,
+        "status": 200,
+        "total": 1696,
+        "responseId": "resp-c3d01f2a-de58-4091-ac4c-243ef41a08b3",
+        "generatedAt": "2026-09-14T19:24:12.296420+00:00",
+        "sha256": "a4cf24f1392b94b9167394fe758307b0ca9080ed149dc480baddd212ab9d5fee"
+      },
+      "NULL": {
+        "rows": 816,
+        "distinct": 409,
+        "status": 200,
+        "total": 816,
+        "responseId": "resp-041f7547-e37a-423b-a5b9-70fd92a7d2f3",
+        "generatedAt": "2026-09-14T19:24:37.741211+00:00",
+        "sha256": "6b738e5932113899a6beefed62e491b9fc596e375e90b0d60e42ba282a5c175f"
+      }
+    },
+    "samplePagesDistinct": 3915,
+    "samplePagesNotInExport": 1766,
+    "district 520 export vs 8 Sept paging": {
+      "export": 4614,
+      "paging": 5067,
+      "both": 2741,
+      "union": 6940
+    },
+    "district 502 export vs 8 Sept paging": {
+      "export": 1439,
+      "paging": 1299,
+      "both": 965,
+      "union": 1773
+    },
+    "markapuramNULL": {
+      "rows": 816,
+      "distinct": 409,
+      "ulbs": [
+        "GIDDALUR",
+        "KANIGIRI",
+        "MARKAPUR",
+        "PODILI"
+      ]
+    }
+  },
+  "waste_egregation_api": {
+    "expectedRows": 64368,
+    "districtExportsCaptured": 26,
+    "exportRowsReturned": 64368,
+    "exportSumOfReportedTotals": 64368,
+    "exportDistinct": 32206,
+    "exportDistinctShare": 50.03,
+    "exportMaxRepeats": 8,
+    "exportKeysWithDifferentContent": 0,
+    "routes": {
+      "export 14 Sept": {
+        "rows": 64368,
+        "distinct": 32206
+      },
+      "paging 8 Sept": {
+        "rows": 64368,
+        "distinct": 40636
+      },
+      "reference day 12 Aug": {
+        "rows": 4023,
+        "distinct": 4023
+      }
+    },
+    "unionDistinct": 50477,
+    "unionShare": 78.42,
+    "missingByDay": {
+      "2026-08-12": 0,
+      "2026-08-13": 1,
+      "2026-08-14": 46,
+      "2026-08-15": 52,
+      "2026-08-16": 374,
+      "2026-08-17": 426,
+      "2026-08-18": 340,
+      "2026-08-19": 533,
+      "2026-08-20": 803,
+      "2026-08-21": 1021,
+      "2026-08-22": 1187,
+      "2026-08-23": 1197,
+      "2026-08-24": 1630,
+      "2026-08-25": 1322,
+      "2026-08-26": 2099,
+      "2026-08-27": 2860
+    },
+    "byDistrict": {
+      "502": {
+        "rows": 2880,
+        "distinct": 1439,
+        "status": 200,
+        "total": 2880,
+        "responseId": "resp-789cd58d-c21e-4548-a823-5ff8a6c3f5b2",
+        "generatedAt": "2026-09-14T19:26:20.644075+00:00",
+        "sha256": "e7158bf8b7443e6e0e1debe15abc970230c40f1acc65de0dbfb9d4160cb146cc"
+      },
+      "503": {
+        "rows": 1472,
+        "distinct": 739,
+        "status": 200,
+        "total": 1472,
+        "responseId": "resp-3804527f-a98b-4e91-bf66-dd5855a05216",
+        "generatedAt": "2026-09-14T19:27:01.076921+00:00",
+        "sha256": "87a624a68a5115de7615b36f417351f391792a2df6b31a89bcd005372ce3b35d"
+      },
+      "504": {
+        "rows": 3760,
+        "distinct": 1870,
+        "status": 200,
+        "total": 3760,
+        "responseId": "resp-302a6b96-06af-4023-9798-3d58c65e3734",
+        "generatedAt": "2026-09-14T19:27:27.426493+00:00",
+        "sha256": "b4c977dfb6dc2e30c4c85b06619fbc04ac0c28d20c5e5d97c9ef35482ed5e6c5"
+      },
+      "505": {
+        "rows": 2160,
+        "distinct": 1085,
+        "status": 200,
+        "total": 2160,
+        "responseId": "resp-ce2983f0-e71d-4f98-a2eb-016f46da3989",
+        "generatedAt": "2026-09-14T19:28:19.474429+00:00",
+        "sha256": "b283c302c6640884f7fc5aa20ea6a9bce216cde0e9992055d6540b90b6ac8cdc"
+      },
+      "506": {
+        "rows": 5376,
+        "distinct": 2681,
+        "status": 200,
+        "total": 5376,
+        "responseId": "resp-e81f8d58-1179-4e90-877b-8ed0af6d6350",
+        "generatedAt": "2026-09-14T19:28:51.995513+00:00",
+        "sha256": "099afad70cca744a9800be5fed74709927026b29304433024ecb79350cf7253e"
+      },
+      "510": {
+        "rows": 1968,
+        "distinct": 989,
+        "status": 200,
+        "total": 1968,
+        "responseId": "resp-6a7e83d9-9124-4390-864f-cd636e547503",
+        "generatedAt": "2026-09-14T19:30:06.809555+00:00",
+        "sha256": "cccbb7d1edc5f998473451100636485f8514d46bdfd0e6034cc93147fa9305c0"
+      },
+      "511": {
+        "rows": 3312,
+        "distinct": 1650,
+        "status": 200,
+        "total": 3312,
+        "responseId": "resp-1ba05f97-08a8-4fb1-906b-fbbc597c718e",
+        "generatedAt": "2026-09-14T19:30:35.976504+00:00",
+        "sha256": "11d0a588435b2c6ad5e1b2aa61f73a9db6507741b50efe58b67955b6183981ef"
+      },
+      "515": {
+        "rows": 3968,
+        "distinct": 1973,
+        "status": 200,
+        "total": 3968,
+        "responseId": "resp-db06a745-d681-4bf9-9855-0ae0192eaeff",
+        "generatedAt": "2026-09-14T19:31:25.187598+00:00",
+        "sha256": "52e64f6b82395fed08b4bc84b40855be8258096e2cbe48f12d47d9bfea84dbd7"
+      },
+      "517": {
+        "rows": 1776,
+        "distinct": 892,
+        "status": 200,
+        "total": 1776,
+        "responseId": "resp-dcecd9cf-e1df-4c3f-9e1d-2ad0cbaf83cf",
+        "generatedAt": "2026-09-14T19:32:23.244690+00:00",
+        "sha256": "103fff3045a5ddf2f5994724cc27fbbfdf97c4abe5aeba2c5e6aa42ae5557369"
+      },
+      "519": {
+        "rows": 1360,
+        "distinct": 682,
+        "status": 200,
+        "total": 1360,
+        "responseId": "resp-dc802eea-d40f-4b07-beda-e52bc15fe2fd",
+        "generatedAt": "2026-09-14T19:32:50.380325+00:00",
+        "sha256": "0e292e0f31afcfd783ac4709442573178e6ecedfaf3151ac8db82022270da098"
+      },
+      "520": {
+        "rows": 9216,
+        "distinct": 4614,
+        "status": 200,
+        "total": 9216,
+        "responseId": "resp-903003f7-3651-44ab-9690-fff0cd05bfbb",
+        "generatedAt": "2026-09-14T19:33:17.440293+00:00",
+        "sha256": "cf2324d2c268469f5f9f962510a6f9a879ef4ae0db1d59b5af6ec03320cad5df"
+      },
+      "521": {
+        "rows": 1536,
+        "distinct": 771,
+        "status": 200,
+        "total": 1536,
+        "responseId": "resp-debbc353-bddf-43a1-8c7a-9bec71748bc9",
+        "generatedAt": "2026-09-14T19:35:41.153186+00:00",
+        "sha256": "ddccae6ba338acad86d89284251927ef4a9a87ba81cfcc4278b8001e786102db"
+      },
+      "523": {
+        "rows": 2192,
+        "distinct": 1101,
+        "status": 200,
+        "total": 2192,
+        "responseId": "resp-d50b776f-7660-427b-a9d8-3ad528e03a36",
+        "generatedAt": "2026-09-14T19:36:06.106771+00:00",
+        "sha256": "6cffec18e40f856925bcfc08f9ba094ea6726b6865b257e0c76ea1eae8fee1a4"
+      },
+      "743": {
+        "rows": 608,
+        "distinct": 307,
+        "status": 200,
+        "total": 608,
+        "responseId": "resp-0f46a098-5084-4e7c-969b-8700e483304b",
+        "generatedAt": "2026-09-14T19:36:40.568645+00:00",
+        "sha256": "b58e52207f157ba86f17d11d760450e81c59baac63f6b2f47c677ada583b2158"
+      },
+      "744": {
+        "rows": 480,
+        "distinct": 243,
+        "status": 200,
+        "total": 480,
+        "responseId": "resp-641fe2ee-ed05-43f1-a9c7-b0c9dfa4f08a",
+        "generatedAt": "2026-09-14T19:36:52.143844+00:00",
+        "sha256": "34e1457cebca1d43186817e34a6659bdf050aed3f57c9f04be7b8a3134051855"
+      },
+      "746": {
+        "rows": 2800,
+        "distinct": 1400,
+        "status": 200,
+        "total": 2800,
+        "responseId": "resp-8621885e-ee1b-40b6-8771-3980d246e310",
+        "generatedAt": "2026-09-14T19:37:01.047197+00:00",
+        "sha256": "308d427eb4489724d76773e096f7c2890331fcae5c5515e65b5925075b9e7af9"
+      },
+      "747": {
+        "rows": 544,
+        "distinct": 274,
+        "status": 200,
+        "total": 544,
+        "responseId": "resp-7a27cbeb-a283-4ae3-8627-1dfddc5f6f8c",
+        "generatedAt": "2026-09-14T19:37:44.535597+00:00",
+        "sha256": "4b2a6b04a791ce5f2ac7826fc05a9fa6ad80e6866c39431b1b1a97099488c0ed"
+      },
+      "748": {
+        "rows": 1744,
+        "distinct": 876,
+        "status": 200,
+        "total": 1744,
+        "responseId": "resp-4a7829e8-103e-4e58-875f-654803239ff3",
+        "generatedAt": "2026-09-14T19:37:54.545666+00:00",
+        "sha256": "b102ce18f760dc4a1abda3137d801644f7836f6c4d25da69975565939595a121"
+      },
+      "749": {
+        "rows": 5264,
+        "distinct": 2625,
+        "status": 200,
+        "total": 5264,
+        "responseId": "resp-146ef7bb-4ced-458f-b5e4-d356afc0f94e",
+        "generatedAt": "2026-09-14T19:38:21.948833+00:00",
+        "sha256": "1b7245283b3791a0fb5b087329a834e747c03ad29fdf0a22fa717297dff7e75c"
+      },
+      "750": {
+        "rows": 944,
+        "distinct": 473,
+        "status": 200,
+        "total": 944,
+        "responseId": "resp-d51613e4-7a87-4b90-9942-ce907084177e",
+        "generatedAt": "2026-09-14T19:39:40.839068+00:00",
+        "sha256": "6b0fc430ac7088d482cb349593dddac7c977e30a9dc01be3dd6543237e6437cf"
+      },
+      "751": {
+        "rows": 2144,
+        "distinct": 1077,
+        "status": 200,
+        "total": 2144,
+        "responseId": "resp-dca943ae-7c35-4b2b-83c4-d7def418a31f",
+        "generatedAt": "2026-09-14T19:39:56.311218+00:00",
+        "sha256": "54c2f3fabe09bea14515cfdf8eb147696e38bb2ae4d4137c90015852ffd10ed2"
+      },
+      "752": {
+        "rows": 2816,
+        "distinct": 1407,
+        "status": 200,
+        "total": 2816,
+        "responseId": "resp-f420b8f1-5ac4-46b9-a792-e5d7be7994da",
+        "generatedAt": "2026-09-14T19:40:28.601535+00:00",
+        "sha256": "deafbe96a8a73c0e87c0d0e18972862be9855b24d4c94556f4d3a2ef59f44c3f"
+      },
+      "753": {
+        "rows": 1440,
+        "distinct": 723,
+        "status": 200,
+        "total": 1440,
+        "responseId": "resp-ca9ceec2-3c1d-417f-8d77-17a29969747a",
+        "generatedAt": "2026-09-14T19:41:10.015244+00:00",
+        "sha256": "312d014825a712d9438495529f310087c03f59838c534d3e1b6921bc50299ab4"
+      },
+      "754": {
+        "rows": 2096,
+        "distinct": 1054,
+        "status": 200,
+        "total": 2096,
+        "responseId": "resp-871ee7d2-75c5-48f6-92a5-ca5857d4c071",
+        "generatedAt": "2026-09-14T19:41:33.530086+00:00",
+        "sha256": "73c13fe291a5b610bddfb46725892fb82e4e9f9ec8b96f2717faff5a366ecd28"
+      },
+      "755": {
+        "rows": 1696,
+        "distinct": 852,
+        "status": 200,
+        "total": 1696,
+        "responseId": "resp-7c8e8779-5c8c-47d1-a2bb-424358525921",
+        "generatedAt": "2026-09-14T19:42:05.551044+00:00",
+        "sha256": "5acfff660b4244670a4e459ac56c1d2cafa97971ee3c43a5be567b642b593d27"
+      },
+      "NULL": {
+        "rows": 816,
+        "distinct": 409,
+        "status": 200,
+        "total": 816,
+        "responseId": "resp-ea62d2e1-f448-415f-a316-84cfe18dc361",
+        "generatedAt": "2026-09-14T19:42:31.578580+00:00",
+        "sha256": "c0daed2aefb9715a00cfad543bafd0833e8dbcd1ec1fc92af4b5e82310543c97"
+      }
+    },
+    "district 520 export vs 8 Sept paging": {
+      "export": 4614,
+      "paging": 5067,
+      "both": 2741,
+      "union": 6940
+    },
+    "district 502 export vs 8 Sept paging": {
+      "export": 1439,
+      "paging": 1299,
+      "both": 965,
+      "union": 1773
+    },
+    "markapuramNULL": {
+      "rows": 816,
+      "distinct": 409,
+      "ulbs": [
+        "GIDDALUR",
+        "KANIGIRI",
+        "MARKAPUR",
+        "PODILI"
+      ]
+    }
+  },
+  "identification_of_bulk_waste_generators_api": {
+    "expectedRows": 64528,
+    "districtExportsCaptured": 26,
+    "exportRowsReturned": 64528,
+    "exportSumOfReportedTotals": 64528,
+    "exportDistinct": 32286,
+    "exportDistinctShare": 50.03,
+    "exportMaxRepeats": 8,
+    "exportKeysWithDifferentContent": 0,
+    "routes": {
+      "export 14 Sept": {
+        "rows": 64528,
+        "distinct": 32286
+      },
+      "paging 8 Sept": {
+        "rows": 64528,
+        "distinct": 40827
+      },
+      "sample pages 14 Sept": {
+        "rows": 4000,
+        "distinct": 3931
+      }
+    },
+    "unionDistinct": 50571,
+    "unionShare": 78.37,
+    "missingByDay": {
+      "2026-08-12": 0,
+      "2026-08-13": 0,
+      "2026-08-14": 46,
+      "2026-08-15": 53,
+      "2026-08-16": 353,
+      "2026-08-17": 501,
+      "2026-08-18": 337,
+      "2026-08-19": 482,
+      "2026-08-20": 832,
+      "2026-08-21": 1009,
+      "2026-08-22": 1225,
+      "2026-08-23": 1166,
+      "2026-08-24": 1610,
+      "2026-08-25": 1385,
+      "2026-08-26": 2096,
+      "2026-08-27": 2862
+    },
+    "byDistrict": {
+      "502": {
+        "rows": 2880,
+        "distinct": 1439,
+        "status": 200,
+        "total": 2880,
+        "responseId": "resp-51ada8a7-a37b-4570-bf3a-b473ad71ebe4",
+        "generatedAt": "2026-09-14T19:42:52.128859+00:00",
+        "sha256": "370c61e8f6a973bc7d8bb8dea4f15e5cfd8e0b51bb9acb4d27ff937626849a3c"
+      },
+      "503": {
+        "rows": 1472,
+        "distinct": 739,
+        "status": 200,
+        "total": 1472,
+        "responseId": "resp-4e7d92f4-e820-4f36-ac80-81ff73914853",
+        "generatedAt": "2026-09-14T19:43:36.750086+00:00",
+        "sha256": "fad9c2fd175d049e75dadf799205724155afafbca990b0bb2a1a3f8458855706"
+      },
+      "504": {
+        "rows": 3760,
+        "distinct": 1870,
+        "status": 200,
+        "total": 3760,
+        "responseId": "resp-be0b01bf-3b80-431b-9b55-b9bbc80d80b8",
+        "generatedAt": "2026-09-14T19:43:59.092944+00:00",
+        "sha256": "fcf33c904764836534f3b702b38533719cf580e494adf96a70655ef0b2c6c930"
+      },
+      "505": {
+        "rows": 2160,
+        "distinct": 1085,
+        "status": 200,
+        "total": 2160,
+        "responseId": "resp-63bf6b7d-96df-4cca-8413-353b9745119a",
+        "generatedAt": "2026-09-14T19:44:53.620465+00:00",
+        "sha256": "76eb79cabeec1ea7eda90213a9ae9cfe7a4284c71444abd7bc88717c96fb9f12"
+      },
+      "506": {
+        "rows": 5376,
+        "distinct": 2681,
+        "status": 200,
+        "total": 5376,
+        "responseId": "resp-6971a415-5ca3-42f2-b2de-6911f117ce0b",
+        "generatedAt": "2026-09-14T19:45:25.092764+00:00",
+        "sha256": "765260723fadcacc0ccce09eaea0c3a2242e90ec7cc9c615ef2960c366887893"
+      },
+      "510": {
+        "rows": 1968,
+        "distinct": 989,
+        "status": 200,
+        "total": 1968,
+        "responseId": "resp-9dd66876-a7a7-4078-aa0c-f3c2c3c5cc38",
+        "generatedAt": "2026-09-14T19:46:41.574216+00:00",
+        "sha256": "d20a0454f05121d49015bae830be9606d7087de528ca9fc8aba1d9e8c8a3e221"
+      },
+      "511": {
+        "rows": 3376,
+        "distinct": 1682,
+        "status": 200,
+        "total": 3376,
+        "responseId": "resp-ca12b149-d1a2-4281-b9dd-9df4af4d5066",
+        "generatedAt": "2026-09-14T19:47:10.904570+00:00",
+        "sha256": "2b606e491367cd88d9d8ae71242b4201a44eb9451938faf1778d5c219732c655"
+      },
+      "515": {
+        "rows": 3968,
+        "distinct": 1973,
+        "status": 200,
+        "total": 3968,
+        "responseId": "resp-34a3a463-434b-4067-b11e-f80bb51be9e7",
+        "generatedAt": "2026-09-14T19:47:59.955966+00:00",
+        "sha256": "ed06cc87eb4de6e7f46c57938c0a47be9431c2218c3c0dc693f2dc39935c29c9"
+      },
+      "517": {
+        "rows": 1776,
+        "distinct": 892,
+        "status": 200,
+        "total": 1776,
+        "responseId": "resp-15db1c60-825e-45a3-8e37-d4988a98b7fb",
+        "generatedAt": "2026-09-14T19:48:56.810510+00:00",
+        "sha256": "ef76cce9e0c875ceb5fed149487dc31d8135595c90d811d1835804f5e5761d2d"
+      },
+      "519": {
+        "rows": 1360,
+        "distinct": 682,
+        "status": 200,
+        "total": 1360,
+        "responseId": "resp-c7378009-1383-4738-9368-c93838575378",
+        "generatedAt": "2026-09-14T19:49:24.094073+00:00",
+        "sha256": "a19a1588e1bd72b9e8f522847fd088537f663ce2ba5319531ccc457c242de8d6"
+      },
+      "520": {
+        "rows": 9248,
+        "distinct": 4630,
+        "status": 200,
+        "total": 9248,
+        "responseId": "resp-84845490-cc60-4fee-b589-4db50b1aa6db",
+        "generatedAt": "2026-09-14T19:49:44.983197+00:00",
+        "sha256": "8b71b287f2863b85eb3eb7dfe727c9b69995246234fafd3e6f37f25695b0dea2"
+      },
+      "521": {
+        "rows": 1536,
+        "distinct": 771,
+        "status": 200,
+        "total": 1536,
+        "responseId": "resp-1f6e7a9a-8992-4bb2-9617-96848bcffb90",
+        "generatedAt": "2026-09-14T19:51:59.018577+00:00",
+        "sha256": "07bcd67f4e4b580c8ea16713e90e4e62676ff162b7ed52a11e47583584e7d387"
+      },
+      "523": {
+        "rows": 2192,
+        "distinct": 1101,
+        "status": 200,
+        "total": 2192,
+        "responseId": "resp-49ec6020-d824-490e-aa34-eb35c2471130",
+        "generatedAt": "2026-09-14T19:52:22.675479+00:00",
+        "sha256": "ead7bfa227f7fc6612c81adcab1fc085eb7c4ac9fec549a3e8194b66dc1f0431"
+      },
+      "743": {
+        "rows": 608,
+        "distinct": 307,
+        "status": 200,
+        "total": 608,
+        "responseId": "resp-36b83999-a853-4ce1-91b4-0887520f5843",
+        "generatedAt": "2026-09-14T19:52:55.343310+00:00",
+        "sha256": "6b9c21f20d4d514b60aecbf909ff615db74fad15354bba9344e5cb92f6deef8d"
+      },
+      "744": {
+        "rows": 480,
+        "distinct": 243,
+        "status": 200,
+        "total": 480,
+        "responseId": "resp-f33bfa9a-a8b2-4fa4-adde-b5de74429d79",
+        "generatedAt": "2026-09-14T19:53:06.000371+00:00",
+        "sha256": "0b8ff3fa15a05704db367c1f1c659d839dc3c075d47f8c2c8420255c61d6a9b8"
+      },
+      "746": {
+        "rows": 2800,
+        "distinct": 1400,
+        "status": 200,
+        "total": 2800,
+        "responseId": "resp-82db835d-8c21-4022-913b-8f8c9591493b",
+        "generatedAt": "2026-09-14T19:53:13.997901+00:00",
+        "sha256": "0338dfd60ff0dd7a63c589121f38c450cc8f2bc4b692e169fac33389c1329e76"
+      },
+      "747": {
+        "rows": 544,
+        "distinct": 274,
+        "status": 200,
+        "total": 544,
+        "responseId": "resp-0a6d551b-84da-4ab9-b3f1-66ef086eeba6",
+        "generatedAt": "2026-09-14T19:53:54.509721+00:00",
+        "sha256": "0dc712f908a4beb1a2bb0dae9856118c36e5aeb4971e063a2cb14721f011bced"
+      },
+      "748": {
+        "rows": 1760,
+        "distinct": 884,
+        "status": 200,
+        "total": 1760,
+        "responseId": "resp-41209bfa-d144-4985-b46f-81c92a417fc1",
+        "generatedAt": "2026-09-14T19:54:04.519664+00:00",
+        "sha256": "461e0046f89cb48db737ee946d392608ae5acd9e4d71818f3d563633950ec6ee"
+      },
+      "749": {
+        "rows": 5296,
+        "distinct": 2641,
+        "status": 200,
+        "total": 5296,
+        "responseId": "resp-6eabce1b-04fd-4cb5-8f19-f35a7d0e677c",
+        "generatedAt": "2026-09-14T19:54:30.736097+00:00",
+        "sha256": "f69294bdb715be073db2bbff7fcadfd6433d7c3427ee8149169ef75741c1ed6c"
+      },
+      "750": {
+        "rows": 944,
+        "distinct": 473,
+        "status": 200,
+        "total": 944,
+        "responseId": "resp-2fc2ff69-673a-4c90-b74f-6d7a7e364037",
+        "generatedAt": "2026-09-14T19:55:47.459562+00:00",
+        "sha256": "4bc8b7b6ab207bbe6c482134811e4a768dbce121736b9940ee28bbaacf24ce32"
+      },
+      "751": {
+        "rows": 2144,
+        "distinct": 1077,
+        "status": 200,
+        "total": 2144,
+        "responseId": "resp-55143ac1-d0b5-4fce-883a-e3138bf3cf10",
+        "generatedAt": "2026-09-14T19:56:03.053436+00:00",
+        "sha256": "80835417ec4bc7218cee701313ac4734b69429b2bb2eb27d6b244e473c7da654"
+      },
+      "752": {
+        "rows": 2816,
+        "distinct": 1407,
+        "status": 200,
+        "total": 2816,
+        "responseId": "resp-a811449e-50dc-4f6e-a13f-cdded1dbd43e",
+        "generatedAt": "2026-09-14T19:56:36.639627+00:00",
+        "sha256": "fe67ea659068ab316302ac2e868f82715d62a5a53e106e9b028369f5470ce3fb"
+      },
+      "753": {
+        "rows": 1440,
+        "distinct": 723,
+        "status": 200,
+        "total": 1440,
+        "responseId": "resp-a996e3b9-c705-42fa-8afd-1a9d9e8e4563",
+        "generatedAt": "2026-09-14T19:57:20.221118+00:00",
+        "sha256": "8806bf1ff073aa1c73a52a5734f6d8f24bb8c581fd5af971dee49444e56713ee"
+      },
+      "754": {
+        "rows": 2096,
+        "distinct": 1054,
+        "status": 200,
+        "total": 2096,
+        "responseId": "resp-d96f2dcf-c5fe-4bab-932d-a29a5b1f8fbf",
+        "generatedAt": "2026-09-14T19:57:43.705368+00:00",
+        "sha256": "7664a4cdcb716402ce7c8356bd247cd79876e737ac9fc798789a0dd4ee01b82f"
+      },
+      "755": {
+        "rows": 1712,
+        "distinct": 860,
+        "status": 200,
+        "total": 1712,
+        "responseId": "resp-1f5c578b-5868-433b-bca8-04a582b909c9",
+        "generatedAt": "2026-09-14T19:58:16.018344+00:00",
+        "sha256": "b9b371f556c46c9bf04ce0122927eab9158d824b7c609a130e918e6e1f6cab90"
+      },
+      "NULL": {
+        "rows": 816,
+        "distinct": 409,
+        "status": 200,
+        "total": 816,
+        "responseId": "resp-e4fd93d3-b6ff-40d5-ba52-0af432107660",
+        "generatedAt": "2026-09-14T19:58:44.201531+00:00",
+        "sha256": "1ef830ea238fee3edefd1d1ad50305b084ae5bca2131826d021a35d288d370c3"
+      }
+    },
+    "samplePagesDistinct": 3931,
+    "samplePagesNotInExport": 1755,
+    "district 520 export vs 8 Sept paging": {
+      "export": 4630,
+      "paging": 4927,
+      "both": 2726,
+      "union": 6831
+    },
+    "district 502 export vs 8 Sept paging": {
+      "export": 1439,
+      "paging": 1292,
+      "both": 958,
+      "union": 1773
+    },
+    "markapuramNULL": {
+      "rows": 816,
+      "distinct": 409,
+      "ulbs": [
+        "GIDDALUR",
+        "KANIGIRI",
+        "MARKAPUR",
+        "PODILI"
+      ]
+    }
+  },
+  "onsite_processing_of_wet_waste_bwg_api": {
+    "expectedRows": 64528,
+    "districtExportsCaptured": 26,
+    "exportRowsReturned": 64528,
+    "exportSumOfReportedTotals": 64528,
+    "exportDistinct": 32286,
+    "exportDistinctShare": 50.03,
+    "exportMaxRepeats": 8,
+    "exportKeysWithDifferentContent": 0,
+    "routes": {
+      "export 14 Sept": {
+        "rows": 64528,
+        "distinct": 32286
+      },
+      "paging 8 Sept": {
+        "rows": 64528,
+        "distinct": 40827
+      }
+    },
+    "unionDistinct": 50571,
+    "unionShare": 78.37,
+    "missingByDay": {
+      "2026-08-12": 0,
+      "2026-08-13": 0,
+      "2026-08-14": 46,
+      "2026-08-15": 53,
+      "2026-08-16": 353,
+      "2026-08-17": 501,
+      "2026-08-18": 337,
+      "2026-08-19": 482,
+      "2026-08-20": 832,
+      "2026-08-21": 1009,
+      "2026-08-22": 1225,
+      "2026-08-23": 1166,
+      "2026-08-24": 1610,
+      "2026-08-25": 1385,
+      "2026-08-26": 2096,
+      "2026-08-27": 2862
+    },
+    "byDistrict": {
+      "502": {
+        "rows": 2880,
+        "distinct": 1439,
+        "status": 200,
+        "total": 2880,
+        "responseId": "resp-06e2d871-91ba-43e0-9140-7ea362257e63",
+        "generatedAt": "2026-09-14T19:14:47.536886+00:00",
+        "sha256": "d75e6aa90eeef82c8f463b8ed33885551f0f7098a218ca6d703c43d3e73eab11"
+      },
+      "503": {
+        "rows": 1472,
+        "distinct": 739,
+        "status": 200,
+        "total": 1472,
+        "responseId": "resp-04f7ec03-3d51-4984-a693-1fba69c20ba9",
+        "generatedAt": "2026-09-14T19:15:28.786198+00:00",
+        "sha256": "f61a5876a1d2154115c286303ad0119dda1aeaad8a82de57f21aea56a372967f"
+      },
+      "504": {
+        "rows": 3760,
+        "distinct": 1870,
+        "status": 200,
+        "total": 3760,
+        "responseId": "resp-e4cd94e7-3470-43c0-93c4-6f532469079e",
+        "generatedAt": "2026-09-14T19:15:49.758545+00:00",
+        "sha256": "1d4bb1c4548d3ac1e1b62004a84a66d5bede2a2fc971d3265e12e08e6815ff6e"
+      },
+      "505": {
+        "rows": 2160,
+        "distinct": 1085,
+        "status": 200,
+        "total": 2160,
+        "responseId": "resp-08dd8a6e-9d67-4ed9-b5ed-71ef257fb0b3",
+        "generatedAt": "2026-09-14T19:16:44.925492+00:00",
+        "sha256": "cf24ae0fa3ef2a8a7b40e0cf67082d980a278b2de39163f1dc1e37776cc1439e"
+      },
+      "506": {
+        "rows": 5376,
+        "distinct": 2681,
+        "status": 200,
+        "total": 5376,
+        "responseId": "resp-681d61f8-5e7d-401a-96d3-18a4ae258aa5",
+        "generatedAt": "2026-09-14T19:17:16.471010+00:00",
+        "sha256": "5255aaa7ab21336717c2a1979af6381f6ca461e581b3bcf924165dd20d2241c2"
+      },
+      "510": {
+        "rows": 1968,
+        "distinct": 989,
+        "status": 200,
+        "total": 1968,
+        "responseId": "resp-25ac7311-00d7-4ada-b961-7182cfb39f01",
+        "generatedAt": "2026-09-14T19:18:38.385256+00:00",
+        "sha256": "7be094ff0e2f3ba795b87006a6f0ead35d0e0fe4a206559c5de0d7ed97345ed8"
+      },
+      "511": {
+        "rows": 3376,
+        "distinct": 1682,
+        "status": 200,
+        "total": 3376,
+        "responseId": "resp-dfee13d0-4c7c-483f-9d53-0268c9a02cf6",
+        "generatedAt": "2026-09-14T19:19:07.490478+00:00",
+        "sha256": "8a890b0e5e47197a97aa334bbd0dbdbca35cf5d948cfef9e50ac62a3f0797b65"
+      },
+      "515": {
+        "rows": 3968,
+        "distinct": 1973,
+        "status": 200,
+        "total": 3968,
+        "responseId": "resp-fd97bc3b-768a-4272-a48d-304a15d183ba",
+        "generatedAt": "2026-09-14T19:19:56.866803+00:00",
+        "sha256": "a9ab61ab244cad54e3228b9ff7f4abfcddd9bbe83e52a75381e0638473359dc1"
+      },
+      "517": {
+        "rows": 1776,
+        "distinct": 892,
+        "status": 200,
+        "total": 1776,
+        "responseId": "resp-e921153c-0cfb-4b72-b570-9389b7bc2aa3",
+        "generatedAt": "2026-09-14T19:20:56.239119+00:00",
+        "sha256": "3b8c5f9055dd9d0f4ce0df0ed3cc79ed5cc3a08a22312ccd7379c748c7b2d9f2"
+      },
+      "519": {
+        "rows": 1360,
+        "distinct": 682,
+        "status": 200,
+        "total": 1360,
+        "responseId": "resp-090b330b-cc88-4371-ad4e-89bf7f81d1e6",
+        "generatedAt": "2026-09-14T19:21:22.015593+00:00",
+        "sha256": "f43256d4ba393f33c44da3b5ae64218b6a9249c2bb7ba96c35405fe4f6b41955"
+      },
+      "520": {
+        "rows": 9248,
+        "distinct": 4630,
+        "status": 200,
+        "total": 9248,
+        "responseId": "resp-c25b6709-ca81-4cc8-9a4a-bd261145018a",
+        "generatedAt": "2026-09-14T19:21:42.324808+00:00",
+        "sha256": "23624e84fa6f5d123b1938df7006d6b022b3e6130e810c85accf6107d53eb913"
+      },
+      "521": {
+        "rows": 1536,
+        "distinct": 771,
+        "status": 200,
+        "total": 1536,
+        "responseId": "resp-87b47cab-2036-4de0-8cd6-889233a14dd4",
+        "generatedAt": "2026-09-14T19:23:57.142203+00:00",
+        "sha256": "8a5c6c381f855242b98af239075b5253c4d64629414598ef64da04009e44d8f3"
+      },
+      "523": {
+        "rows": 2192,
+        "distinct": 1101,
+        "status": 200,
+        "total": 2192,
+        "responseId": "resp-4c780553-6e6b-454e-b29b-ba2d262f3724",
+        "generatedAt": "2026-09-14T19:24:19.552654+00:00",
+        "sha256": "f3a8720ea14ec786170b25111d0467a8b15688fe0c66da90f5536745bb4eb9b0"
+      },
+      "743": {
+        "rows": 608,
+        "distinct": 307,
+        "status": 200,
+        "total": 608,
+        "responseId": "resp-1186c853-36b6-4cf9-80c5-b3a56f92100e",
+        "generatedAt": "2026-09-14T19:24:51.074120+00:00",
+        "sha256": "52f277859ca79823b416a58fd7b7f46f687499df7fda92884f59edeac88349c6"
+      },
+      "744": {
+        "rows": 480,
+        "distinct": 243,
+        "status": 200,
+        "total": 480,
+        "responseId": "resp-0313ef8c-3933-4b03-a786-64b1833d911c",
+        "generatedAt": "2026-09-14T19:25:01.307503+00:00",
+        "sha256": "c6581c77ea2206e24d949eee08f711d0ab8267bc0b983253618cfa6d2fc9ed17"
+      },
+      "746": {
+        "rows": 2800,
+        "distinct": 1400,
+        "status": 200,
+        "total": 2800,
+        "responseId": "resp-ae9dcc45-a5b8-4235-a68d-21c4c4d6c249",
+        "generatedAt": "2026-09-14T19:25:08.999055+00:00",
+        "sha256": "5299ef80a12e1f595a7eb84332b1cfa4d2c38667428f84a64e6f6f329d174d1c"
+      },
+      "747": {
+        "rows": 544,
+        "distinct": 274,
+        "status": 200,
+        "total": 544,
+        "responseId": "resp-8fdd24cd-8581-4d13-97c4-e2ca09ddbec3",
+        "generatedAt": "2026-09-14T19:25:47.917643+00:00",
+        "sha256": "42fe07502eb6cd48c8b88b84e3972ca36d67595658c04686b4b3faa39a98a3b4"
+      },
+      "748": {
+        "rows": 1760,
+        "distinct": 884,
+        "status": 200,
+        "total": 1760,
+        "responseId": "resp-ce812135-d8c5-48ab-9e25-0b98d0a6ffa7",
+        "generatedAt": "2026-09-14T19:25:57.040300+00:00",
+        "sha256": "a74a3bb84635ad2a45d420e083c6f8c5c67edf7515919afa1b4ba0cad52c3edf"
+      },
+      "749": {
+        "rows": 5296,
+        "distinct": 2641,
+        "status": 200,
+        "total": 5296,
+        "responseId": "resp-7157d12c-4f10-48d3-8ca7-b9249fbb0bd6",
+        "generatedAt": "2026-09-14T19:26:22.865440+00:00",
+        "sha256": "a30eef2aa09d2178da197a8a8bbc8b5debee86f6d0e3eeb33dbff9e814991321"
+      },
+      "750": {
+        "rows": 944,
+        "distinct": 473,
+        "status": 200,
+        "total": 944,
+        "responseId": "resp-1f4972a0-ca62-4850-92bc-a50e87683bbc",
+        "generatedAt": "2026-09-14T19:27:33.641746+00:00",
+        "sha256": "4950ca610fba929a748068c890018c8b2fdcbcf093f5abb26c096f4459f6b78d"
+      },
+      "751": {
+        "rows": 2144,
+        "distinct": 1077,
+        "status": 200,
+        "total": 2144,
+        "responseId": "resp-6aafcbfc-4b67-4cb0-a014-e5c84b4d8493",
+        "generatedAt": "2026-09-14T19:27:49.134984+00:00",
+        "sha256": "c25bad132455642bb520a26ec7f7915b71af40b56bd65ffe628baca6adcb2e07"
+      },
+      "752": {
+        "rows": 2816,
+        "distinct": 1407,
+        "status": 200,
+        "total": 2816,
+        "responseId": "resp-4ebd9322-1b3f-41ce-8c46-acf0d7c76935",
+        "generatedAt": "2026-09-14T19:28:20.167905+00:00",
+        "sha256": "841c7bd3104dc8fa2423d6f1a1e4bda57dffd304bb1eb9debc89d81ca63b1f86"
+      },
+      "753": {
+        "rows": 1440,
+        "distinct": 723,
+        "status": 200,
+        "total": 1440,
+        "responseId": "resp-a942a936-e851-4963-ba2a-0fd31f1cd2f9",
+        "generatedAt": "2026-09-14T19:29:01.305851+00:00",
+        "sha256": "e3131bc7d92a98cd99f14a51599654a6aba0ebfa333f1df0fc323dc0e8f4816b"
+      },
+      "754": {
+        "rows": 2096,
+        "distinct": 1054,
+        "status": 200,
+        "total": 2096,
+        "responseId": "resp-de21a7cb-5cc0-4ca7-b5fd-89d8b4bf2ae2",
+        "generatedAt": "2026-09-14T19:29:23.089484+00:00",
+        "sha256": "1e531f869e1f1b9d57df76c3ffb5a746a6339e7b35498151db5e0744cc9d1042"
+      },
+      "755": {
+        "rows": 1712,
+        "distinct": 860,
+        "status": 200,
+        "total": 1712,
+        "responseId": "resp-31e8b221-cf86-4dee-af25-08544cba9e82",
+        "generatedAt": "2026-09-14T19:29:53.106636+00:00",
+        "sha256": "9d15b0b04271aa78aa015dc301dfabcc7eb97b6a318b5dc3c62b0cf0a72a4448"
+      },
+      "NULL": {
+        "rows": 816,
+        "distinct": 409,
+        "status": 200,
+        "total": 816,
+        "responseId": "resp-425e5237-5232-4e3a-a9ff-e00ebf5b71f5",
+        "generatedAt": "2026-09-14T19:30:18.754981+00:00",
+        "sha256": "db7048866427d299135f507f5b7e87280b1d4b307c0cc3f3e4417ff19595baa0"
+      }
+    },
+    "district 520 export vs 8 Sept paging": {
+      "export": 4630,
+      "paging": 4927,
+      "both": 2726,
+      "union": 6831
+    },
+    "district 502 export vs 8 Sept paging": {
+      "export": 1439,
+      "paging": 1292,
+      "both": 958,
+      "union": 1773
+    },
+    "markapuramNULL": {
+      "rows": 816,
+      "distinct": 409,
+      "ulbs": [
+        "GIDDALUR",
+        "KANIGIRI",
+        "MARKAPUR",
+        "PODILI"
+      ]
+    }
+  },
+  "A3 ulb_code equals mandal code, every row retrieved": {
+    "same": 49221,
+    "of": 50477
+  },
+  "A13 collected_households zero share": {
+    "byDay": {
+      "2026-08-12": 42.31,
+      "2026-08-13": 99.7,
+      "2026-08-14": 99.72,
+      "2026-08-15": 99.67,
+      "2026-08-16": 99.73,
+      "2026-08-17": 99.69,
+      "2026-08-18": 99.7,
+      "2026-08-19": 99.86,
+      "2026-08-20": 99.72,
+      "2026-08-21": 99.8,
+      "2026-08-22": 99.79,
+      "2026-08-23": 99.79,
+      "2026-08-24": 99.71,
+      "2026-08-25": 99.59,
+      "2026-08-26": 99.48,
+      "2026-08-27": 99.66
+    },
+    "overall": 95.14,
+    "rows": 50477,
+    "blankOrNull": 0
+  },
+  "N3 segregation export rows matching a collection row": {
+    "segregationRows": 64368,
+    "collectionRowFound": 64368,
+    "identicalOnSharedColumns": 64368
+  },
+  "N6 no_of_bwgs, every row retrieved": {
+    "text": 27,
+    "blank": 31,
+    "rows": 50571,
+    "examples": [
+      [
+        "02-Machavaram Masi",
+        "id Area",
+        "0"
+      ],
+      [
+        "62-Fire Station Area",
+        "Prakash Nagar",
+        "1"
+      ]
+    ]
+  }
+}

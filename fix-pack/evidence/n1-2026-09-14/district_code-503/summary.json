@@ -1,0 +1,53 @@
+{
+  "tableKey": "msw_door_to_door_collection_api",
+  "filters": {
+    "district_code": "503"
+  },
+  "capturedOn": "2026-09-14T18:49:13.975Z",
+  "expectedRows": 1472,
+  "secretariatsSeen": 92,
+  "daysSeen": 16,
+  "routes": {
+    "export-1": {
+      "rows": 1472,
+      "distinctSecretariatDays": 739,
+      "responseId": "resp-6ccec54d-8522-4bcc-97fe-426d15e10886",
+      "generatedAt": "2026-09-14T18:47:51.991259+00:00",
+      "totalRecordCount": 1472
+    },
+    "export-2": {
+      "rows": 1472,
+      "distinctSecretariatDays": 739,
+      "responseId": "resp-b0c58129-3303-4752-89a0-3082c77419c2",
+      "generatedAt": "2026-09-14T18:48:14.487162+00:00",
+      "totalRecordCount": 1472
+    },
+    "paging": {
+      "rows": 1472,
+      "distinctSecretariatDays": 739,
+      "pages": 15,
+      "totalRecordCount": 1472,
+      "responseIds": [
+        "resp-cb22d09a-ef78-48d1-aa9e-ffc7013af3ef",
+        "resp-69fefd87-11c5-4d0e-8c7e-4826606e454e",
+        "resp-dd6f4d1a-aa9a-406f-9bfc-84bdda1d42c5",
+        "resp-aa8630b8-2366-4944-9d56-a52f5ba39f2c",
+        "resp-44516cf7-f63a-41de-837d-4703bef4fb8e",
+        "resp-509c3cbe-413c-4d84-8088-3cbe23f89d39",
+        "resp-2bb9aa52-d8ca-4639-935c-09c6c4bc08bd",
+        "resp-788875ce-a7e6-430e-b82a-5ac98785d0e7",
+        "resp-b317bc53-0071-4a4c-9ccd-76ddabb227da",
+        "resp-e96dae16-41cd-4031-8cf1-c1b7a78b9b85",
+        "resp-d2fdc70c-b16c-4001-8faf-5e663ce72f18",
+        "resp-56ea7ba3-d0b4-42bc-8e65-d63e804365a4",
+        "resp-92423b36-8d62-40db-a888-e33071df9405",
+        "resp-f9a8f43a-3d73-4f9e-a477-397f107c899f",
+        "resp-14ff94e5-507b-4071-a713-2609b97c1a57"
+      ]
+    }
+  },
+  "exportRepeatsIdentically": true,
+  "exportDistinctNotInPaging": 0,
+  "pagingDistinctNotInExport": 0,
+  "unionDistinct": 739
+}

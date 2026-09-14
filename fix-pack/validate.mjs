@@ -30,8 +30,8 @@ export const RULES = {
 };
 
 const MONTHS = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER'];
-/** Housekeeping columns that change on reload and say nothing about the measure. */
-const STAMPS = new Set(['i_ts', 'u_ts', 's_no', 'a_in', 'active_indicator', 'id']);
+/** Housekeeping columns that change on reload and say nothing about the measure. A record ID names a row, not a place. */
+const STAMPS = new Set(['i_ts', 'u_ts', 's_no', 'a_in', 'active_indicator', 'id', 'rec_id']);
 const MONTH_NAME = ['mnth_nm', 'month_name'];
 const MONTH_NUMBER = ['mnth_no', 'month_number', 'month_no', 'month_id', 'MONTH_ID', 'month'];
 const PERIOD = new Set([...MONTH_NAME, ...MONTH_NUMBER, 'year', 'YEAR', 'fin_year', 'financial_year', 'date1', 'COLLECTION_DATE']);
@@ -45,7 +45,8 @@ const text = (value) => String(value ?? '').trim();
 const missing = (value) => /^(|null|undefined|n\/?a|-)$/i.test(text(value));
 const bare = (value) => text(value).replace(/^"|"$/g, '').replace(/,/g, '').replace(/%$/, '');
 const numeric = (value) => /^-?\d+(\.\d+)?$/.test(bare(value));
-const isCode = (column) => /(^|_)(code|id)$/i.test(column);
+/** Codes, IDs and serial numbers identify a place or a plant, so they are never read as measures. */
+const isCode = (column) => /(^|_)(code|id|s_no|sno)$/i.test(column);
 const canonical = (row, columns) => JSON.stringify(columns.map((column) => [column, text(row[column])]));
 
 function responseOf(json) {
@@ -54,14 +55,18 @@ function responseOf(json) {
   return { records, meta: json.responseMetadata ?? json.response?.responseMetadata ?? {}, key: json.requestEcho?.tableKey ?? json.responseMetadata?.tableKey };
 }
 
-/** Calendar month of a row as YYYY-MM, or null for daily or undated rows. */
+/**
+ * Calendar month of a row as YYYY-MM, or null for daily or undated rows. When the month number and
+ * the month name disagree (A5), the number is used, so a month copied with its old name still counts
+ * as its own month.
+ */
 function monthOf(row) {
   const name = MONTH_NAME.map((c) => text(row[c]).toUpperCase()).find(Boolean);
   const raw = MONTH_NUMBER.map((c) => text(row[c])).find(Boolean);
   if (/^\d{6}$/.test(raw ?? '')) return `${raw.slice(0, 4)}-${raw.slice(4)}`;
   const year = text(row.year ?? row.YEAR);
-  let month = name ? MONTHS.indexOf(name) + 1 : 0;
-  if (!month && raw && Number(raw) >= 1 && Number(raw) <= 12) month = Number(raw);
+  let month = raw && Number(raw) >= 1 && Number(raw) <= 12 ? Number(raw) : 0;
+  if (!month && name) month = MONTHS.indexOf(name) + 1;
   if (!month || !/^\d{4}$/.test(year)) return null;
   return `${year}-${String(month).padStart(2, '0')}`;
 }

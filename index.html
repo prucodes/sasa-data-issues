@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Data and API issues found while building SASA Intelligence Lab on the AP Data Lake. First shared 2 September 2026, every item checked again live on 11 September 2026.">
+<meta name="description" content="Data and API issues found while building SASA Intelligence Lab on the AP Data Lake. First shared 2 September 2026, every item checked again live on 11 September 2026 and rechecked on 14 September.">
 <title>Data Issues List</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -262,10 +262,10 @@ footer.end{margin-top:70px;padding-top:18px;border-top:1px solid var(--rule);fon
       export route returns the CDMA daily files complete.</b> Both return the right number of rows, but many of those rows are repeats, about half in the export. That is <a href="#N1">N1</a> below, and I suggest adding it to the QA round against the published APIs.
     </p>
     <p>
-      Looking again at the same copies on 14 September, I found two more things. The paging fault also drops a few rows from small tables, which I have added to <a href="#N1">N1</a>. And in most urban programme tables July is identical to June for every place, which is <a href="#N8">N8</a>.
+      On 14 September I checked every figure on this page again, and captured the paging fault again with every request and response ID kept. I found two more things. The paging fault also drops a few rows from small tables, which I have added to <a href="#N1">N1</a>. And in most urban programme tables July is identical to June for every place, which is <a href="#N8">N8</a>.
     </p>
     <p>
-      I also found mistakes in my own 2 September list. They are corrected at the end, with what went wrong.
+      I also found mistakes in my own 2 September list, and in earlier versions of this page. They are corrected at the end, with what went wrong.
     </p>
   </div>
 
@@ -281,9 +281,9 @@ footer.end{margin-top:70px;padding-top:18px;border-top:1px solid var(--rule);fon
   <p class="sec-lead status-key"><b>How to read the statuses.</b> A status only records what the team that owns the data has changed. Nothing on this list is marked fixed because of my work. What I have done sits in two separate places: <a href="#built">how I worked around these problems in the app</a>, and <a href="#fix-pack">fixes I have proposed</a>, which nobody has adopted yet.</p>
 
   <div class="meta">
-    <span><b>Checked:</b> all 42 datasets in the catalogue, live, 11 September 2026</span>
+    <span><b>Checked:</b> all 42 datasets in the catalogue, live, 11 September 2026, figures rechecked 14 September</span>
     <span><b>Previous version:</b> 2 September 2026, 33 datasets</span>
-    <span><b>PDF:</b> <a href="SASA-data-issues-2026-09-11.pdf">11 September</a>, <a href="SASA-data-issues-2026-09-02.pdf">2 September</a></span>
+    <span><b>PDF:</b> <a href="SASA-data-issues-2026-09-14.pdf">14 September</a>, <a href="SASA-data-issues-2026-09-11.pdf">11 September</a>, <a href="SASA-data-issues-2026-09-02.pdf">2 September</a></span>
     <span><b>Owners:</b> <span class="tag o-dept"><i></i>Department</span> <span class="tag o-tcs"><i></i>TCS</span> <span class="tag o-ng"><i></i>NextGen</span> <span class="tag o-joint"><i></i>Either, needs routing</span></span>
   </div>
 </header>
@@ -344,17 +344,16 @@ footer.end{margin-top:70px;padding-top:18px;border-top:1px solid var(--rule);fon
   <article data-status="new" class="item single" id="N1"><span class="id">N1</span><div class="body">
     <div class="head"><h3>Paging and export do not return the CDMA daily files complete</h3><div class="tags"><span class="tag o-joint"><i></i>NextGen or TCS</span><span class="chip st-new">New</span></div></div>
     <p>The row count is always right. The rows are not. Both ways of getting the data out return the correct number of rows, but about half of them are repeats standing in for rows that never arrive. Nothing in the response says so.</p>
-    <div class="ev"><b>msw_door_to_door_collection_api</b>, checked 11 September.<br>
+    <div class="ev"><b>msw_door_to_door_collection_api</b>, captured again on 14 September with every request and response ID kept (<a href="https://github.com/prucodes/sasa-data-issues/blob/main/fix-pack/paging-evidence.md">paging evidence</a>).<br>
 The file should hold one row per secretariat per day. 4,023 secretariats &times; 16 days = <b>64,368</b>, which is exactly the total the API reports.<br><br>
 <b>Export</b>, one call per district for all 26 district codes: 64,368 rows back, only <b>32,206</b> different. Some rows arrive up to 8 times.<br>
 <b>Paging</b> through the whole file on 8 September: 64,368 rows back, <b>40,636</b> different.<br>
 The two routes miss different rows. In Visakhapatnam export gave 4,614 different rows and paging gave 5,067, and only 2,741 were in both.<br>
-Paging again does not help. A second full pass over Visakhapatnam found no new rows at all.<br>On the same day, 11 September, paging and export disagree. Of 3,947 different rows I paged from across the file, <b>2,104 were not in that day&rsquo;s export</b>. So the gap comes from how the rows are served, not from the data changing between pulls.<br>
-I exported six districts a second time. <b>The same rows came back, repeated the same number of times, in all six.</b> This is not random. The export gives the same half every time: 1,439 of 2,880 rows in Anantapuram, 4,614 of 9,216 in Visakhapatnam.<br><b>Waste segregation and wet waste processing</b> lose rows the same way. In the same six districts, 12,507 of 25,024 and 12,539 of 25,088 rows were different, 50.0% each.<br><br>
-Everything I could get by every route put together: <b>50,634 of 64,368 rows (78.7%)</b>.<br>
-The gaps are not spread evenly. 12 August comes back complete, 1 row is missing for 13 August, and 2,858 are missing for 27 August.<br><br>
-<b>identification_of_bulk_waste_generators_api</b> behaves the same way: 64,528 rows back by export, 32,286 different, 50,777 of 64,528 (78.7%) by every route together.<br><br>
-<b>It happens in small tables too.</b> At the 100 row page boundary a few rows are replaced by repeats from the page before, so the total still matches. Compost pits and soak pits are missing Nellore for April, June and July 2026. Magic drains is missing Guntur for October and December. Legacy waste clearance is missing Tirupati, Venkatagiri and Sullurpet for July. New IHHL identification is missing Kanigiri and Giddalur for July. Sewage repeats 6 rows and the green programme table 5. The same rows repeat, in the same places, in my 28 August copies, and the export route returns exactly the same gaps. A query filtered to one district or one month, small enough to fit a single page, does return the missing rows, which is how I recovered them on 14 September.</div>
+Plain paging and export disagree on the same day. On 14 September, of 3,915 different rows on 40 pages spread across the file, <b>1,766 were not in that day&rsquo;s export</b>. So the gap comes from how the rows are served, not from the data changing between pulls.<br>
+Repeating a route does not help. I exported Anantapuram, Chittoor and Markapuram twice, and <b>the same rows came back, repeated the same number of times.</b> Paging Anantapuram and Chittoor returned exactly the same rows as exporting them. This is not random. The export gives the same half every time: 1,439 of 2,880 rows in Anantapuram, 4,614 of 9,216 in Visakhapatnam, and 32,206 across all 26 district codes on both 11 and 14 September.<br><b>Waste segregation, bulk waste generators and wet waste processing</b> lose rows the same way. By export, 32,206 of 64,368, 32,286 of 64,528 and 32,286 of 64,528 rows were different, 50.0% each.<br><br>
+Everything I hold from every route put together: <b>50,477 of 64,368 rows (78.4%)</b>, and 50,571 of 64,528 (78.4%) for bulk waste generators.<br>
+The gaps are not spread evenly. 12 August comes back complete, 1 row is missing for 13 August, and 2,860 are missing for 27 August.<br><br>
+<b>It happens in small tables too.</b> At the 100 row page boundary a few rows are replaced by repeats from the page before, so the total still matches. Compost pits and soak pits are missing Nellore for April, June and July 2026. Magic drains is missing Guntur for October and December. Legacy waste clearance is missing Tirupati, Venkatagiri and Sullurpet for July. New IHHL identification is missing Kanigiri and Giddalur for July. Sewage repeats 6 rows and the green programme table 5. The same rows repeat, in the same places, in my earlier copies (28 August for legacy waste, 8 September for the rest), and the export route returns exactly the same gaps. A query filtered to one district or one month, small enough to fit a single page, does return the missing rows, which is how I recovered them on 14 September.</div>
     <p class="ask"><b>What would fix this:</b> every row served exactly once, by paging and by export. My guess is that the query underneath has no fixed sort order, so each page is cut from a different ordering, but I cannot confirm that from outside. Until it is fixed, any total built from these files is built on a partial file.</p>
   </div></article>
 
@@ -372,7 +371,7 @@ The old keys still answer, so anyone reading them gets different data under the 
     <div class="head"><h3>One table served under several dataset names</h3><div class="tags"><span class="tag o-tcs"><i></i>TCS</span><span class="chip st-new">New</span></div></div>
     <div class="ev">The door to door e-autos, push carts and tri-cycles keys, and the machinery e-autos service model key, all return the <b>same 84 rows</b>. The API names <code>d2d_collection_vehicles_api</code> as the table behind all four.<br>
 The three 50 percent green programme keys return the <b>same 400 rows</b>, from <code>apgbc_info_new1_api</code>.<br>
-<code>soak_pits_api</code> returns all <b>336 Compost Pits rows</b>, identical, and its own <code>work_name</code> column says Compost Pits.<br><code>waste_egregation_api</code> is the door to door collection file without the <code>collected_households</code> column. In the six districts I exported, all 25,024 segregation rows match a collection row column for column.<br><br>
+<code>soak_pits_api</code> returns all <b>336 Compost Pits rows</b>, identical, and its own <code>work_name</code> column says Compost Pits.<br><code>waste_egregation_api</code> is the door to door collection file without the <code>collected_households</code> column. Across all 26 district exports on 14 September, every one of the 64,368 segregation rows matches a collection row column for column.<br><br>
 Read as separate programmes, these get counted two, three or four times.</div>
     <p class="ask"><b>What would fix this:</b> one key per table. Where keys have to share a table, say so in the catalogue.</p>
   </div></article>
@@ -390,7 +389,7 @@ Some other changes, such as Giddalur to Markapuram and Kandukur to Prakasam, mat
 
   <article data-status="new" class="item single" id="N5"><span class="id">N5</span><div class="body">
     <div class="head"><h3>Markapuram has no district code in the CDMA daily files</h3><div class="tags"><span class="tag o-tcs"><i></i>TCS</span><span class="chip st-new">New</span></div></div>
-    <div class="ev">In both daily files <code>district_code</code> is the text <b>NULL</b> for Markapuram: 816 rows each, covering Markapur, Kanigiri, Giddalur and Podili. Every other district has a number. Filtering on <code>district_code: "NULL"</code> does return them.<br><br>
+    <div class="ev">In all four CDMA daily files <code>district_code</code> is the text <b>NULL</b> for Markapuram: 816 rows each, covering Markapur, Kanigiri, Giddalur and Podili. Every other district has a number. Filtering on <code>district_code: "NULL"</code> does return them.<br><br>
 Markapuram became a district on 31 December 2025, so it looks as if the new district was never given a code in this feed.</div>
     <p class="ask"><b>What would fix this:</b> give Markapuram its LGD district code in the CDMA feeds.</p>
   </div></article>
@@ -400,26 +399,28 @@ Markapuram became a district on 31 December 2025, so it looks as if the new dist
     <div class="ev">In <code>identification_of_bulk_waste_generators_api</code>, <code>no_of_bwgs</code> should be a number. For some Vijayawada secretariats it holds text:<br>
 <code>secretariat_name: "62-Fire Station Area"</code>, <code>no_of_bwgs: " Prakash Nagar"</code>, <code>i_ts: "1"</code><br>
 <code>secretariat_name: "02-Machavaram Masi"</code>, <code>no_of_bwgs: "id Area"</code>, <code>i_ts: "0"</code><br><br>
-The secretariat name has been split at a comma or cut short, and the rest has been pushed into the next columns. In the rows I could retrieve there are 18 counts like this and 15 that are missing.</div>
+The secretariat name has been split at a comma or cut short, and the rest has been pushed into the next columns. In the 50,571 different rows I could retrieve there are 27 counts like this and 31 that are missing.</div>
     <p class="ask"><b>What would fix this:</b> quote text fields properly when the file is loaded. The same fix would also remove the stray quote marks in <a href="#A1">A1</a>.</p>
   </div></article>
 
   <article data-status="new" class="item single" id="N7"><span class="id">N7</span><div class="body">
     <div class="head"><h3>PR door to door stops at 7 August and stores every day three times</h3><div class="tags"><span class="tag o-joint"><i></i>Dept or TCS</span><span class="chip st-new">New</span></div></div>
     <div class="ev">July: 13,351 gram panchayats &times; 31 days &times; 3 copies = <b>1,241,643</b>, exactly the total the API reports.<br>
-August: 13,351 &times; 7 days &times; 3 copies = <b>280,371</b>, again exactly the reported total.<br><br>
-On 11 September August still holds only 1 to 7 August, more than five weeks after the month ended. There is no September data. May, June and July are unchanged.</div>
+August: 13,351 &times; 7 days &times; 3 copies = <b>280,371</b>, again exactly the reported total.<br>
+13,351 is the number of different panchayat IDs in the rows I retrieved, and May and June add up the same way. The rows do not come back three per day, though. In my July pull 42,889 panchayat days came back once and a few up to 46 times, so paging loses and repeats rows here too (<a href="#N1">N1</a>). From May to 7 August, 1,285,814 of the 1,321,749 panchayat days came back.<br><br>
+On 11 and 14 September August still holds only 1 to 7 August, more than five weeks after the month ended. There is no September data. May, June and July are unchanged.</div>
     <p class="ask"><b>What would fix this:</b> one copy of each panchayat day, and the rest of August. If the three copies are deliberate, say what makes them different.</p>
   </div></article>
 
   <article data-status="new" class="item single" id="N8"><span class="id">N8</span><div class="body">
     <div class="head"><h3>July repeats June in most urban monthly datasets</h3><div class="tags"><span class="tag o-joint"><i></i>Dept or TCS</span><span class="chip st-new">New</span></div></div>
     <p>In most urban programme tables, July is the same as June for every place, down to the last digit. Nothing in the rows says whether July was reported again with no change, or June was copied forward.</p>
-    <div class="ev">Checked on my 11 September copies, with the rows lost at page boundaries recovered on 14 September (<a href="#N1">N1</a>), comparing every field except the month.<br>
+    <div class="ev">Checked on my 10 September copies, which matched the live tables on 11 September, with the rows lost at page boundaries recovered on 14 September (<a href="#N1">N1</a>), comparing every field except the month.<br>
 <b>Collection vehicles</b>, the one table behind the four vehicle keys (<a href="#N3">N3</a>): identical for all 28 districts from May to June, and again from June to July.<br>
 <b>New IHHL identification:</b> 123 of 123 ULBs. <b>ISWM processing facilities:</b> 108 of 108. <b>Sweeping machines:</b> 13 of 13. <b>Compactors:</b> 12 of 12. <b>CBG units:</b> 6 of 6. <b>C&amp;D waste plants:</b> 3 of 3.<br>
+<b>Sewage treatment plants:</b> 121 of 121. <b>FSTP and co-treatment plants:</b> 35 of 35, and those July rows still say JUNE (<a href="#A5">A5</a>): apart from the month number, they are the June rows.<br>
 <b>Magic drains:</b> all 28 districts from June to July, and from July to August. <b>Compost pits</b> and soak pits (<a href="#N3">N3</a>): 27 of 28 districts from July to August.<br><br>
-Legacy waste clearance is different: 95 of 123 ULBs repeat June, but 28 changed, so I have not counted it as a copied month. The district target and achievement tables for community sanitary complexes, household toilets and sewage also change between months, so this is not the whole catalogue.</div>
+Legacy waste clearance is different: 95 of 123 ULBs repeat June, but 28 changed, so I have not counted it as a copied month. Other tables do change. From June to July, achievement changed for 25 of 28 districts in community sanitary complexes, 27 in housing IHHL construction and 17 in SBM IHHL construction. The three MEPMA tables changed for 58 to 87 of 123 ULBs, and in the green programme table 37 of 198 places changed. So this is not the whole catalogue.</div>
     <p class="ask"><b>What would fix this:</b> say whether each of these months was reported or carried forward. If a value is carried forward, mark it on the row with the date it was last reported, as in the <a href="https://github.com/prucodes/sasa-data-issues/blob/main/fix-pack/data-contract.md">proposed data contract</a>.</p>
   </div></article>
 </section>
@@ -432,7 +433,7 @@ Legacy waste clearance is different: 95 of 123 ULBs repeat June, but 28 changed,
     <div class="head"><h3>The same town has different names in different datasets</h3><div class="tags"><span class="tag o-joint"><i></i>Dept or TCS</span><span class="chip st-not">Not fixed</span></div></div>
     <div class="when">
       <div><span class="label">2 September</span><p>ULB names changed from file to file. Atmakur had 10 spellings and Gudur had 10. Two names came back with quote marks inside the value, <code>"JANGAREDDY GUDEM"</code> and <code>"YSR TADIGADAPA"</code>.</p></div>
-      <div class="now"><span class="label">11 September</span><p>Every example is still there, and the new datasets added more. <b>Atmakur now has 14 spellings and Gudur 13.</b> Quote marks now appear inside <b>17 names across 10 datasets</b>, for example <code>"Palasa Kasibugga"</code> and <code>"GVMC VISAKHAPATNAM"</code>. There is still no ULB ID.</p></div>
+      <div class="now"><span class="label">11 September</span><p>Every example is still there, and the new datasets added more. <b>Atmakur now has 14 spellings and Gudur 13</b>, counting every form written in my 10 September copies of the small tables and the CDMA daily files, including forms that differ only by quote marks. Quote marks now appear inside <b>17 names across 10 datasets</b>, for example <code>"Palasa Kasibugga"</code> and <code>"GVMC VISAKHAPATNAM"</code>. There is still no ULB ID.</p></div>
     </div>
     <p class="ask"><b>What would fix this:</b> a permanent ULB ID on every dataset, old and new. The counts are higher partly because the catalogue grew from 33 to 42 datasets.</p>
   </div></article>
@@ -451,7 +452,7 @@ Legacy waste clearance is different: 95 of 123 ULBs repeat June, but 28 changed,
     <div class="head"><h3><code>ulb_code</code> holds the mandal code, not a ULB code</h3><div class="tags"><span class="tag o-tcs"><i></i>TCS</span><span class="chip st-not">Not fixed</span></div></div>
     <div class="when">
       <div><span class="label">2 September</span><p>487 of 500 rows checked had <code>ulb_code</code> equal to <code>api_lgd_mandal_code</code>. GVMC showed that a mandal code cannot identify a ULB that covers several mandals.</p></div>
-      <div class="now"><span class="label">11 September</span><p>Checked on every row I could retrieve: <b>31,362 of 32,206 (97.4%)</b> still match the mandal code. GVMC still has <code>ulb_code</code> 1086 alongside four mandal codes: 1086, 1087, 1089 and 4865. No dataset has an LGD urban local body code.</p></div>
+      <div class="now"><span class="label">11 September</span><p>Checked on every row I could retrieve: <b>49,221 of 50,477 (97.5%)</b> still match the mandal code. GVMC still has <code>ulb_code</code> 1086 alongside four mandal codes: 1086, 1087, 1089 and 4865. No dataset has an LGD urban local body code.</p></div>
     </div>
     <p class="ask"><b>What would fix this:</b> the LGD urban local body code. This is going into every dataset now, so it is cheaper to correct before that than after.</p>
   </div></article>
@@ -478,7 +479,7 @@ Legacy waste clearance is different: 95 of 123 ULBs repeat June, but 28 changed,
     <div class="head"><h3>There is no way to tell if a number is monthly or cumulative</h3><div class="tags"><span class="tag o-dept"><i></i>Dept</span><span class="chip st-not">Not fixed</span></div></div>
     <div class="when">
       <div><span class="label">2 September</span><p>SERP circular economy showed 11,084 against a target of 5,000, which is 221%, because the field is cumulative while similar datasets are monthly.</p></div>
-      <div class="now"><span class="label">11 September</span><p>The same 11,084 against 5,000. One of the three SERP catalogue descriptions now says cumulative. The other two do not, and nothing in the data marks it.</p></div>
+      <div class="now"><span class="label">11 September</span><p>The same 11,084 against 5,000, summed over its 28 district rows. One of the three SERP catalogue descriptions now says cumulative, for Swachhata awareness. Circular economy and kitchen garden still do not, and nothing in the data marks it.</p></div>
     </div>
     <p class="ask"><b>What would fix this:</b> say for each measure whether it is monthly or cumulative, and give the denominator for every percentage.</p>
   </div></article>
@@ -515,7 +516,7 @@ Legacy waste clearance is different: 95 of 123 ULBs repeat June, but 28 changed,
     <div class="head"><h3>Fields with no documentation</h3><div class="tags"><span class="tag o-tcs"><i></i>TCS</span><span class="chip st-not">Not fixed</span></div></div>
     <div class="when">
       <div><span class="label">2 September</span><p><code>active_indicator</code> and <code>i_ts</code> were undocumented. I withdrew <code>a_in</code>, <code>s_no</code> and <code>u_ts</code> because no live dataset had them.</p></div>
-      <div class="now"><span class="label">11 September</span><p><code>active_indicator</code> is still there and is 1 on every row. <code>i_ts</code> is still undocumented. <b>The three fields I withdrew now exist</b> in the four datasets that arrived later. The integration guide I have does not describe any of them.</p></div>
+      <div class="now"><span class="label">11 September</span><p><code>active_indicator</code> is still there and is 1 on every row. <code>i_ts</code> is still undocumented. <b>The three fields I withdrew now exist</b> in the four datasets that arrived later, <code>s_no</code> in three of them. The integration guide I have does not describe any of them.</p></div>
     </div>
     <p class="ask"><b>What would fix this:</b> document these fields or take them out.</p>
   </div></article>
@@ -542,7 +543,7 @@ Legacy waste clearance is different: 95 of 123 ULBs repeat June, but 28 changed,
     <div class="head"><h3>Most daily collection values are zero and none are blank</h3><div class="tags"><span class="tag o-dept"><i></i>Dept</span><span class="chip st-not">Not fixed</span></div></div>
     <div class="when">
       <div><span class="label">2 September</span><p>From 23 samples of 100 rows across the file: 93% of <code>collected_households</code> values were zero and none were blank.</p></div>
-      <div class="now"><span class="label">11 September</span><p><b>Only 12 August has real reporting.</b> That day is complete, all 4,023 secretariats, and 42.3% of them report zero collection. On every day from 13 to 27 August, <b>99.5% to 99.9%</b> of the values I could retrieve are zero. Across everything retrieved it is 95.2%, but that average hides the pattern. Still no blank or null values (<a href="#N1">N1</a> covers what could not be retrieved).</p></div>
+      <div class="now"><span class="label">11 September</span><p><b>Only 12 August has real reporting.</b> That day is complete, all 4,023 secretariats, and 42.3% of them report zero collection. On every day from 13 to 27 August, <b>99.5% to 99.9%</b> of the values I could retrieve are zero. Across everything retrieved it is 95.1%, but that average hides the pattern. Still no blank or null values (<a href="#N1">N1</a> covers what could not be retrieved).</p></div>
     </div>
     <p class="ask"><b>What cannot be told apart:</b> whether collection is not happening, which would be serious, or whether it is not being reported. The app does show urban collection for one reference day, 12 August, and counts a reported zero as no collection. I label it as one reported day and not a service rating, and I will not treat it as performance until this is answered. My 2 September wording about districts was also wrong, see the corrections at the end.</p>
   </div></article>
@@ -553,7 +554,7 @@ Legacy waste clearance is different: 95 of 123 ULBs repeat June, but 28 changed,
       <div><span class="label">2 September</span><p>ODF Plus had every district twice for May, and 10 pairs disagreed. Alluri Sitharama Raju was 1,296 or 389. Sweeping machines had Nellore as 19 and 4 machines in June and again in July.</p></div>
       <div class="now"><span class="label">11 September</span><p>ODF Plus has no duplicates now, but only because the table was replaced by 28 rows with no months and different targets (<a href="#N2">N2</a>). Alluri Sitharama Raju&rsquo;s target went from 1,323 to 2,115. The May question was never answered. <b>Sweeping machines is unchanged</b>: Nellore is still 19 and 4 in both months.</p></div>
     </div>
-    <div class="ev">Identical copies still in the data: legacy waste 3 pairs, IHHL 2 pairs, and the new sewage treatment dataset 6 pairs. PR SWPC operators lists every one of its 28 districts twice.</div>
+    <div class="ev">Identical copies still in the data: PR SWPC operators lists every one of its 28 districts twice.</div>
     <p class="ask"><b>What would fix this:</b> someone who knows the source says which Nellore row is right. After that, <a href="#A8">A8</a> would stop this happening again.</p>
   </div></article>
 </section>
@@ -642,7 +643,7 @@ Legacy waste clearance is different: 95 of 123 ULBs repeat June, but 28 changed,
     <div class="head"><h3>Agree on LGD codes, and on which LGD code</h3><div class="tags"><span class="tag o-joint"><i></i>All three</span><span class="chip st-partly">Partly fixed</span></div></div>
     <div class="when">
       <div><span class="label">2 September</span><p>LGD was partly in the data under two conventions, and there was no LGD urban local body code.</p></div>
-      <div class="now"><span class="label">11 September</span><p>LGD district and mandal codes are now in many datasets. There is still no LGD urban local body code. The district code appears under three column names, and the old name columns were kept, so one row can carry <code>dstrt_nm</code>, <code>district_name</code> and <code>lgd_district_name</code>. Some of the new codes are wrong (<a href="#N4">N4</a>).</p></div>
+      <div class="now"><span class="label">11 September</span><p>LGD district and mandal codes are now in many datasets. There is still no LGD urban local body code. The district code appears under three column names, and the old name columns were kept, so one row carries two district name columns, for example <code>dstrt_nm</code> and <code>district_name</code>, or <code>district_name</code> and <code>lgd_district_name</code>. Some of the new codes are wrong (<a href="#N4">N4</a>).</p></div>
     </div>
     <div class="ev">LGD district code columns: lgd_dist_code, lgd_district_code, api_lgd_dist_code</div>
     <p class="ask"><b>Still to agree:</b> the ULB code, one column name for each code, and whether the old name columns go.</p>
@@ -675,7 +676,7 @@ Legacy waste clearance is different: 95 of 123 ULBs repeat June, but 28 changed,
     <span class="eyebrow">Keeping the data</span>
     <div class="built">
       <div class="row"><div><h3>I keep my own copy of every dataset</h3><div class="refs"><a href="#B6">B6</a> <a href="#A8">A8</a></div></div>
-        <p>The app reads saved copies, not the live API. Each copy records the table key, response ID, filters, retrieval time, row counts and a fingerprint of its content, so I can see when a dataset changes and accept each new version on purpose. On 10 September I kept 36 of the 42 datasets in the catalogue: 27 unchanged and 9 revised.</p></div>
+        <p>The app reads saved copies, not the live API. Each copy records the table key, response ID, filters, retrieval time, row counts and a fingerprint of its content, so I can see when a dataset changes and accept each new version on purpose. By 10 September I held a copy of all 42 datasets in the catalogue. Of the 36 small tables, 27 were unchanged since my previous copy and 9 had been revised.</p></div>
       <div class="row"><div><h3>I kept the older copies that still have history</h3><div class="refs"><a href="#N2">N2</a></div></div>
         <p>ODF Plus, plastic waste units and FSTPs lost their months in the September revision. My 28 August copies still have May to July, so I kept them beside the new versions instead of replacing them.</p></div>
       <div class="row"><div><h3>A pull is complete only when the rows are</h3><div class="refs"><a href="#N1">N1</a> <a href="#N7">N7</a></div></div>
@@ -697,7 +698,7 @@ Legacy waste clearance is different: 95 of 123 ULBs repeat June, but 28 changed,
       <div class="row"><div><h3>Months are compared on the same days</h3><div class="refs"><a href="#N7">N7</a></div></div>
         <p>August stops at day 7, so I compare May to August on days 1 to 7 only, for a fixed group of <b>85,769</b> panchayat days that have a valid value in every month. On that basis reported rural collection went from <b>74.71% to 73.42%</b>. I do not compare months of different lengths on their own totals.</p></div>
       <div class="row"><div><h3>Sundays and second Saturdays are shown separately</h3><div class="refs"><a href="#A13">A13</a></div></div>
-        <p>Sundays report 1.8% to 3.0% statewide and second Saturdays about 11%, against 82% to 94% on working days. Those are scheduled non collection days, not failures. The app shows the rate with every day counted and with working days only (<b>86.82% to 85.24%</b>), says which one is on screen, and lists the days it left out.</p></div>
+        <p>From 1 May to 7 August the 14 Sundays report 1.8% to 3.0% statewide and the three second Saturdays 10.9% to 12.7%. Most working days report 82% to 94%, 75 of the 82. Five more report 69.7% to 81.9%, and two fall to 13% (28 May) and 9% (26 June), which the app lists as low reporting days. Sundays and second Saturdays are scheduled non collection days, not failures. The app shows the rate with every day counted and with working days only (<b>86.82% to 85.24%</b>), says which one is on screen, and lists the days it left out.</p></div>
       <div class="row"><div><h3>Capacity is not output</h3><div class="refs"><a href="#A9">A9</a></div></div>
         <p>TPD and KLD figures are shown as configured capacity, never as waste processed. Legacy waste cleared is shown as reported, not as verified.</p></div>
     </div>
@@ -717,14 +718,14 @@ Legacy waste clearance is different: 95 of 123 ULBs repeat June, but 28 changed,
       <div class="row"><div><h3>Data I hold back</h3><div class="refs"><a href="#A5">A5</a> <a href="#A13">A13</a></div></div>
         <p>The 35 FSTP rows with conflicting months are kept but not scored. The 2024 Swachh Survekshan results are kept apart from 2026 operations. Neither is treated as performance.</p></div>
       <div class="row"><div><h3>Urban daily collection is shown for one day</h3><div class="refs"><a href="#A13">A13</a> <a href="#N1">N1</a></div></div>
-        <p>Gap Radar places and ranks <b>108 of 123 ULBs</b> on collection reach and segregation for one reference day, 12 August, against draft 80% lines that are not approved targets. The rest are held out because their codes need review, or they have no households or no collection reported. A reported zero counts as no collection, which is exactly the problem in <a href="#A13">A13</a>. My 8 September pull held only <b>3,024 of the 4,023</b> secretariats for that day (<a href="#N1">N1</a>), so I rebuilt it from every pull I have. Both files now have all 4,023, and no two pulls disagree on any row. Collection for the day moved from <b>56.9% to 56.1%</b>, 5 more ULBs are placed, and 2 changed category. The other days in the app are still the 8 September pull and are not complete.</p></div>
+        <p>Gap Radar places and ranks <b>112 of 123 ULBs</b> on collection reach and segregation for one reference day, 12 August, against draft 80% lines that are not approved targets. The rest are held out because their codes need review, or they have no households or no collection reported. A reported zero counts as no collection, which is exactly the problem in <a href="#A13">A13</a>. My 8 September pull held only <b>3,024 of the 4,023</b> secretariats for that day (<a href="#N1">N1</a>), so I rebuilt it from every pull I have. Both files now have all 4,023, and no two pulls disagree on any row. Collection for the day moved from <b>56.9% to 56.1%</b>, 5 more ULBs were placed and 2 changed category. On 14 September I also placed Markapuram&rsquo;s four ULBs, using the LGD district code each of their rows carries (<a href="#N5">N5</a>). No other ULB moved. The other days in the app are still the 8 September pull and are not complete.</p></div>
     </div>
   </div>
 </section>
 
 <section>
   <div class="sec-h"><span class="eyebrow">Check it yourself</span><h2>Six you can reproduce in a few minutes</h2></div>
-  <p class="sec-lead">Each of these can be run in the Data Lake playground. I ran every one on 11 September.</p>
+  <p class="sec-lead">Each of these can be run in the Data Lake playground. I ran every one on 11 September, and again on 14 September with the same results.</p>
   <ol class="repro">
     <li><span class="ref">N1</span><div><p><b>The export returns repeats instead of rows.</b> Export <code>msw_door_to_door_collection_api</code> with the filter <code>district_code: "NULL"</code>.</p>
       <div class="how">It returns 816 rows. Count the different pairs of date1 and sachivalayam_code: there are 409. The file should have 816, one for each secretariat on each of 16 days.<br>Run the same export again and the same 409 come back, each repeated the same number of times.</div></div></li>
@@ -834,7 +835,7 @@ Legacy waste clearance is different: 95 of 123 ULBs repeat June, but 28 changed,
       <h3><i style="background:var(--joint)"></i>Code defects</h3>
       <div class="sub">one row for every code problem I could confirm</div>
       <ul>
-        <li>18 codes that point to a different district, and ULBs carrying two mandal codes in the same district: 80 in the Swachh Survekshan table and 77 in the green programme table.<span class="ref">N4 C1</span></li>
+        <li>12 district or town labels that carry LGD codes from more than one district, 18 rows when each of the three green programme keys is counted. ULBs carrying two mandal codes in the same district: 80 in the Swachh Survekshan table and 77 in the green programme table.<span class="ref">N4 C1</span></li>
         <li>Markapuram&rsquo;s missing code, <code>ulb_code</code> holding the mandal code, and <code>district_id</code> meaning different places. <a href="https://github.com/prucodes/sasa-data-issues/blob/main/fix-pack/code-defects.csv">code-defects.csv</a>.<span class="ref">N5 A3 A2</span></li>
       </ul>
     </div>
@@ -850,7 +851,15 @@ Legacy waste clearance is different: 95 of 123 ULBs repeat June, but 28 changed,
       <h3><i style="background:var(--ng)"></i>Paging evidence</h3>
       <div class="sub">so the platform team can reproduce N1 without me</div>
       <ul>
-        <li>The requests, how to count, what I found, and a three part test that would show it is fixed. <a href="https://github.com/prucodes/sasa-data-issues/blob/main/fix-pack/paging-evidence.md">paging-evidence.md</a>.<span class="ref">N1</span></li>
+        <li>The requests, how to count, what I found on 14 September with every response ID, the raw responses for two districts, and a three part test that would show it is fixed. <a href="https://github.com/prucodes/sasa-data-issues/blob/main/fix-pack/paging-evidence.md">paging-evidence.md</a>.<span class="ref">N1</span></li>
+      </ul>
+    </div>
+    <div class="owner wide">
+      <h3><i style="background:var(--joint)"></i>Proposed ULB registry</h3>
+      <div class="sub">one row per ULB, with every code and spelling found</div>
+      <ul>
+        <li>126 ULBs: the 123 in the MEPMA tables, and 3 that only the CDMA daily files have, B Kothakota, Podili and Alluru. Tadepalli, Anakapalle and Bheemunipatnam are in the MEPMA tables but not in the CDMA daily files.<span class="ref">A1 A11</span></li>
+        <li>Each row carries the MEPMA ID, the CDMA code, the LGD codes and every spelling, and 12 matches are flagged for review. The LGD urban local body code column is empty, because no dataset has one. <a href="https://github.com/prucodes/sasa-data-issues/blob/main/fix-pack/ulb-registry-proposed.csv">ulb-registry-proposed.csv</a>.<span class="ref">A3 C1</span></li>
       </ul>
     </div>
   </div>
@@ -858,13 +867,22 @@ Legacy waste clearance is different: 95 of 123 ULBs repeat June, but 28 changed,
 
 <section>
   <div class="sec-h"><span class="eyebrow">Corrections</span><h2>What I got wrong</h2></div>
-  <p class="sec-lead">I would rather list my own mistakes than leave them for someone else to find. These are the ones in my 2 September list.</p>
+  <p class="sec-lead">I would rather list my own mistakes than leave them for someone else to find. The first two are from my 2 September list. Three more were in earlier versions of this page, and I found them when I checked every figure again on 14 September.</p>
 
   <div class="fix"><span class="label">Wrong on 2 September</span><h3>Bobbilli does exist</h3>
     <p>My 2 September corrections said Bobbilli does not exist in the live data. <b>That was wrong.</b> BOBBILLI is in the three MEPMA datasets, both in my 28 August copy and live today. My check was case sensitive and missed the all capitals spelling. The original A1 example was right.</p></div>
 
   <div class="fix"><span class="label">Wrong on 2 September</span><h3>No district is zero on every row</h3>
     <p>I wrote that eleven of twenty three sample points were zero on every row, and the actions listed Konaseema, Visakhapatnam, West Godavari and Nandyal as zero districts. The sample points were slices of 100 rows, not whole districts. Counted over every row I could retrieve, no district is entirely zero.</p></div>
+
+  <div class="fix"><span class="label">Wrong on 11 September</span><h3>Identical copies that were the paging fault</h3>
+    <p>Under <a href="#A14">A14</a> I listed identical copies in legacy waste (3 pairs), IHHL (2) and sewage (6) as problems in the data. <b>They were not.</b> They were rows lost at a 100 row page boundary and replaced by repeats (<a href="#N1">N1</a>), and a filtered query returns the real rows. The only identical copies left are the doubled districts in PR SWPC operators.</p></div>
+
+  <div class="fix"><span class="label">Wrong on 14 September</span><h3>Sewage and FSTPs do repeat June</h3>
+    <p>The first version of <a href="#N8">N8</a> said sewage changes between months and did not list FSTPs. <b>Both repeat June for every plant</b>, 121 of 121 and 35 of 35. My check treated the sewage record ID as part of each plant&rsquo;s identity and read the FSTP month from its name, so those months were never compared. The validation script in the <a href="#fix-pack">fix pack</a> had the same two faults, and is corrected.</p></div>
+
+  <div class="fix"><span class="label">Imprecise before 14 September</span><h3>Smaller corrections</h3>
+    <p>Second Saturdays report 10.9% to 12.7%, not about 11%, and 75 of 82 working days report 82% to 94%, not all of them. <code>s_no</code> is in three of the four later datasets, not all four. No dataset carries three district name columns in one row, only two. On 10 September I held all 42 datasets, not 36; the 36 are the small tables. The small table repeats are also in my 8 September copies, and only legacy waste has them in a 28 August copy. The N1, A3 and N6 counts now come from the 14 September capture, which keeps every request. My earlier union of every route, 50,634 rows, included pages I no longer hold, and my earlier A3 and N6 counts, 31,362 of 32,206 and 18 and 15, were not taken on every row I hold.</p></div>
 
   <div class="fix"><span class="label">Out of date</span><h3>The PDF and the link did not match</h3>
     <p>The PDF I shared on 2 September still said 26 districts in A2. The link had already been corrected to 28. This version replaces both.</p></div>
@@ -878,7 +896,7 @@ Legacy waste clearance is different: 95 of 123 ULBs repeat June, but 28 changed,
 
 <footer class="end">
   <span>SASA Intelligence Lab &middot; Data issues</span>
-  <span>Checked live 11 September 2026 &middot; first shared 2 September 2026</span>
+  <span>Checked live 11 September 2026 &middot; rechecked 14 September &middot; first shared 2 September 2026</span>
 </footer>
 </div>
 </body>

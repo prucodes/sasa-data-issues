@@ -1,0 +1,67 @@
+{
+  "tableKey": "msw_door_to_door_collection_api",
+  "filters": {
+    "district_code": "502"
+  },
+  "capturedOn": "2026-09-14T18:51:44.844Z",
+  "expectedRows": 2880,
+  "secretariatsSeen": 180,
+  "daysSeen": 16,
+  "routes": {
+    "export-1": {
+      "rows": 2880,
+      "distinctSecretariatDays": 1439,
+      "responseId": "resp-bf3016a5-9e11-472e-b611-894d4d8b09ae",
+      "generatedAt": "2026-09-14T18:49:15.514010+00:00",
+      "totalRecordCount": 2880
+    },
+    "export-2": {
+      "rows": 2880,
+      "distinctSecretariatDays": 1439,
+      "responseId": "resp-c353ca14-4abc-4d3b-a6fd-e166a7a37ee9",
+      "generatedAt": "2026-09-14T18:49:58.770046+00:00",
+      "totalRecordCount": 2880
+    },
+    "paging": {
+      "rows": 2880,
+      "distinctSecretariatDays": 1439,
+      "pages": 29,
+      "totalRecordCount": 2880,
+      "responseIds": [
+        "resp-1e4901c2-111d-4c39-8029-7274dd9e98de",
+        "resp-56e9f0f8-6f5a-46d2-8a0a-57542802933a",
+        "resp-868fff63-5f9a-48a9-8789-1717ec8f1799",
+        "resp-b514a1f3-0a68-4c5c-a366-3e2340ff6901",
+        "resp-9f16443c-e311-48d5-b1cb-5f22e9dc7e68",
+        "resp-6f75aeb1-948f-4605-8d61-8327ca3654e2",
+        "resp-696366ad-5ea0-44c8-9242-f5219135a537",
+        "resp-b17e9e95-1ac0-4c66-a423-2cb28d73e703",
+        "resp-16478f39-7da5-4aeb-8584-5719cd4bc095",
+        "resp-8a60b2be-def7-4bf3-8b12-96331c57d3ad",
+        "resp-81107898-27e7-4b53-9547-debbb792a1ea",
+        "resp-815c340e-f58d-4849-b01d-d39339406672",
+        "resp-29949a4b-9d4f-4618-9a6e-0209dc28f065",
+        "resp-e257e25e-ee59-4bbc-943a-97cc1f99ca22",
+        "resp-ecda9bc9-e012-4f2f-b59b-4aa4ed60a0ea",
+        "resp-697ee375-9d5c-462e-b704-c66ec9bfd06a",
+        "resp-747cf0b6-041d-4170-83cf-68af55d63284",
+        "resp-77c824fc-37be-40a8-9944-175aef28562f",
+        "resp-e18721c1-8807-46a4-a6ce-5caf75834769",
+        "resp-305a88f5-d75f-4d60-84ec-e307a4e650b3",
+        "resp-96fbd059-8fcb-4dd0-9171-a51009064893",
+        "resp-03446f54-3d6b-410f-9184-2ddc771a1b27",
+        "resp-547c3383-9732-41e3-94df-ffe13edbd52d",
+        "resp-ce91bad9-6e3a-4bf1-a37b-28b742bed88e",
+        "resp-d71b21e0-b45c-4ea3-905b-e6b2121dcc8b",
+        "resp-fea7c7b7-275b-4992-abb6-06710614bf73",
+        "resp-56423f07-e2f7-4b9f-b209-17a2a88ffe37",
+        "resp-ea84777f-bf1d-4c35-a0db-8a3fb94d59b5",
+        "resp-fc18a99a-b1e5-4926-be40-37c7cd748f93"
+      ]
+    }
+  },
+  "exportRepeatsIdentically": true,
+  "exportDistinctNotInPaging": 0,
+  "pagingDistinctNotInExport": 0,
+  "unionDistinct": 1439
+}

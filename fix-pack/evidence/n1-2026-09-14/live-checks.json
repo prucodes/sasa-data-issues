@@ -1,0 +1,193 @@
+{
+  "live-facts": {
+    "catalogueCount": 42,
+    "msw_door_to_door_collection_api.total": 64368,
+    "msw.firstPageDates": [
+      "2026-08-12"
+    ],
+    "waste_egregation_api.total": 64368,
+    "identification_of_bulk_waste_generators_api.total": 64528,
+    "onsite_processing_of_wet_waste_bwg_api.total": 64528,
+    "pr.month8.total": 280371,
+    "pr.month9.total": "502 {\"error\":\"upstream_request_failed\",\"message\":\"The Data Lake API could not complete this request.\"}",
+    "markapuram.NULL.total": 816,
+    "markapuram.NULL.districts": [
+      "Markapuram"
+    ],
+    "soakEqualsCompostFirstPage": true,
+    "soak.workName": [
+      "Compost Pits"
+    ],
+    "pageSize1000.rowsReturned": 100,
+    "badFilterValue.status": 502,
+    "unknownFilter.status": 400,
+    "unknownFilter.message": "{\"error\":\"upstream_validation_error\",\"message\":\"The Data Lake rejected the request: Unknown filter field(s) for tableKey 'compost_pits_api': __probe__. Allowed:",
+    "etag.changesBetweenIdenticalCalls": true,
+    "etag.present": true,
+    "gobardhan.status": 200,
+    "gobardhan.total": 28,
+    "oldFstpKey.status": 200,
+    "oldFstpKey.columns": [
+      "dstrt_id",
+      "dstrt_nm",
+      "fstps_trgt_units",
+      "fstps_achvmnt",
+      "fstps_achvmnt_prcntge",
+      "lgd_district_code",
+      "lgd_district_name"
+    ],
+    "purposeAUDIT.status": 403,
+    "purposeAUDIT.message": "{\"error\":\"upstream_forbidden\",\"message\":\"The Data Lake rejected the request: Purpose 'AUDIT' is not allowed for tableKey 'compost_pits_api'. Allowed: BENEFIT_DI"
+  },
+  "live-checks-2": {
+    "markapuram export 1": {
+      "status": 200,
+      "rows": 816,
+      "distinct": 409,
+      "multiplicities": "[[\"2026-08-12|10890684\",4],[\"2026-08-12|10890687\",4],[\"2026-08-12|10890690\",4],[\"2026-08-12|10890691\",4],[\"2026-08-12|10890692\",4]]"
+    },
+    "markapuram export 1 signature": 8997,
+    "markapuram export 2": {
+      "status": 200,
+      "rows": 816,
+      "distinct": 409,
+      "multiplicities": "[[\"2026-08-12|10890684\",4],[\"2026-08-12|10890687\",4],[\"2026-08-12|10890690\",4],[\"2026-08-12|10890691\",4],[\"2026-08-12|10890692\",4]]"
+    },
+    "markapuram export 2 signature": 8997,
+    "pr swpc": {
+      "rows": 56,
+      "total": 56,
+      "districtsTwice": 28,
+      "filters": "none, single page"
+    },
+    "pr swpc one district": {
+      "filter": "DISTRICT_ID=745",
+      "rows": 2,
+      "identical": true,
+      "status": 200
+    },
+    "legacy month_id 99": {
+      "status": 502,
+      "message": "{\"error\":\"upstream_request_failed\",\"message\":\"The Data Lake API could not complete this request.\"}"
+    },
+    "legacy __probe__": {
+      "status": 400,
+      "message": "{\"error\":\"upstream_validation_error\",\"message\":\"The Data Lake rejected the request: Unknown filter field(s) for tableKey 'sasa_100_percent_clearance_of_legacy_waste_api': __probe__. Allowed: month_id,"
+    },
+    "fstp mnth_no 7": {
+      "rows": 35,
+      "names": [
+        "JUNE"
+      ]
+    },
+    "sweeping Nellore": [
+      "JUNE:no_of_machines_supplied=19",
+      "JULY:no_of_machines_supplied=19",
+      "JUNE:no_of_machines_supplied=4",
+      "JULY:no_of_machines_supplied=4"
+    ],
+    "bobbilli live": false
+  },
+  "live-facts-3": {
+    "catalogue": {
+      "status": 200
+    },
+    "pr door to door MONTH_ID 5": {
+      "status": 200,
+      "total": 1241643
+    },
+    "pr door to door MONTH_ID 6": {
+      "status": 200,
+      "total": 1201590
+    },
+    "pr door to door MONTH_ID 7": {
+      "status": 200,
+      "total": 1241643
+    },
+    "pr door to door MONTH_ID 8": {
+      "status": 200,
+      "total": 280371
+    },
+    "pageSize 2": {
+      "status": 200,
+      "returned": 100
+    },
+    "pageSize 1000": {
+      "status": 200,
+      "returned": 100
+    },
+    "waste_segregation_api": {
+      "status": 404,
+      "error": "{\"error\":\"dataset_not_found\",\"message\":\"Unknown dataset.\"}"
+    },
+    "old FSTP key": {
+      "status": 200,
+      "total": 28,
+      "columns": [
+        "dstrt_id",
+        "dstrt_nm",
+        "fstps_trgt_units",
+        "fstps_achvmnt",
+        "fstps_achvmnt_prcntge",
+        "lgd_district_code",
+        "lgd_district_name"
+      ]
+    },
+    "BOBBILLI in sasa_mepma_entrepreneurs_promoted_for_circular_economy_api": {
+      "status": 200,
+      "rows": 615,
+      "distinct": 615,
+      "total": 615,
+      "bobbilliRows": 5
+    },
+    "BOBBILLI in sasa_mepma_households_promoted_for_home_composite_api": {
+      "status": 200,
+      "rows": 615,
+      "distinct": 615,
+      "total": 615,
+      "bobbilliRows": 5
+    },
+    "BOBBILLI in sasa_households_promoted_for_terrace_gardening_kitchen_gardens_api": {
+      "status": 200,
+      "rows": 615,
+      "distinct": 615,
+      "total": 615,
+      "bobbilliRows": 5
+    }
+  },
+  "live-facts-4": {
+    "soak vs compost export": {
+      "compost": {
+        "status": 200,
+        "rows": 336,
+        "total": 336
+      },
+      "soak": {
+        "status": 200,
+        "rows": 336,
+        "total": 336
+      },
+      "identicalRowForRow": true,
+      "soakWorkNames": [
+        "Compost Pits"
+      ]
+    },
+    "MEPMA entrepreneurs names": {
+      "status": 200,
+      "rows": 615,
+      "quotedJangareddyGudem": 5,
+      "quotedYsrTadigadapa": 5,
+      "BOBBILLI": 5
+    },
+    "purpose AUDIT": {
+      "status": 403,
+      "message": "The Data Lake rejected the request: Purpose 'AUDIT' is not allowed for tableKey 'compost_pits_api'. Allowed: BENEFIT_DISBURSEMENT."
+    },
+    "catalogue": {
+      "status": 200,
+      "datasets": 0,
+      "fields": [],
+      "replacing": []
+    }
+  }
+}
