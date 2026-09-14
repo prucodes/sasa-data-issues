@@ -95,8 +95,8 @@ Statewide figures from the 8 September pull and the full 14 September exports ca
 |---|---|---|
 | All 42 held by 10 September; 27 of the 36 small tables unchanged, 9 revised | Saved catalogue; app revision inventory | Confirmed |
 | PR door to door 3,965,247 rows to 1,285,814 panchayat days | App PR aggregate | Confirmed |
-| 85,769 panchayat days; 74.71% to 73.42%; 86.82% to 85.24% on working days | App month series aggregate | Confirmed |
-| 14 Sundays 1.8% to 3.0%; second Saturdays 10.9% to 12.7%; 75 of 82 working days 82% to 94%; 28 May 13%, 26 June 9% | App infrastructure series, daily rate | 1.83% to 3.01%; 10.92%, 11.05%, 12.67%; 82.6% to 94.2%; 13.22%, 9.31% |
+| 85,769 panchayat days; 74.71% to 73.42%; 86.82% to 85.24% without Sundays and second Saturdays | App month series aggregate | Confirmed |
+| 14 Sundays 1.8% to 3.0%; second Saturdays 10.9% to 12.7%; 75 of the other 82 days 82% to 94%; 28 May 13%, 26 June 9% | App infrastructure series, daily rate | 1.83% to 3.01%; 10.92%, 11.05%, 12.67%; 82.6% to 94.2%; 13.22%, 9.31% |
 | 84 district months, none agreeing on the target | App reconciliation | Confirmed |
 | 3,024 of 4,023 secretariats on 12 August in the 8 September pull | 8 September pull | Confirmed |
 | Gap Radar places 112 of 123 and ranks 116 on collection reach; 56.9% to 56.1%; 5 more placed and 2 changed category; Markapuram's 4 placed, no other ULB moved | `data/aggregates/ulb-service-snapshot.json` at commits f9052e6, cdd658b and 6172122; the app's ranking tests | 103, 108, 112 placed; 116 ranked on reach, because 4 ULBs report zero collection |
