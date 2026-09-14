@@ -62,7 +62,11 @@ for folder in ('current-snapshots', 'full-snapshots'):
     for f in sorted(glob.glob(f'{APP}/data/{folder}/*.json')):
         for r in load(f):
             add(os.path.basename(f)[:-5], r)
-for f in sorted(glob.glob(f'{APP}/data/large-snapshots/reference-day/{CDMA}/page-*.json')):
+reference_day = sorted(glob.glob(f'{APP}/data/large-snapshots/reference-day/{CDMA}/page-*.json'))
+if not reference_day:
+    sys.exit(f'Stopped: no CDMA reference day pages under {APP}/data/large-snapshots/reference-day/{CDMA}. '
+             'This input is too large for the repository, so a fresh clone cannot rebuild the registry; without it every ULB would look absent from CDMA.')
+for f in reference_day:
     for r in load(f):
         add(f'{CDMA} (12 August)', r, cdma=True)
 

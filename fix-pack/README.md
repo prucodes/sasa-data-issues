@@ -7,7 +7,7 @@ Most of the [data issues list](https://prucodes.github.io/sasa-data-issues/) can
 | [`validate.mjs`](validate.mjs) | Eleven checks that can run on any Data Lake JSON response before it is accepted. No dependencies, Node 18 or later | C3, and the items each check names |
 | [`validation-report.md`](validation-report.md) | The checks run on my copies of the data. [`validation-report.json`](validation-report.json) has every finding | All of the above |
 | [`code-defects.csv`](code-defects.csv) | Every code problem I could confirm, one row each, with the dataset and the values involved | N4, N5, A2, A3, C1 |
-| [`ulb-registry-proposed.csv`](ulb-registry-proposed.csv) | One row per ULB: the 123 in the MEPMA tables and 3 that only the CDMA daily files have, with the MEPMA ID, CDMA code, LGD codes and every spelling found. 12 matches are flagged for review. [`ulb-spellings-unresolved.csv`](ulb-spellings-unresolved.csv) has the one spelling I could not place, and [`tools/build-registry.py`](tools/build-registry.py) shows how each name was matched | A1, A3, A11, C1 |
+| [`ulb-registry-proposed.csv`](ulb-registry-proposed.csv) | One row per ULB: the 123 in the MEPMA tables and 3 that only the CDMA daily files have, with the MEPMA ID, CDMA code, LGD codes and every spelling found. 12 matches are flagged for review. [`ulb-spellings-unresolved.csv`](ulb-spellings-unresolved.csv) has the one spelling I could not place, and [`tools/build-registry.py`](tools/build-registry.py) shows how each name was matched. The script needs my 12 August CDMA reference day, which is too large for this repository, and stops if it is missing | A1, A3, A11, C1 |
 | [`data-contract.md`](data-contract.md) | The fields each row and measure should carry, one name per concept, and how the API should behave | A1 to A14, B2 to B7, N1 to N8 |
 | [`paging-evidence.md`](paging-evidence.md) | How to reproduce the paging and export fault, what I found on 14 September, and a test that would show it is fixed. Counts, response IDs and raw responses for two districts are in [`evidence/n1-2026-09-14`](evidence/n1-2026-09-14) | N1 |
 | [`evidence/claims-check.md`](evidence/claims-check.md) | Where every figure on the data issues page comes from, and what I checked it against on 14 September | All |
@@ -26,7 +26,7 @@ A finding means a row cannot be accepted as it stands. The script never decides 
 
 The report was run on 14 September 2026 against:
 
-1. the 36 small tables as I retrieved them on 9 and 10 September. In seven tables, rows lost at a 100-row page boundary were recovered on 14 September with one-page filtered queries, so those are complete: legacy waste clearance, compost pits, soak pits, magic drains, new IHHL identification, sewage, and the green programme table served under three keys;
+1. the 36 small tables as I retrieved them on 9 and 10 September. In seven tables, rows lost at a 100-row page boundary were recovered on 14 September with queries filtered to one district or one month, so those are complete: legacy waste clearance, compost pits, soak pits, magic drains, new IHHL identification, sewage, and the green programme table served under three keys;
 2. door to door collection and waste segregation for 12 August, the one day I could retrieve complete by combining every route;
 3. bulk waste generator identification and on site wet waste processing, from my paged pull on 8 September, which is incomplete (N1).
 

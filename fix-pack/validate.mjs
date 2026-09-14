@@ -219,7 +219,7 @@ function markdown(report) {
     const repeats = Object.entries(d.monthPairs ?? {}).filter(([, v]) => v.identical);
     if (!hits.length && !repeats.length) continue;
     lines.push(`### ${d.dataset}`, '');
-    for (const [pair, v] of repeats) lines.push(`* ${pair}: identical for ${v.identical} of ${v.places} places.`);
+    for (const [pair, v] of repeats) lines.push(`* ${pair}: identical for ${v.identical} of ${v.places} place identities (each name and code combination counts once).`);
     for (const id of hits) lines.push(`* ${RULES[id].issue}, ${RULES[id].title}: ${d.findings[id].count.toLocaleString('en-IN')}. Example: \`${JSON.stringify(d.findings[id].examples[0])}\``);
     lines.push('');
   }

@@ -11,6 +11,8 @@ Sources, as named below:
 
 Figures the page quotes from the 2 September list are what that list said, and were not checked again.
 
+Statewide figures from the 8 September pull and the full 14 September exports can be checked here only against `summary.json`; the raw rows are kept on my machine and are available on request. The two district captures in `n1-2026-09-14` can be recounted in full. Whether Sundays and second Saturdays are scheduled days off is not in the data; the rates by day are.
+
 ## Top of the page
 
 | Figure | Checked against | Result |
@@ -52,7 +54,8 @@ Figures the page quotes from the 2 September list are what that list said, and w
 | N7 | 42,889 July panchayat days once, some up to 46; 1,285,814 of 1,321,749 | 8 September pull; app PR aggregate; 13,351 × 99 days | Confirmed |
 | N8 | Vehicles 28 of 28 twice; IHHL 123; ISWM 108; sweeping 13; compactors 12; CBG 6; C&D 3; sewage 121 plants; FSTP 35 plants; magic drains 28 twice; compost and soak 27 of 28 | Validator month pairs, and a separate recount | Both agree |
 | N8 | Legacy waste 95 of 123 repeat | Validator month pairs | 95 of 123 |
-| N8 | CSC 25, housing IHHL 27 and SBM IHHL 17 of 28 districts changed from June to July; MEPMA 58 to 87 of 123 changed; green 37 of 198 changed | Validator month pairs | Confirmed |
+| N8 | CSC 25, housing IHHL 27 and SBM IHHL 17 of 28 districts changed from June to July; MEPMA 58 to 87 of 123 changed | Validator month pairs | Confirmed |
+| N8 | Green programme table: 24 of the 121 ULBs reported in both months changed | Recounted by district and ULB name. The validator counts each name and code combination, 37 of 198, which is not a count of ULBs | 123 ULBs, 121 in both months, 97 unchanged, 24 changed; Bhimavaram and Tiruvuru July only |
 
 ## Section A
 
@@ -96,7 +99,7 @@ Figures the page quotes from the 2 September list are what that list said, and w
 | 14 Sundays 1.8% to 3.0%; second Saturdays 10.9% to 12.7%; 75 of 82 working days 82% to 94%; 28 May 13%, 26 June 9% | App infrastructure series, daily rate | 1.83% to 3.01%; 10.92%, 11.05%, 12.67%; 82.6% to 94.2%; 13.22%, 9.31% |
 | 84 district months, none agreeing on the target | App reconciliation | Confirmed |
 | 3,024 of 4,023 secretariats on 12 August in the 8 September pull | 8 September pull | Confirmed |
-| Gap Radar 112 of 123; 56.9% to 56.1%; 5 more placed and 2 changed category; Markapuram's 4 placed, no other ULB moved | `data/aggregates/ulb-service-snapshot.json` at commits f9052e6, cdd658b and 6172122 | 103, 108, 112 |
+| Gap Radar places 112 of 123 and ranks 116 on collection reach; 56.9% to 56.1%; 5 more placed and 2 changed category; Markapuram's 4 placed, no other ULB moved | `data/aggregates/ulb-service-snapshot.json` at commits f9052e6, cdd658b and 6172122; the app's ranking tests | 103, 108, 112 placed; 116 ranked on reach, because 4 ULBs report zero collection |
 
 ## Check it yourself, fix pack and corrections
 
