@@ -235,7 +235,7 @@ footer.end{margin-top:70px;padding-top:18px;border-top:1px solid var(--rule);fon
 <div class="wrap">
 
 <header class="top">
-  <span class="eyebrow">SASA Intelligence Lab &middot; Data issues &middot; Updated 11 September 2026</span>
+  <span class="eyebrow">SASA Intelligence Lab &middot; Data issues &middot; Updated 14 September 2026</span>
   <h1>What I found<br>in the data.</h1>
   <p class="lede">
     I am building SASA Intelligence Lab on the SASA datasets in the Data Lake. On 2 September I shared a
@@ -261,6 +261,9 @@ footer.end{margin-top:70px;padding-top:18px;border-top:1px solid var(--rule);fon
       export route returns the CDMA daily files complete.</b> Both return the right number of rows, but many of those rows are repeats, about half in the export. That is <a href="#N1">N1</a> below, and I suggest adding it to the QA round against the published APIs.
     </p>
     <p>
+      Looking again at the same copies on 14 September, I found two more things. The paging fault also drops a few rows from small tables, which I have added to <a href="#N1">N1</a>. And in most urban programme tables July is identical to June for every place, which is <a href="#N8">N8</a>.
+    </p>
+    <p>
       I also found mistakes in my own 2 September list. They are corrected at the end, with what went wrong.
     </p>
   </div>
@@ -271,7 +274,7 @@ footer.end{margin-top:70px;padding-top:18px;border-top:1px solid var(--rule);fon
     <div data-status="partly"><span class="chip st-partly">Partly fixed</span><span class="n">4</span><span class="ids"><a href="#A2">A2</a> <a href="#A8">A8</a> <a href="#B7">B7</a> <a href="#C1">C1</a></span></div>
     <div data-status="not"><span class="chip st-not">Not fixed</span><span class="n">17</span><span class="ids"><a href="#A1">A1</a> <a href="#A3">A3</a> <a href="#A4">A4</a> <a href="#A5">A5</a> <a href="#A6">A6</a> <a href="#A7">A7</a> <a href="#A9">A9</a> <a href="#A10">A10</a> <a href="#A11">A11</a> <a href="#A12">A12</a> <a href="#A13">A13</a> <a href="#A14">A14</a> <a href="#B4">B4</a> <a href="#B5">B5</a> <a href="#B6">B6</a> <a href="#C2">C2</a> <a href="#C3">C3</a></span></div>
     <div data-status="untested"><span class="chip st-untested">Cannot test</span><span class="n">1</span><span class="ids"><a href="#B1">B1</a></span></div>
-    <div data-status="new"><span class="chip st-new">New</span><span class="n">7</span><span class="ids"><a href="#N1">N1</a> <a href="#N2">N2</a> <a href="#N3">N3</a> <a href="#N4">N4</a> <a href="#N5">N5</a> <a href="#N6">N6</a> <a href="#N7">N7</a></span></div>
+    <div data-status="new"><span class="chip st-new">New</span><span class="n">8</span><span class="ids"><a href="#N1">N1</a> <a href="#N2">N2</a> <a href="#N3">N3</a> <a href="#N4">N4</a> <a href="#N5">N5</a> <a href="#N6">N6</a> <a href="#N7">N7</a> <a href="#N8">N8</a></span></div>
   </div>
 
   <div class="meta">
@@ -297,6 +300,7 @@ footer.end{margin-top:70px;padding-top:18px;border-top:1px solid var(--rule);fon
         <tr><td><a href="#N5">N5</a></td><td>Markapuram has no district code in the CDMA daily files</td><td><span class="tag o-tcs"><i></i>TCS</span></td><td><span class="chip st-new">New</span></td></tr>
         <tr><td><a href="#N6">N6</a></td><td>Place names spilling into a count column</td><td><span class="tag o-joint"><i></i>Dept or TCS</span></td><td><span class="chip st-new">New</span></td></tr>
         <tr><td><a href="#N7">N7</a></td><td>PR door to door stops at 7 August and stores every day three times</td><td><span class="tag o-joint"><i></i>Dept or TCS</span></td><td><span class="chip st-new">New</span></td></tr>
+        <tr><td><a href="#N8">N8</a></td><td>July repeats June in most urban monthly datasets</td><td><span class="tag o-joint"><i></i>Dept or TCS</span></td><td><span class="chip st-new">New</span></td></tr>
         <tr class="group"><td colspan="4">A &middot; The data</td></tr>
         <tr><td><a href="#A1">A1</a></td><td>The same town has different names in different datasets</td><td><span class="tag o-joint"><i></i>Dept or TCS</span></td><td><span class="chip st-not">Not fixed</span></td></tr>
         <tr><td><a href="#A2">A2</a></td><td><code>district_id</code> is not reliable</td><td><span class="tag o-tcs"><i></i>TCS</span></td><td><span class="chip st-partly">Partly fixed</span></td></tr>
@@ -346,7 +350,8 @@ Paging again does not help. A second full pass over Visakhapatnam found no new r
 I exported six districts a second time. <b>The same rows came back, repeated the same number of times, in all six.</b> This is not random. The export gives the same half every time: 1,439 of 2,880 rows in Anantapuram, 4,614 of 9,216 in Visakhapatnam.<br><b>Waste segregation and wet waste processing</b> lose rows the same way. In the same six districts, 12,507 of 25,024 and 12,539 of 25,088 rows were different, 50.0% each.<br><br>
 Everything I could get by every route put together: <b>50,634 of 64,368 rows (78.7%)</b>.<br>
 The gaps are not spread evenly. 12 August comes back complete, 1 row is missing for 13 August, and 2,858 are missing for 27 August.<br><br>
-<b>identification_of_bulk_waste_generators_api</b> behaves the same way: 64,528 rows back by export, 32,286 different, 50,777 of 64,528 (78.7%) by every route together.</div>
+<b>identification_of_bulk_waste_generators_api</b> behaves the same way: 64,528 rows back by export, 32,286 different, 50,777 of 64,528 (78.7%) by every route together.<br><br>
+<b>It happens in small tables too.</b> At the 100 row page boundary a few rows are replaced by repeats from the page before, so the total still matches. Compost pits and soak pits are missing Nellore for April, June and July 2026. Magic drains is missing Guntur for October and December. Legacy waste clearance is missing Tirupati, Venkatagiri and Sullurpet for July. New IHHL identification is missing Kanigiri and Giddalur for July. Sewage repeats 6 rows and the green programme table 5. The same rows repeat, in the same places, in my 28 August copies.</div>
     <p class="ask"><b>What would fix this:</b> every row served exactly once, by paging and by export. My guess is that the query underneath has no fixed sort order, so each page is cut from a different ordering, but I cannot confirm that from outside. Until it is fixed, any total built from these files is built on a partial file.</p>
   </div></article>
 
@@ -402,6 +407,18 @@ The secretariat name has been split at a comma or cut short, and the rest has be
 August: 13,351 &times; 7 days &times; 3 copies = <b>280,371</b>, again exactly the reported total.<br><br>
 On 11 September August still holds only 1 to 7 August, more than five weeks after the month ended. There is no September data. May, June and July are unchanged.</div>
     <p class="ask"><b>What would fix this:</b> one copy of each panchayat day, and the rest of August. If the three copies are deliberate, say what makes them different.</p>
+  </div></article>
+
+  <article data-status="new" class="item single" id="N8"><span class="id">N8</span><div class="body">
+    <div class="head"><h3>July repeats June in most urban monthly datasets</h3><div class="tags"><span class="tag o-joint"><i></i>Dept or TCS</span><span class="chip st-new">New</span></div></div>
+    <p>In most urban programme tables, July is the same as June for every place, down to the last digit. Nothing in the rows says whether July was reported again with no change, or June was copied forward.</p>
+    <div class="ev">Checked on my 11 September copies, comparing every field except the month.<br>
+<b>Collection vehicles</b>, the one table behind the four vehicle keys (<a href="#N3">N3</a>): identical for all 28 districts from May to June, and again from June to July.<br>
+<b>New IHHL identification:</b> 121 of 121 ULBs. <b>ISWM processing facilities:</b> 108 of 108. <b>Sweeping machines:</b> 13 of 13. <b>Compactors:</b> 12 of 12. <b>CBG units:</b> 6 of 6. <b>C&amp;D waste plants:</b> 3 of 3.<br>
+<b>Legacy waste clearance:</b> 94 of the 97 ULBs with a complete June and July.<br>
+<b>Magic drains:</b> all 28 districts from June to July, and from July to August. <b>Compost pits</b> and soak pits (<a href="#N3">N3</a>): 26 of 27 districts from July to August.<br><br>
+The district target and achievement tables for community sanitary complexes, household toilets and sewage do change between months, so this is not the whole catalogue.</div>
+    <p class="ask"><b>What would fix this:</b> say whether each of these months was reported or carried forward. If a value is carried forward, mark it on the row with the date it was last reported, as in the <a href="https://github.com/prucodes/sasa-data-issues/blob/main/fix-pack/data-contract.md">proposed data contract</a>.</p>
   </div></article>
 </section>
 
@@ -756,6 +773,7 @@ On 11 September August still holds only 1 to 7 August, more than five weeks afte
         <li><b>One period field,</b> with values that agree inside a row.<span class="ref">A5</span></li>
         <li><b>What each dataset should cover.</b><span class="ref">A11</span></li>
         <li><b>Validation and proper quoting</b> at submission.<span class="ref">C3 N6</span></li>
+        <li><b>Say whether the repeated months were reported or carried forward,</b> and mark carried forward values on the row.<span class="ref">N8</span></li>
       </ol>
     </div>
     <div class="owner">
@@ -792,6 +810,45 @@ On 11 September August still holds only 1 to 7 August, more than five weeks afte
         <li>Share the exact request and response for anything on this list.</li>
         <li>Label any figure from the daily files as partial until <a href="#N1">N1</a> is fixed.</li>
         <li>Keep my saved copies, so history removed from the API is not lost.</li>
+        <li>Offer fixes, not only findings. The <a href="#fix-pack">fix pack</a> below is a first set.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="fix-pack">
+  <div class="sec-h"><span class="eyebrow">Fix pack</span><h2>Fixes ready to adopt</h2></div>
+  <p class="sec-lead">Most of this list can only be fixed by the people who own the data or run the platform. What I can do is make those fixes easier to pick up. None of this is approved. It is a starting point for the QA round, and it is all in <a href="https://github.com/prucodes/sasa-data-issues/tree/main/fix-pack">one folder</a>.</p>
+  <div class="owners">
+    <div class="owner">
+      <h3><i style="background:var(--tcs)"></i>Validation script</h3>
+      <div class="sub">so problems are caught before data is accepted</div>
+      <ul>
+        <li>Eleven checks, each tied to an item on this list: repeated rows, conflicting rows, months carried forward, month mismatches, text in counts, numbers stored as text, quote marks, and missing or contradictory codes.<span class="ref">C3</span></li>
+        <li>Run on my copies of all 36 small tables and the daily files. <a href="https://github.com/prucodes/sasa-data-issues/blob/main/fix-pack/validation-report.md">See the results</a>, or <a href="https://github.com/prucodes/sasa-data-issues/blob/main/fix-pack/validate.mjs">the script</a>.</li>
+      </ul>
+    </div>
+    <div class="owner">
+      <h3><i style="background:var(--joint)"></i>Code defects</h3>
+      <div class="sub">one row for every code problem I could confirm</div>
+      <ul>
+        <li>18 codes that point to a different district, and ULBs carrying two mandal codes in the same district: 80 in the Swachh Survekshan table and 77 in the green programme table.<span class="ref">N4 C1</span></li>
+        <li>Markapuram&rsquo;s missing code, <code>ulb_code</code> holding the mandal code, and <code>district_id</code> meaning different places. <a href="https://github.com/prucodes/sasa-data-issues/blob/main/fix-pack/code-defects.csv">code-defects.csv</a>.<span class="ref">N5 A3 A2</span></li>
+      </ul>
+    </div>
+    <div class="owner">
+      <h3><i style="background:var(--dept)"></i>Proposed data contract</h3>
+      <div class="sub">what every row and measure should carry</div>
+      <ul>
+        <li>A record ID, a revision, the date it was reported, whether it was carried forward, one period format, the LGD codes, a unit, and a reason whenever a value is missing.<span class="ref">A4 A5 A6 A8 A9 N8</span></li>
+        <li>One name per concept, and how the API should behave. <a href="https://github.com/prucodes/sasa-data-issues/blob/main/fix-pack/data-contract.md">data-contract.md</a>.<span class="ref">A7 B2 B4 B6 B7 N2 N3</span></li>
+      </ul>
+    </div>
+    <div class="owner">
+      <h3><i style="background:var(--ng)"></i>Paging evidence</h3>
+      <div class="sub">so the platform team can reproduce N1 without me</div>
+      <ul>
+        <li>The requests, how to count, what I found, and a three part test that would show it is fixed. <a href="https://github.com/prucodes/sasa-data-issues/blob/main/fix-pack/paging-evidence.md">paging-evidence.md</a>.<span class="ref">N1</span></li>
       </ul>
     </div>
   </div>

@@ -1,0 +1,3408 @@
+{
+  "checkedAt": "2026-09-14T17:09:21.045Z",
+  "rules": {
+    "response.reconcile": {
+      "issue": "N1",
+      "title": "Pages return the reported total, but part of it repeats"
+    },
+    "row.exact-duplicate": {
+      "issue": "N7",
+      "title": "The same row appears more than once"
+    },
+    "row.conflicting-duplicate": {
+      "issue": "A14",
+      "title": "The same place and period with different numbers"
+    },
+    "month.carried-forward": {
+      "issue": "N8",
+      "title": "Almost every place repeats the previous month exactly"
+    },
+    "period.mismatch": {
+      "issue": "A5",
+      "title": "Month number and month name disagree"
+    },
+    "count.not-number": {
+      "issue": "N6",
+      "title": "Text in a column that otherwise holds numbers"
+    },
+    "number.stored-as-text": {
+      "issue": "C3",
+      "title": "Numbers stored as text, with quote marks or thousands separators"
+    },
+    "text.quote-marks": {
+      "issue": "A1",
+      "title": "Quote marks left inside a text value"
+    },
+    "code.missing": {
+      "issue": "N5 C1",
+      "title": "A code is blank or the text NULL where the rest of the file has one"
+    },
+    "code.label-to-many": {
+      "issue": "N4",
+      "title": "One district label carries more than one district code in the same file"
+    },
+    "code.ulb-is-mandal": {
+      "issue": "A3",
+      "title": "ulb_code holds the mandal code"
+    }
+  },
+  "datasets": [
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/cd_waste_process_plants_revival_new1_api.json",
+      "dataset": "cd_waste_process_plants_revival_new1_api",
+      "rows": 6,
+      "distinctRows": 6,
+      "pages": 1,
+      "monthPairs": {
+        "2026-06 to 2026-07": {
+          "places": 3,
+          "identical": 3
+        }
+      },
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 3,
+          "examples": [
+            {
+              "months": "2026-06 to 2026-07",
+              "identical": 3,
+              "places": 3
+            }
+          ]
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 0,
+          "examples": []
+        },
+        "code.missing": {
+          "count": 0,
+          "examples": []
+        },
+        "code.label-to-many": {
+          "count": 0,
+          "examples": []
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/compost_pits_api.json",
+      "dataset": "compost_pits_api",
+      "rows": 336,
+      "distinctRows": 333,
+      "pages": 1,
+      "monthPairs": {
+        "2026-06 to 2026-07": {
+          "places": 27,
+          "identical": 23
+        },
+        "2026-04 to 2026-05": {
+          "places": 27,
+          "identical": 25
+        },
+        "2026-07 to 2026-08": {
+          "places": 27,
+          "identical": 26
+        },
+        "2026-05 to 2026-06": {
+          "places": 27,
+          "identical": 25
+        }
+      },
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 3,
+          "examples": [
+            {
+              "row": 200,
+              "sameAs": 197
+            },
+            {
+              "row": 201,
+              "sameAs": 199
+            },
+            {
+              "row": 202,
+              "sameAs": 198
+            }
+          ]
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 26,
+          "examples": [
+            {
+              "months": "2026-07 to 2026-08",
+              "identical": 26,
+              "places": 27
+            }
+          ]
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 0,
+          "examples": []
+        },
+        "code.missing": {
+          "count": 0,
+          "examples": []
+        },
+        "code.label-to-many": {
+          "count": 0,
+          "examples": []
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/construction_of_csc_api.json",
+      "dataset": "construction_of_csc_api",
+      "rows": 84,
+      "distinctRows": 84,
+      "pages": 1,
+      "monthPairs": {
+        "2026-05 to 2026-06": {
+          "places": 28,
+          "identical": 2
+        },
+        "2026-06 to 2026-07": {
+          "places": 28,
+          "identical": 3
+        }
+      },
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 0,
+          "examples": []
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 0,
+          "examples": []
+        },
+        "code.missing": {
+          "count": 0,
+          "examples": []
+        },
+        "code.label-to-many": {
+          "count": 0,
+          "examples": []
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/fstps_stps_cotreatment_new1_api.json",
+      "dataset": "fstps_stps_cotreatment_new1_api",
+      "rows": 70,
+      "distinctRows": 70,
+      "pages": 1,
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 0,
+          "examples": []
+        },
+        "period.mismatch": {
+          "count": 35,
+          "examples": [
+            {
+              "row": 0,
+              "name": "JUNE",
+              "number": "7"
+            },
+            {
+              "row": 2,
+              "name": "JUNE",
+              "number": "7"
+            },
+            {
+              "row": 3,
+              "name": "JUNE",
+              "number": "7"
+            }
+          ]
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 5,
+          "examples": [
+            {
+              "column": "dstrt_nm",
+              "value": "\"YSR Kadapa\""
+            },
+            {
+              "column": "dstrt_nm",
+              "value": "\"Dr. B.R. Ambedkar Konaseema\""
+            },
+            {
+              "column": "dstrt_nm",
+              "value": "\"Sri Satya Sai\""
+            }
+          ]
+        },
+        "code.missing": {
+          "count": 8,
+          "examples": [
+            {
+              "row": 62,
+              "columns": [
+                "lgd_dist_code",
+                "lgd_mandal_code"
+              ],
+              "label": "NTR"
+            },
+            {
+              "row": 63,
+              "columns": [
+                "lgd_dist_code",
+                "lgd_mandal_code"
+              ],
+              "label": "Chittoor"
+            },
+            {
+              "row": 64,
+              "columns": [
+                "lgd_dist_code",
+                "lgd_mandal_code"
+              ],
+              "label": "NTR"
+            }
+          ]
+        },
+        "code.label-to-many": {
+          "count": 0,
+          "examples": []
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/housing_construction_of_ihhls_new1_api.json",
+      "dataset": "housing_construction_of_ihhls_new1_api",
+      "rows": 84,
+      "distinctRows": 84,
+      "pages": 1,
+      "monthPairs": {
+        "2026-06 to 2026-07": {
+          "places": 28,
+          "identical": 1
+        },
+        "2026-05 to 2026-06": {
+          "places": 28,
+          "identical": 1
+        }
+      },
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 0,
+          "examples": []
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 0,
+          "examples": []
+        },
+        "code.missing": {
+          "count": 0,
+          "examples": []
+        },
+        "code.label-to-many": {
+          "count": 0,
+          "examples": []
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/ihhl_new_identification_new1_api.json",
+      "dataset": "ihhl_new_identification_new1_api",
+      "rows": 246,
+      "distinctRows": 244,
+      "pages": 1,
+      "monthPairs": {
+        "2026-06 to 2026-07": {
+          "places": 121,
+          "identical": 121
+        }
+      },
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 2,
+          "examples": [
+            {
+              "row": 200,
+              "sameAs": 196
+            },
+            {
+              "row": 201,
+              "sameAs": 197
+            }
+          ]
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 121,
+          "examples": [
+            {
+              "months": "2026-06 to 2026-07",
+              "identical": 121,
+              "places": 121
+            }
+          ]
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 14,
+          "examples": [
+            {
+              "column": "dstrt_nm",
+              "value": "\"YSR Kadapa\""
+            },
+            {
+              "column": "dstrt_nm",
+              "value": "\"East Godavari\""
+            },
+            {
+              "column": "dstrt_nm",
+              "value": "\"SPSR Nellore\""
+            }
+          ]
+        },
+        "code.missing": {
+          "count": 44,
+          "examples": [
+            {
+              "row": 200,
+              "columns": [
+                "lgd_dist_code",
+                "lgd_mandal_code"
+              ],
+              "label": "Kurnool"
+            },
+            {
+              "row": 201,
+              "columns": [
+                "lgd_dist_code",
+                "lgd_mandal_code"
+              ],
+              "label": "Vizianagaram"
+            },
+            {
+              "row": 202,
+              "columns": [
+                "lgd_dist_code",
+                "lgd_mandal_code"
+              ],
+              "label": "\"SPSR Nellore\""
+            }
+          ]
+        },
+        "code.label-to-many": {
+          "count": 1,
+          "examples": [
+            {
+              "labelColumn": "dstrt_nm",
+              "label": "Annamayya",
+              "codeColumn": "lgd_dist_code",
+              "codes": [
+                "504",
+                "753"
+              ]
+            }
+          ]
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/itc_wow_schools_api.json",
+      "dataset": "itc_wow_schools_api",
+      "rows": 24,
+      "distinctRows": 24,
+      "pages": 1,
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 0,
+          "examples": []
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 0,
+          "examples": []
+        },
+        "code.missing": {
+          "count": 0,
+          "examples": []
+        },
+        "code.label-to-many": {
+          "count": 0,
+          "examples": []
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/magic_drains_api.json",
+      "dataset": "magic_drains_api",
+      "rows": 336,
+      "distinctRows": 334,
+      "pages": 1,
+      "monthPairs": {
+        "2026-04 to 2026-05": {
+          "places": 28,
+          "identical": 27
+        },
+        "2026-07 to 2026-08": {
+          "places": 28,
+          "identical": 28
+        },
+        "2026-05 to 2026-06": {
+          "places": 28,
+          "identical": 26
+        },
+        "2026-06 to 2026-07": {
+          "places": 28,
+          "identical": 28
+        }
+      },
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 2,
+          "examples": [
+            {
+              "row": 100,
+              "sameAs": 98
+            },
+            {
+              "row": 101,
+              "sameAs": 99
+            }
+          ]
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 83,
+          "examples": [
+            {
+              "months": "2026-04 to 2026-05",
+              "identical": 27,
+              "places": 28
+            },
+            {
+              "months": "2026-07 to 2026-08",
+              "identical": 28,
+              "places": 28
+            },
+            {
+              "months": "2026-06 to 2026-07",
+              "identical": 28,
+              "places": 28
+            }
+          ]
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 0,
+          "examples": []
+        },
+        "code.missing": {
+          "count": 0,
+          "examples": []
+        },
+        "code.label-to-many": {
+          "count": 0,
+          "examples": []
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/msw_cbg_units_new1_api.json",
+      "dataset": "msw_cbg_units_new1_api",
+      "rows": 12,
+      "distinctRows": 12,
+      "pages": 1,
+      "monthPairs": {
+        "2026-06 to 2026-07": {
+          "places": 6,
+          "identical": 6
+        }
+      },
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 6,
+          "examples": [
+            {
+              "months": "2026-06 to 2026-07",
+              "identical": 6,
+              "places": 6
+            }
+          ]
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 4,
+          "examples": [
+            {
+              "column": "status_tx",
+              "value": "\"In Progress\""
+            },
+            {
+              "column": "status_tx",
+              "value": "\"LOA Issued & Agreement to be Concluded\""
+            },
+            {
+              "column": "dstrt_nm",
+              "value": "\"SPSR Nellore\""
+            }
+          ]
+        },
+        "code.missing": {
+          "count": 2,
+          "examples": [
+            {
+              "row": 10,
+              "columns": [
+                "lgd_dist_code",
+                "lgd_mandal_code"
+              ],
+              "label": "\"East Godavari\""
+            },
+            {
+              "row": 11,
+              "columns": [
+                "lgd_dist_code",
+                "lgd_mandal_code"
+              ],
+              "label": "\"East Godavari\""
+            }
+          ]
+        },
+        "code.label-to-many": {
+          "count": 0,
+          "examples": []
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_100_percent_clearance_of_legacy_waste_api.json",
+      "dataset": "sasa_100_percent_clearance_of_legacy_waste_api",
+      "rows": 246,
+      "distinctRows": 243,
+      "pages": 1,
+      "monthPairs": {
+        "2026-06 to 2026-07": {
+          "places": 97,
+          "identical": 94
+        }
+      },
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 3,
+          "examples": [
+            {
+              "row": 200,
+              "sameAs": 197
+            },
+            {
+              "row": 201,
+              "sameAs": 198
+            },
+            {
+              "row": 202,
+              "sameAs": 199
+            }
+          ]
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 94,
+          "examples": [
+            {
+              "months": "2026-06 to 2026-07",
+              "identical": 94,
+              "places": 97
+            }
+          ]
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 561,
+          "examples": [
+            {
+              "column": "target",
+              "example": "\"36,400\""
+            },
+            {
+              "column": "achievement",
+              "example": "\"36,400\""
+            },
+            {
+              "column": "balance",
+              "example": "\"6,666\""
+            }
+          ]
+        },
+        "text.quote-marks": {
+          "count": 0,
+          "examples": []
+        },
+        "code.missing": {
+          "count": 0,
+          "examples": []
+        },
+        "code.label-to-many": {
+          "count": 0,
+          "examples": []
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_50_percent_green_spaces_api.json",
+      "dataset": "sasa_50_percent_green_spaces_api",
+      "rows": 400,
+      "distinctRows": 395,
+      "pages": 1,
+      "monthPairs": {
+        "2026-06 to 2026-07": {
+          "places": 192,
+          "identical": 157
+        }
+      },
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 5,
+          "examples": [
+            {
+              "row": 101,
+              "sameAs": 99
+            },
+            {
+              "row": 200,
+              "sameAs": 196
+            },
+            {
+              "row": 201,
+              "sameAs": 199
+            }
+          ]
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 0,
+          "examples": []
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 12,
+          "examples": [
+            {
+              "column": "dstrt_nm",
+              "value": "\"East Godavari\""
+            },
+            {
+              "column": "dstrt_nm",
+              "value": "\"Ambedkar Konaseema\""
+            },
+            {
+              "column": "ulb_nm",
+              "value": "\"Palasa Kasibugga\""
+            }
+          ]
+        },
+        "code.missing": {
+          "count": 40,
+          "examples": [
+            {
+              "row": 355,
+              "columns": [
+                "lgd_dist_code",
+                "lgd_mandal_code"
+              ],
+              "label": "\"Parvathipuram Manyam\""
+            },
+            {
+              "row": 356,
+              "columns": [
+                "lgd_dist_code",
+                "lgd_mandal_code"
+              ],
+              "label": "Visakhapatnam"
+            },
+            {
+              "row": 357,
+              "columns": [
+                "lgd_dist_code",
+                "lgd_mandal_code"
+              ],
+              "label": "Palnadu"
+            }
+          ]
+        },
+        "code.label-to-many": {
+          "count": 2,
+          "examples": [
+            {
+              "labelColumn": "dstrt_nm",
+              "label": "Annamayya",
+              "codeColumn": "lgd_dist_code",
+              "codes": [
+                "504",
+                "753"
+              ]
+            },
+            {
+              "labelColumn": "dstrt_nm",
+              "label": "\"Ambedkar Konaseema\"",
+              "codeColumn": "lgd_dist_code",
+              "codes": [
+                "505",
+                "747",
+                "752"
+              ]
+            }
+          ]
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_50_percent_greencover_api.json",
+      "dataset": "sasa_50_percent_greencover_api",
+      "rows": 400,
+      "distinctRows": 395,
+      "pages": 1,
+      "monthPairs": {
+        "2026-06 to 2026-07": {
+          "places": 192,
+          "identical": 157
+        }
+      },
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 5,
+          "examples": [
+            {
+              "row": 101,
+              "sameAs": 99
+            },
+            {
+              "row": 200,
+              "sameAs": 196
+            },
+            {
+              "row": 201,
+              "sameAs": 199
+            }
+          ]
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 0,
+          "examples": []
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 12,
+          "examples": [
+            {
+              "column": "dstrt_nm",
+              "value": "\"East Godavari\""
+            },
+            {
+              "column": "dstrt_nm",
+              "value": "\"Ambedkar Konaseema\""
+            },
+            {
+              "column": "ulb_nm",
+              "value": "\"Palasa Kasibugga\""
+            }
+          ]
+        },
+        "code.missing": {
+          "count": 40,
+          "examples": [
+            {
+              "row": 355,
+              "columns": [
+                "lgd_dist_code",
+                "lgd_mandal_code"
+              ],
+              "label": "\"Parvathipuram Manyam\""
+            },
+            {
+              "row": 356,
+              "columns": [
+                "lgd_dist_code",
+                "lgd_mandal_code"
+              ],
+              "label": "Visakhapatnam"
+            },
+            {
+              "row": 357,
+              "columns": [
+                "lgd_dist_code",
+                "lgd_mandal_code"
+              ],
+              "label": "Palnadu"
+            }
+          ]
+        },
+        "code.label-to-many": {
+          "count": 2,
+          "examples": [
+            {
+              "labelColumn": "dstrt_nm",
+              "label": "Annamayya",
+              "codeColumn": "lgd_dist_code",
+              "codes": [
+                "504",
+                "753"
+              ]
+            },
+            {
+              "labelColumn": "dstrt_nm",
+              "label": "\"Ambedkar Konaseema\"",
+              "codeColumn": "lgd_dist_code",
+              "codes": [
+                "505",
+                "747",
+                "752"
+              ]
+            }
+          ]
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_50_percent_rejuvenation_api.json",
+      "dataset": "sasa_50_percent_rejuvenation_api",
+      "rows": 400,
+      "distinctRows": 395,
+      "pages": 1,
+      "monthPairs": {
+        "2026-06 to 2026-07": {
+          "places": 192,
+          "identical": 157
+        }
+      },
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 5,
+          "examples": [
+            {
+              "row": 101,
+              "sameAs": 99
+            },
+            {
+              "row": 200,
+              "sameAs": 196
+            },
+            {
+              "row": 201,
+              "sameAs": 199
+            }
+          ]
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 0,
+          "examples": []
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 12,
+          "examples": [
+            {
+              "column": "dstrt_nm",
+              "value": "\"East Godavari\""
+            },
+            {
+              "column": "dstrt_nm",
+              "value": "\"Ambedkar Konaseema\""
+            },
+            {
+              "column": "ulb_nm",
+              "value": "\"Palasa Kasibugga\""
+            }
+          ]
+        },
+        "code.missing": {
+          "count": 40,
+          "examples": [
+            {
+              "row": 355,
+              "columns": [
+                "lgd_dist_code",
+                "lgd_mandal_code"
+              ],
+              "label": "\"Parvathipuram Manyam\""
+            },
+            {
+              "row": 356,
+              "columns": [
+                "lgd_dist_code",
+                "lgd_mandal_code"
+              ],
+              "label": "Visakhapatnam"
+            },
+            {
+              "row": 357,
+              "columns": [
+                "lgd_dist_code",
+                "lgd_mandal_code"
+              ],
+              "label": "Palnadu"
+            }
+          ]
+        },
+        "code.label-to-many": {
+          "count": 2,
+          "examples": [
+            {
+              "labelColumn": "dstrt_nm",
+              "label": "Annamayya",
+              "codeColumn": "lgd_dist_code",
+              "codes": [
+                "504",
+                "753"
+              ]
+            },
+            {
+              "labelColumn": "dstrt_nm",
+              "label": "\"Ambedkar Konaseema\"",
+              "codeColumn": "lgd_dist_code",
+              "codes": [
+                "505",
+                "747",
+                "752"
+              ]
+            }
+          ]
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_cdma_ulbs_ewaste_collection_mechanism_api.json",
+      "dataset": "sasa_cdma_ulbs_ewaste_collection_mechanism_api",
+      "rows": 26,
+      "distinctRows": 26,
+      "pages": 1,
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 0,
+          "examples": []
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 0,
+          "examples": []
+        },
+        "code.missing": {
+          "count": 0,
+          "examples": []
+        },
+        "code.label-to-many": {
+          "count": 0,
+          "examples": []
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_cdma_ulbs_single_use_plastic_ban_api.json",
+      "dataset": "sasa_cdma_ulbs_single_use_plastic_ban_api",
+      "rows": 26,
+      "distinctRows": 26,
+      "pages": 1,
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 0,
+          "examples": []
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 0,
+          "examples": []
+        },
+        "code.missing": {
+          "count": 0,
+          "examples": []
+        },
+        "code.label-to-many": {
+          "count": 0,
+          "examples": []
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_declaration_of_odf_plus_model_villages_api.json",
+      "dataset": "sasa_declaration_of_odf_plus_model_villages_api",
+      "rows": 28,
+      "distinctRows": 28,
+      "pages": 1,
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 0,
+          "examples": []
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 0,
+          "examples": []
+        },
+        "code.missing": {
+          "count": 0,
+          "examples": []
+        },
+        "code.label-to-many": {
+          "count": 0,
+          "examples": []
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_establishment_of_gobardhan_units_api.json",
+      "dataset": "sasa_establishment_of_gobardhan_units_api",
+      "rows": 28,
+      "distinctRows": 28,
+      "pages": 1,
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 0,
+          "examples": []
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 0,
+          "examples": []
+        },
+        "code.missing": {
+          "count": 0,
+          "examples": []
+        },
+        "code.label-to-many": {
+          "count": 0,
+          "examples": []
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_establishment_of_plastic_waste_management_units_api.json",
+      "dataset": "sasa_establishment_of_plastic_waste_management_units_api",
+      "rows": 28,
+      "distinctRows": 28,
+      "pages": 1,
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 0,
+          "examples": []
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 0,
+          "examples": []
+        },
+        "code.missing": {
+          "count": 0,
+          "examples": []
+        },
+        "code.label-to-many": {
+          "count": 0,
+          "examples": []
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_households_promoted_for_terrace_gardening_kitchen_gardens_api.json",
+      "dataset": "sasa_households_promoted_for_terrace_gardening_kitchen_gardens_api",
+      "rows": 615,
+      "distinctRows": 615,
+      "pages": 1,
+      "monthPairs": {
+        "2026-06 to 2026-07": {
+          "places": 123,
+          "identical": 37
+        },
+        "2026-04 to 2026-05": {
+          "places": 123,
+          "identical": 84
+        },
+        "2026-03 to 2026-04": {
+          "places": 123,
+          "identical": 28
+        },
+        "2026-05 to 2026-06": {
+          "places": 123,
+          "identical": 32
+        }
+      },
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 0,
+          "examples": []
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 2,
+          "examples": [
+            {
+              "column": "ulb_name",
+              "value": "\"JANGAREDDY GUDEM\""
+            },
+            {
+              "column": "ulb_name",
+              "value": "\"YSR TADIGADAPA\""
+            }
+          ]
+        },
+        "code.missing": {
+          "count": 0,
+          "examples": []
+        },
+        "code.label-to-many": {
+          "count": 0,
+          "examples": []
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_mepma_entrepreneurs_promoted_for_circular_economy_api.json",
+      "dataset": "sasa_mepma_entrepreneurs_promoted_for_circular_economy_api",
+      "rows": 615,
+      "distinctRows": 615,
+      "pages": 1,
+      "monthPairs": {
+        "2026-06 to 2026-07": {
+          "places": 118,
+          "identical": 63
+        },
+        "2026-04 to 2026-05": {
+          "places": 118,
+          "identical": 73
+        },
+        "2026-03 to 2026-04": {
+          "places": 118,
+          "identical": 95
+        },
+        "2026-05 to 2026-06": {
+          "places": 118,
+          "identical": 55
+        }
+      },
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 0,
+          "examples": []
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 2,
+          "examples": [
+            {
+              "column": "ulb_name",
+              "value": "\"JANGAREDDY GUDEM\""
+            },
+            {
+              "column": "ulb_name",
+              "value": "\"YSR TADIGADAPA\""
+            }
+          ]
+        },
+        "code.missing": {
+          "count": 0,
+          "examples": []
+        },
+        "code.label-to-many": {
+          "count": 0,
+          "examples": []
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_mepma_households_promoted_for_home_composite_api.json",
+      "dataset": "sasa_mepma_households_promoted_for_home_composite_api",
+      "rows": 615,
+      "distinctRows": 615,
+      "pages": 1,
+      "monthPairs": {
+        "2026-06 to 2026-07": {
+          "places": 123,
+          "identical": 36
+        },
+        "2026-04 to 2026-05": {
+          "places": 123,
+          "identical": 13
+        },
+        "2026-03 to 2026-04": {
+          "places": 123,
+          "identical": 31
+        },
+        "2026-05 to 2026-06": {
+          "places": 123,
+          "identical": 11
+        }
+      },
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 0,
+          "examples": []
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 2,
+          "examples": [
+            {
+              "column": "ulb_name",
+              "value": "\"JANGAREDDY GUDEM\""
+            },
+            {
+              "column": "ulb_name",
+              "value": "\"YSR TADIGADAPA\""
+            }
+          ]
+        },
+        "code.missing": {
+          "count": 0,
+          "examples": []
+        },
+        "code.label-to-many": {
+          "count": 0,
+          "examples": []
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_pr_no_of_swpcs_operationalised_api_27_aug_2026.json",
+      "dataset": "sasa_pr_no_of_swpcs_operationalised_api_27_aug_2026",
+      "rows": 56,
+      "distinctRows": 28,
+      "pages": 1,
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 28,
+          "examples": [
+            {
+              "row": 1,
+              "sameAs": 0
+            },
+            {
+              "row": 3,
+              "sameAs": 2
+            },
+            {
+              "row": 5,
+              "sameAs": 4
+            }
+          ]
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 0,
+          "examples": []
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 0,
+          "examples": []
+        },
+        "code.missing": {
+          "count": 0,
+          "examples": []
+        },
+        "code.label-to-many": {
+          "count": 0,
+          "examples": []
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_sac_door_to_door_e_autos_api.json",
+      "dataset": "sasa_sac_door_to_door_e_autos_api",
+      "rows": 84,
+      "distinctRows": 84,
+      "pages": 1,
+      "monthPairs": {
+        "2026-05 to 2026-06": {
+          "places": 28,
+          "identical": 28
+        },
+        "2026-06 to 2026-07": {
+          "places": 28,
+          "identical": 28
+        }
+      },
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 56,
+          "examples": [
+            {
+              "months": "2026-05 to 2026-06",
+              "identical": 28,
+              "places": 28
+            },
+            {
+              "months": "2026-06 to 2026-07",
+              "identical": 28,
+              "places": 28
+            }
+          ]
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 8,
+          "examples": [
+            {
+              "column": "dstrt_nm",
+              "value": "\"Y.S.R. KADAPA\""
+            },
+            {
+              "column": "dstrt_nm",
+              "value": "\"EAST GODAVARI\""
+            },
+            {
+              "column": "dstrt_nm",
+              "value": "\"SRI POTTI SRIRAMULU NELLORE\""
+            }
+          ]
+        },
+        "code.missing": {
+          "count": 0,
+          "examples": []
+        },
+        "code.label-to-many": {
+          "count": 0,
+          "examples": []
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_sac_door_to_door_push_carts_api.json",
+      "dataset": "sasa_sac_door_to_door_push_carts_api",
+      "rows": 84,
+      "distinctRows": 84,
+      "pages": 1,
+      "monthPairs": {
+        "2026-05 to 2026-06": {
+          "places": 28,
+          "identical": 28
+        },
+        "2026-06 to 2026-07": {
+          "places": 28,
+          "identical": 28
+        }
+      },
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 56,
+          "examples": [
+            {
+              "months": "2026-05 to 2026-06",
+              "identical": 28,
+              "places": 28
+            },
+            {
+              "months": "2026-06 to 2026-07",
+              "identical": 28,
+              "places": 28
+            }
+          ]
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 8,
+          "examples": [
+            {
+              "column": "dstrt_nm",
+              "value": "\"Y.S.R. KADAPA\""
+            },
+            {
+              "column": "dstrt_nm",
+              "value": "\"EAST GODAVARI\""
+            },
+            {
+              "column": "dstrt_nm",
+              "value": "\"SRI POTTI SRIRAMULU NELLORE\""
+            }
+          ]
+        },
+        "code.missing": {
+          "count": 0,
+          "examples": []
+        },
+        "code.label-to-many": {
+          "count": 0,
+          "examples": []
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_sac_door_to_door_tri_cycles_api.json",
+      "dataset": "sasa_sac_door_to_door_tri_cycles_api",
+      "rows": 84,
+      "distinctRows": 84,
+      "pages": 1,
+      "monthPairs": {
+        "2026-05 to 2026-06": {
+          "places": 28,
+          "identical": 28
+        },
+        "2026-06 to 2026-07": {
+          "places": 28,
+          "identical": 28
+        }
+      },
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 56,
+          "examples": [
+            {
+              "months": "2026-05 to 2026-06",
+              "identical": 28,
+              "places": 28
+            },
+            {
+              "months": "2026-06 to 2026-07",
+              "identical": 28,
+              "places": 28
+            }
+          ]
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 8,
+          "examples": [
+            {
+              "column": "dstrt_nm",
+              "value": "\"Y.S.R. KADAPA\""
+            },
+            {
+              "column": "dstrt_nm",
+              "value": "\"EAST GODAVARI\""
+            },
+            {
+              "column": "dstrt_nm",
+              "value": "\"SRI POTTI SRIRAMULU NELLORE\""
+            }
+          ]
+        },
+        "code.missing": {
+          "count": 0,
+          "examples": []
+        },
+        "code.label-to-many": {
+          "count": 0,
+          "examples": []
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_sac_machinery_compactors_api.json",
+      "dataset": "sasa_sac_machinery_compactors_api",
+      "rows": 24,
+      "distinctRows": 24,
+      "pages": 1,
+      "monthPairs": {
+        "2026-06 to 2026-07": {
+          "places": 12,
+          "identical": 12
+        }
+      },
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 12,
+          "examples": [
+            {
+              "months": "2026-06 to 2026-07",
+              "identical": 12,
+              "places": 12
+            }
+          ]
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 0,
+          "examples": []
+        },
+        "code.missing": {
+          "count": 0,
+          "examples": []
+        },
+        "code.label-to-many": {
+          "count": 0,
+          "examples": []
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_sac_machinery_e_autos_service_model_api.json",
+      "dataset": "sasa_sac_machinery_e_autos_service_model_api",
+      "rows": 84,
+      "distinctRows": 84,
+      "pages": 1,
+      "monthPairs": {
+        "2026-05 to 2026-06": {
+          "places": 28,
+          "identical": 28
+        },
+        "2026-06 to 2026-07": {
+          "places": 28,
+          "identical": 28
+        }
+      },
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 56,
+          "examples": [
+            {
+              "months": "2026-05 to 2026-06",
+              "identical": 28,
+              "places": 28
+            },
+            {
+              "months": "2026-06 to 2026-07",
+              "identical": 28,
+              "places": 28
+            }
+          ]
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 8,
+          "examples": [
+            {
+              "column": "dstrt_nm",
+              "value": "\"Y.S.R. KADAPA\""
+            },
+            {
+              "column": "dstrt_nm",
+              "value": "\"EAST GODAVARI\""
+            },
+            {
+              "column": "dstrt_nm",
+              "value": "\"SRI POTTI SRIRAMULU NELLORE\""
+            }
+          ]
+        },
+        "code.missing": {
+          "count": 0,
+          "examples": []
+        },
+        "code.label-to-many": {
+          "count": 0,
+          "examples": []
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_sac_msw_processing_facilities_iswm_facilities_api.json",
+      "dataset": "sasa_sac_msw_processing_facilities_iswm_facilities_api",
+      "rows": 216,
+      "distinctRows": 216,
+      "pages": 1,
+      "monthPairs": {
+        "2026-06 to 2026-07": {
+          "places": 108,
+          "identical": 108
+        }
+      },
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 108,
+          "examples": [
+            {
+              "months": "2026-06 to 2026-07",
+              "identical": 108,
+              "places": 108
+            }
+          ]
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 0,
+          "examples": []
+        },
+        "code.missing": {
+          "count": 0,
+          "examples": []
+        },
+        "code.label-to-many": {
+          "count": 0,
+          "examples": []
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_sac_sweeping_machines_information_api.json",
+      "dataset": "sasa_sac_sweeping_machines_information_api",
+      "rows": 28,
+      "distinctRows": 28,
+      "pages": 1,
+      "monthPairs": {
+        "2026-06 to 2026-07": {
+          "places": 13,
+          "identical": 13
+        }
+      },
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "row.conflicting-duplicate": {
+          "count": 2,
+          "examples": [
+            {
+              "key": [
+                [
+                  "district_name",
+                  "SPSR Nellore"
+                ],
+                [
+                  "ulb_name",
+                  "Nellore"
+                ],
+                [
+                  "month_number",
+                  "6"
+                ],
+                [
+                  "month_name",
+                  "JUNE"
+                ],
+                [
+                  "year",
+                  "2026"
+                ],
+                [
+                  "fin_year",
+                  "2026-2027"
+                ]
+              ],
+              "variants": 2
+            },
+            {
+              "key": [
+                [
+                  "district_name",
+                  "SPSR Nellore"
+                ],
+                [
+                  "ulb_name",
+                  "Nellore"
+                ],
+                [
+                  "month_number",
+                  "7"
+                ],
+                [
+                  "month_name",
+                  "JULY"
+                ],
+                [
+                  "year",
+                  "2026"
+                ],
+                [
+                  "fin_year",
+                  "2026-2027"
+                ]
+              ],
+              "variants": 2
+            }
+          ]
+        },
+        "month.carried-forward": {
+          "count": 13,
+          "examples": [
+            {
+              "months": "2026-06 to 2026-07",
+              "identical": 13,
+              "places": 13
+            }
+          ]
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 0,
+          "examples": []
+        },
+        "code.missing": {
+          "count": 0,
+          "examples": []
+        },
+        "code.label-to-many": {
+          "count": 0,
+          "examples": []
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sbm_construction_of_ihhls_new1_api.json",
+      "dataset": "sbm_construction_of_ihhls_new1_api",
+      "rows": 84,
+      "distinctRows": 84,
+      "pages": 1,
+      "monthPairs": {
+        "2026-06 to 2026-07": {
+          "places": 28,
+          "identical": 11
+        },
+        "2026-05 to 2026-06": {
+          "places": 28,
+          "identical": 0
+        }
+      },
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 0,
+          "examples": []
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 0,
+          "examples": []
+        },
+        "code.missing": {
+          "count": 0,
+          "examples": []
+        },
+        "code.label-to-many": {
+          "count": 0,
+          "examples": []
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/serp_circular_economy_api.json",
+      "dataset": "serp_circular_economy_api",
+      "rows": 28,
+      "distinctRows": 28,
+      "pages": 1,
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 0,
+          "examples": []
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 0,
+          "examples": []
+        },
+        "code.missing": {
+          "count": 0,
+          "examples": []
+        },
+        "code.label-to-many": {
+          "count": 0,
+          "examples": []
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/serp_kitchen_garden_api.json",
+      "dataset": "serp_kitchen_garden_api",
+      "rows": 28,
+      "distinctRows": 28,
+      "pages": 1,
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 0,
+          "examples": []
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 0,
+          "examples": []
+        },
+        "code.missing": {
+          "count": 0,
+          "examples": []
+        },
+        "code.label-to-many": {
+          "count": 0,
+          "examples": []
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/serp_swachhata_awareness_api.json",
+      "dataset": "serp_swachhata_awareness_api",
+      "rows": 28,
+      "distinctRows": 28,
+      "pages": 1,
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 0,
+          "examples": []
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 0,
+          "examples": []
+        },
+        "code.missing": {
+          "count": 0,
+          "examples": []
+        },
+        "code.label-to-many": {
+          "count": 0,
+          "examples": []
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sewage_treated_qty_new1_api.json",
+      "dataset": "sewage_treated_qty_new1_api",
+      "rows": 242,
+      "distinctRows": 236,
+      "pages": 1,
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 6,
+          "examples": [
+            {
+              "row": 100,
+              "sameAs": 99
+            },
+            {
+              "row": 101,
+              "sameAs": 78
+            },
+            {
+              "row": 102,
+              "sameAs": 94
+            }
+          ]
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 0,
+          "examples": []
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 25,
+          "examples": [
+            {
+              "column": "pckg_nm",
+              "value": "\"STPs Package-II\""
+            },
+            {
+              "column": "crnt_prgrs_tx",
+              "value": "\"To be Grounded\""
+            },
+            {
+              "column": "pckg_nm",
+              "value": "\"Cluster -07\""
+            }
+          ]
+        },
+        "code.missing": {
+          "count": 0,
+          "examples": []
+        },
+        "code.label-to-many": {
+          "count": 2,
+          "examples": [
+            {
+              "labelColumn": "dstrt_nm",
+              "label": "Chittoor",
+              "codeColumn": "lgd_dist_code",
+              "codes": [
+                "503",
+                "753"
+              ]
+            },
+            {
+              "labelColumn": "dstrt_nm",
+              "label": "Prakasam",
+              "codeColumn": "lgd_dist_code",
+              "codes": [
+                "517",
+                "790"
+              ]
+            }
+          ]
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/soak_pits_api.json",
+      "dataset": "soak_pits_api",
+      "rows": 336,
+      "distinctRows": 333,
+      "pages": 1,
+      "monthPairs": {
+        "2026-06 to 2026-07": {
+          "places": 27,
+          "identical": 23
+        },
+        "2026-04 to 2026-05": {
+          "places": 27,
+          "identical": 25
+        },
+        "2026-07 to 2026-08": {
+          "places": 27,
+          "identical": 26
+        },
+        "2026-05 to 2026-06": {
+          "places": 27,
+          "identical": 25
+        }
+      },
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 3,
+          "examples": [
+            {
+              "row": 200,
+              "sameAs": 197
+            },
+            {
+              "row": 201,
+              "sameAs": 199
+            },
+            {
+              "row": 202,
+              "sameAs": 198
+            }
+          ]
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 26,
+          "examples": [
+            {
+              "months": "2026-07 to 2026-08",
+              "identical": 26,
+              "places": 27
+            }
+          ]
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 0,
+          "examples": []
+        },
+        "code.missing": {
+          "count": 0,
+          "examples": []
+        },
+        "code.label-to-many": {
+          "count": 0,
+          "examples": []
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/swacch_survekshan_info_new1_api.json",
+      "dataset": "swacch_survekshan_info_new1_api",
+      "rows": 206,
+      "distinctRows": 206,
+      "pages": 1,
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 0,
+          "examples": []
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 3,
+          "examples": [
+            {
+              "row": 37,
+              "column": "national_rank",
+              "value": "SSL"
+            },
+            {
+              "row": 127,
+              "column": "national_rank",
+              "value": "SSL"
+            },
+            {
+              "row": 155,
+              "column": "national_rank",
+              "value": "SSL"
+            }
+          ]
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 16,
+          "examples": [
+            {
+              "column": "gfc_status",
+              "value": "\"No Star\""
+            },
+            {
+              "column": "gfc_status",
+              "value": "\"1 Star\""
+            },
+            {
+              "column": "dstrt_nm",
+              "value": "\"YSR Kadapa\""
+            }
+          ]
+        },
+        "code.missing": {
+          "count": 12,
+          "examples": [
+            {
+              "row": 194,
+              "columns": [
+                "lgd_dist_code",
+                "lgd_mandal_code"
+              ],
+              "label": "Palnadu"
+            },
+            {
+              "row": 195,
+              "columns": [
+                "lgd_dist_code",
+                "lgd_mandal_code"
+              ],
+              "label": "Krishna"
+            },
+            {
+              "row": 196,
+              "columns": [
+                "lgd_dist_code",
+                "lgd_mandal_code"
+              ],
+              "label": "\"SPSR Nellore\""
+            }
+          ]
+        },
+        "code.label-to-many": {
+          "count": 3,
+          "examples": [
+            {
+              "labelColumn": "dstrt_nm",
+              "label": "Kurnool",
+              "codeColumn": "lgd_dist_code",
+              "codes": [
+                "510",
+                "511"
+              ]
+            },
+            {
+              "labelColumn": "dstrt_nm",
+              "label": "\"SPSR Nellore\"",
+              "codeColumn": "lgd_dist_code",
+              "codes": [
+                "511",
+                "515"
+              ]
+            },
+            {
+              "labelColumn": "dstrt_nm",
+              "label": "\"Dr. B.R. Ambedkar Konaseema\"",
+              "codeColumn": "lgd_dist_code",
+              "codes": [
+                "747",
+                "752"
+              ]
+            }
+          ]
+        },
+        "code.ulb-is-mandal": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/large-snapshots/reference-day/msw_door_to_door_collection_api",
+      "dataset": "msw_door_to_door_collection_api (12 August, complete)",
+      "rows": 4023,
+      "distinctRows": 4023,
+      "pages": 5,
+      "ulbCodeIsMandal": {
+        "same": 3917,
+        "of": 4023
+      },
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 0,
+          "examples": []
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 0,
+          "examples": []
+        },
+        "code.missing": {
+          "count": 51,
+          "examples": [
+            {
+              "row": 121,
+              "columns": [
+                "district_code"
+              ],
+              "label": "Markapuram"
+            },
+            {
+              "row": 122,
+              "columns": [
+                "district_code"
+              ],
+              "label": "Markapuram"
+            },
+            {
+              "row": 123,
+              "columns": [
+                "district_code"
+              ],
+              "label": "Markapuram"
+            }
+          ]
+        },
+        "code.label-to-many": {
+          "count": 1,
+          "examples": [
+            {
+              "labelColumn": "district_name",
+              "label": "Visakhapatnam",
+              "codeColumn": "api_lgd_dist_code",
+              "codes": [
+                "520",
+                "744"
+              ]
+            }
+          ]
+        },
+        "code.ulb-is-mandal": {
+          "count": 3917,
+          "examples": [
+            {
+              "same": 3917,
+              "of": 4023
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/large-snapshots/reference-day/waste_egregation_api",
+      "dataset": "waste_egregation_api (12 August, complete)",
+      "rows": 4023,
+      "distinctRows": 4023,
+      "pages": 5,
+      "ulbCodeIsMandal": {
+        "same": 3917,
+        "of": 4023
+      },
+      "findings": {
+        "response.reconcile": {
+          "count": 0,
+          "examples": []
+        },
+        "row.exact-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 0,
+          "examples": []
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 0,
+          "examples": []
+        },
+        "code.missing": {
+          "count": 51,
+          "examples": [
+            {
+              "row": 121,
+              "columns": [
+                "district_code"
+              ],
+              "label": "Markapuram"
+            },
+            {
+              "row": 122,
+              "columns": [
+                "district_code"
+              ],
+              "label": "Markapuram"
+            },
+            {
+              "row": 123,
+              "columns": [
+                "district_code"
+              ],
+              "label": "Markapuram"
+            }
+          ]
+        },
+        "code.label-to-many": {
+          "count": 1,
+          "examples": [
+            {
+              "labelColumn": "district_name",
+              "label": "Visakhapatnam",
+              "codeColumn": "api_lgd_dist_code",
+              "codes": [
+                "520",
+                "744"
+              ]
+            }
+          ]
+        },
+        "code.ulb-is-mandal": {
+          "count": 3917,
+          "examples": [
+            {
+              "same": 3917,
+              "of": 4023
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/large-snapshots/identification_of_bulk_waste_generators_api",
+      "dataset": "identification_of_bulk_waste_generators_api (8 September paged pull)",
+      "rows": 64528,
+      "distinctRows": 40827,
+      "pages": 646,
+      "ulbCodeIsMandal": {
+        "same": 39738,
+        "of": 40827
+      },
+      "findings": {
+        "response.reconcile": {
+          "count": 23701,
+          "examples": [
+            {
+              "returned": 64528,
+              "distinct": 40827,
+              "repeatedShare": 0.3673
+            }
+          ]
+        },
+        "row.exact-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 0,
+          "examples": []
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 23,
+          "examples": [
+            {
+              "row": 26813,
+              "column": "no_of_bwgs",
+              "value": " Prakash Nagar"
+            },
+            {
+              "row": 26875,
+              "column": "no_of_bwgs",
+              "value": " Prakash Nagar"
+            },
+            {
+              "row": 26991,
+              "column": "no_of_bwgs",
+              "value": " Prakash Nagar"
+            }
+          ]
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 0,
+          "examples": []
+        },
+        "code.missing": {
+          "count": 796,
+          "examples": [
+            {
+              "row": 40031,
+              "columns": [
+                "district_code"
+              ],
+              "label": "Markapuram"
+            },
+            {
+              "row": 40032,
+              "columns": [
+                "district_code"
+              ],
+              "label": "Markapuram"
+            },
+            {
+              "row": 40033,
+              "columns": [
+                "district_code"
+              ],
+              "label": "Markapuram"
+            }
+          ]
+        },
+        "code.label-to-many": {
+          "count": 1,
+          "examples": [
+            {
+              "labelColumn": "district_name",
+              "label": "Visakhapatnam",
+              "codeColumn": "api_lgd_dist_code",
+              "codes": [
+                "520",
+                "744"
+              ]
+            }
+          ]
+        },
+        "code.ulb-is-mandal": {
+          "count": 39738,
+          "examples": [
+            {
+              "same": 39738,
+              "of": 40827
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/large-snapshots/onsite_processing_of_wet_waste_bwg_api",
+      "dataset": "onsite_processing_of_wet_waste_bwg_api (8 September paged pull)",
+      "rows": 64528,
+      "distinctRows": 40827,
+      "pages": 646,
+      "ulbCodeIsMandal": {
+        "same": 39738,
+        "of": 40827
+      },
+      "findings": {
+        "response.reconcile": {
+          "count": 23701,
+          "examples": [
+            {
+              "returned": 64528,
+              "distinct": 40827,
+              "repeatedShare": 0.3673
+            }
+          ]
+        },
+        "row.exact-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "row.conflicting-duplicate": {
+          "count": 0,
+          "examples": []
+        },
+        "month.carried-forward": {
+          "count": 0,
+          "examples": []
+        },
+        "period.mismatch": {
+          "count": 0,
+          "examples": []
+        },
+        "count.not-number": {
+          "count": 0,
+          "examples": []
+        },
+        "number.stored-as-text": {
+          "count": 0,
+          "examples": []
+        },
+        "text.quote-marks": {
+          "count": 0,
+          "examples": []
+        },
+        "code.missing": {
+          "count": 796,
+          "examples": [
+            {
+              "row": 40031,
+              "columns": [
+                "district_code"
+              ],
+              "label": "Markapuram"
+            },
+            {
+              "row": 40032,
+              "columns": [
+                "district_code"
+              ],
+              "label": "Markapuram"
+            },
+            {
+              "row": 40033,
+              "columns": [
+                "district_code"
+              ],
+              "label": "Markapuram"
+            }
+          ]
+        },
+        "code.label-to-many": {
+          "count": 1,
+          "examples": [
+            {
+              "labelColumn": "district_name",
+              "label": "Visakhapatnam",
+              "codeColumn": "api_lgd_dist_code",
+              "codes": [
+                "520",
+                "744"
+              ]
+            }
+          ]
+        },
+        "code.ulb-is-mandal": {
+          "count": 39738,
+          "examples": [
+            {
+              "same": 39738,
+              "of": 40827
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
