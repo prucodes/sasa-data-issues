@@ -24,10 +24,9 @@ APP, OUT = (sys.argv[1], sys.argv[2]) if len(sys.argv) > 2 else ('.', '.')
 MEPMA = ['sasa_mepma_households_promoted_for_home_composite_api', 'sasa_mepma_entrepreneurs_promoted_for_circular_economy_api',
          'sasa_households_promoted_for_terrace_gardening_kitchen_gardens_api']
 CDMA = 'msw_door_to_door_collection_api'
-OVERRIDES = {
-    'annamayya|bkothakota': 'The app review approved B.Kothakota as MADANAPALLE, but the CDMA daily file lists B KOTHAKOTA (ulb_code 1189) '
-                            'and MADANAPALLE (1009) as separate ULBs, and the Swachh Survekshan table codes B KOTHAKOTA as mandal 1189 or 5391, not 1009',
-}
+# Decisions in the app review that this registry does not follow. None since 14 September 2026, when the app
+# review itself rejected B.Kothakota as MADANAPALLE.
+OVERRIDES = {}
 t = lambda v: '' if v is None else str(v).strip()
 bare = lambda v: t(v).strip('"').strip()
 sig = lambda v: re.sub(r'[^a-z0-9]', '', t(v).lower())
