@@ -43,7 +43,7 @@ const EXAMPLES = 3;
 
 const text = (value) => String(value ?? '').trim();
 const missing = (value) => /^(|null|undefined|n\/?a|-)$/i.test(text(value));
-const bare = (value) => text(value).replace(/^"|"$/g, '').replace(/,/g, '');
+const bare = (value) => text(value).replace(/^"|"$/g, '').replace(/,/g, '').replace(/%$/, '');
 const numeric = (value) => /^-?\d+(\.\d+)?$/.test(bare(value));
 const isCode = (column) => /(^|_)(code|id)$/i.test(column);
 const canonical = (row, columns) => JSON.stringify(columns.map((column) => [column, text(row[column])]));
@@ -89,7 +89,8 @@ export function checkDataset(name, records, meta = {}, pages = 1) {
     const values = rows.map((row) => row[column]).filter((value) => !missing(value));
     return [column, values.length ? values.filter(numeric).length / values.length : 0];
   }));
-  const measures = columns.filter((c) => !STAMPS.has(c) && !PERIOD.has(c) && !isCode(c) && numericShare[c] >= 0.95);
+  // A column that is mostly numbers is a measure, even when some values are text; those are N6.
+  const measures = columns.filter((c) => !STAMPS.has(c) && !PERIOD.has(c) && !isCode(c) && numericShare[c] >= 0.5);
   const identity = columns.filter((c) => !STAMPS.has(c) && !PERIOD.has(c) && !measures.includes(c));
   const periodColumns = columns.filter((c) => PERIOD.has(c));
   const filled = Object.fromEntries(columns.map((c) => [c, rows.filter((row) => !missing(row[c]) && text(row[c]).toUpperCase() !== 'NULL').length / (rows.length || 1)]));
@@ -104,22 +105,27 @@ export function checkDataset(name, records, meta = {}, pages = 1) {
   for (const [key, variants] of byKey) if (variants.size > 1) note('row.conflicting-duplicate', { key: JSON.parse(key).filter(([, v]) => v).slice(0, 6), variants: variants.size });
 
   // N8: a month is carried forward when nearly every place repeats the month before it.
-  // Only fully reported months count. A plan that repeats its target into months not yet
-  // reported is a plan, not a copy.
-  const byPlace = new Map();
+  // Months nobody has reported yet are skipped: a plan that repeats its target into future
+  // months is a plan, not a copy.
+  const byPlace = new Map(), monthRows = new Map();
   for (const row of rows) {
     const month = monthOf(row);
-    if (!month || measures.some((column) => missing(row[column]))) continue;
+    if (!month) continue;
+    const tally = monthRows.get(month) ?? { rows: 0, complete: 0 };
+    tally.rows += 1;
+    if (measures.every((column) => !missing(row[column]))) tally.complete += 1;
+    monthRows.set(month, tally);
     const place = canonical(row, identity);
     if (!byPlace.has(place)) byPlace.set(place, new Map());
     const months = byPlace.get(place);
     if (!months.has(month)) months.set(month, []);
     months.get(month).push(canonical(row, measures));
   }
+  const reported = (month) => { const tally = monthRows.get(month); return Boolean(tally) && tally.complete / tally.rows >= 0.5; };
   const pairs = {};
   for (const months of byPlace.values()) for (const [month, list] of months) {
     const before = months.get(previousMonth(month));
-    if (!before) continue;
+    if (!before || !reported(month)) continue;
     const label = `${previousMonth(month)} to ${month}`;
     pairs[label] ??= { places: 0, identical: 0 };
     pairs[label].places += 1;

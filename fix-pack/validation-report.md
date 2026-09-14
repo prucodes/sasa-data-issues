@@ -5,15 +5,15 @@ Checked 40 datasets on 2026-09-14 with `validate.mjs`. Each number counts rows, 
 | Dataset | Rows | N1 | N7 | A14 | N8 | A5 | N6 | C3 | A1 | N5 C1 | N4 | A3 |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | cd_waste_process_plants_revival_new1_api | 6 |  |  |  | 3 |  |  |  |  |  |  |  |
-| compost_pits_api | 336 |  | 3 |  | 26 |  |  |  |  |  |  |  |
+| compost_pits_api | 336 |  |  |  | 27 |  |  |  |  |  |  |  |
 | construction_of_csc_api | 84 |  |  |  |  |  |  |  |  |  |  |  |
 | fstps_stps_cotreatment_new1_api | 70 |  |  |  |  | 35 |  |  | 5 | 8 |  |  |
 | housing_construction_of_ihhls_new1_api | 84 |  |  |  |  |  |  |  |  |  |  |  |
-| ihhl_new_identification_new1_api | 246 |  | 2 |  | 121 |  |  |  | 14 | 44 | 1 |  |
+| ihhl_new_identification_new1_api | 246 |  |  |  | 123 |  |  |  | 14 | 44 | 1 |  |
 | itc_wow_schools_api | 24 |  |  |  |  |  |  |  |  |  |  |  |
-| magic_drains_api | 336 |  | 2 |  | 83 |  |  |  |  |  |  |  |
+| magic_drains_api | 336 |  |  |  | 83 |  |  |  |  |  |  |  |
 | msw_cbg_units_new1_api | 12 |  |  |  | 6 |  |  |  | 4 | 2 |  |  |
-| sasa_100_percent_clearance_of_legacy_waste_api | 246 |  | 3 |  | 94 |  |  | 561 |  |  |  |  |
+| sasa_100_percent_clearance_of_legacy_waste_api | 246 |  |  |  |  |  |  | 569 |  |  |  |  |
 | sasa_50_percent_green_spaces_api | 400 |  | 5 |  |  |  |  |  | 12 | 40 | 2 |  |
 | sasa_50_percent_greencover_api | 400 |  | 5 |  |  |  |  |  | 12 | 40 | 2 |  |
 | sasa_50_percent_rejuvenation_api | 400 |  | 5 |  |  |  |  |  | 12 | 40 | 2 |  |
@@ -37,8 +37,8 @@ Checked 40 datasets on 2026-09-14 with `validate.mjs`. Each number counts rows, 
 | serp_circular_economy_api | 28 |  |  |  |  |  |  |  |  |  |  |  |
 | serp_kitchen_garden_api | 28 |  |  |  |  |  |  |  |  |  |  |  |
 | serp_swachhata_awareness_api | 28 |  |  |  |  |  |  |  |  |  |  |  |
-| sewage_treated_qty_new1_api | 242 |  | 6 |  |  |  |  |  | 25 |  | 2 |  |
-| soak_pits_api | 336 |  | 3 |  | 26 |  |  |  |  |  |  |  |
+| sewage_treated_qty_new1_api | 242 |  |  |  |  |  |  |  | 25 |  | 2 |  |
+| soak_pits_api | 336 |  |  |  | 27 |  |  |  |  |  |  |  |
 | swacch_survekshan_info_new1_api | 206 |  |  |  |  |  | 3 |  | 16 | 12 | 3 |  |
 | msw_door_to_door_collection_api (12 August, complete) | 4,023 |  |  |  |  |  |  |  |  | 51 | 1 | 3,917 |
 | waste_egregation_api (12 August, complete) | 4,023 |  |  |  |  |  |  |  |  | 51 | 1 | 3,917 |
@@ -68,12 +68,11 @@ Checked 40 datasets on 2026-09-14 with `validate.mjs`. Each number counts rows, 
 
 ### compost_pits_api
 
-* 2026-06 to 2026-07: identical for 23 of 27 places.
-* 2026-04 to 2026-05: identical for 25 of 27 places.
-* 2026-07 to 2026-08: identical for 26 of 27 places.
-* 2026-05 to 2026-06: identical for 25 of 27 places.
-* N7, The same row appears more than once: 3. Example: `{"row":200,"sameAs":197}`
-* N8, Almost every place repeats the previous month exactly: 26. Example: `{"months":"2026-07 to 2026-08","identical":26,"places":27}`
+* 2026-06 to 2026-07: identical for 24 of 28 places.
+* 2026-04 to 2026-05: identical for 26 of 28 places.
+* 2026-07 to 2026-08: identical for 27 of 28 places.
+* 2026-05 to 2026-06: identical for 26 of 28 places.
+* N8, Almost every place repeats the previous month exactly: 27. Example: `{"months":"2026-07 to 2026-08","identical":27,"places":28}`
 
 ### construction_of_csc_api
 
@@ -93,9 +92,8 @@ Checked 40 datasets on 2026-09-14 with `validate.mjs`. Each number counts rows, 
 
 ### ihhl_new_identification_new1_api
 
-* 2026-06 to 2026-07: identical for 121 of 121 places.
-* N7, The same row appears more than once: 2. Example: `{"row":200,"sameAs":196}`
-* N8, Almost every place repeats the previous month exactly: 121. Example: `{"months":"2026-06 to 2026-07","identical":121,"places":121}`
+* 2026-06 to 2026-07: identical for 123 of 123 places.
+* N8, Almost every place repeats the previous month exactly: 123. Example: `{"months":"2026-06 to 2026-07","identical":123,"places":123}`
 * A1, Quote marks left inside a text value: 14. Example: `{"column":"dstrt_nm","value":"\"YSR Kadapa\""}`
 * N5 C1, A code is blank or the text NULL where the rest of the file has one: 44. Example: `{"row":200,"columns":["lgd_dist_code","lgd_mandal_code"],"label":"Kurnool"}`
 * N4, One district label carries more than one district code in the same file: 1. Example: `{"labelColumn":"dstrt_nm","label":"Annamayya","codeColumn":"lgd_dist_code","codes":["504","753"]}`
@@ -106,7 +104,6 @@ Checked 40 datasets on 2026-09-14 with `validate.mjs`. Each number counts rows, 
 * 2026-07 to 2026-08: identical for 28 of 28 places.
 * 2026-05 to 2026-06: identical for 26 of 28 places.
 * 2026-06 to 2026-07: identical for 28 of 28 places.
-* N7, The same row appears more than once: 2. Example: `{"row":100,"sameAs":98}`
 * N8, Almost every place repeats the previous month exactly: 83. Example: `{"months":"2026-04 to 2026-05","identical":27,"places":28}`
 
 ### msw_cbg_units_new1_api
@@ -118,14 +115,12 @@ Checked 40 datasets on 2026-09-14 with `validate.mjs`. Each number counts rows, 
 
 ### sasa_100_percent_clearance_of_legacy_waste_api
 
-* 2026-06 to 2026-07: identical for 94 of 97 places.
-* N7, The same row appears more than once: 3. Example: `{"row":200,"sameAs":197}`
-* N8, Almost every place repeats the previous month exactly: 94. Example: `{"months":"2026-06 to 2026-07","identical":94,"places":97}`
-* C3, Numbers stored as text, with quote marks or thousands separators: 561. Example: `{"column":"target","example":"\"36,400\""}`
+* 2026-06 to 2026-07: identical for 95 of 123 places.
+* C3, Numbers stored as text, with quote marks or thousands separators: 569. Example: `{"column":"target","example":"\"36,400\""}`
 
 ### sasa_50_percent_green_spaces_api
 
-* 2026-06 to 2026-07: identical for 157 of 192 places.
+* 2026-06 to 2026-07: identical for 157 of 193 places.
 * N7, The same row appears more than once: 5. Example: `{"row":101,"sameAs":99}`
 * A1, Quote marks left inside a text value: 12. Example: `{"column":"dstrt_nm","value":"\"East Godavari\""}`
 * N5 C1, A code is blank or the text NULL where the rest of the file has one: 40. Example: `{"row":355,"columns":["lgd_dist_code","lgd_mandal_code"],"label":"\"Parvathipuram Manyam\""}`
@@ -133,7 +128,7 @@ Checked 40 datasets on 2026-09-14 with `validate.mjs`. Each number counts rows, 
 
 ### sasa_50_percent_greencover_api
 
-* 2026-06 to 2026-07: identical for 157 of 192 places.
+* 2026-06 to 2026-07: identical for 157 of 193 places.
 * N7, The same row appears more than once: 5. Example: `{"row":101,"sameAs":99}`
 * A1, Quote marks left inside a text value: 12. Example: `{"column":"dstrt_nm","value":"\"East Godavari\""}`
 * N5 C1, A code is blank or the text NULL where the rest of the file has one: 40. Example: `{"row":355,"columns":["lgd_dist_code","lgd_mandal_code"],"label":"\"Parvathipuram Manyam\""}`
@@ -141,7 +136,7 @@ Checked 40 datasets on 2026-09-14 with `validate.mjs`. Each number counts rows, 
 
 ### sasa_50_percent_rejuvenation_api
 
-* 2026-06 to 2026-07: identical for 157 of 192 places.
+* 2026-06 to 2026-07: identical for 157 of 193 places.
 * N7, The same row appears more than once: 5. Example: `{"row":101,"sameAs":99}`
 * A1, Quote marks left inside a text value: 12. Example: `{"column":"dstrt_nm","value":"\"East Godavari\""}`
 * N5 C1, A code is blank or the text NULL where the rest of the file has one: 40. Example: `{"row":355,"columns":["lgd_dist_code","lgd_mandal_code"],"label":"\"Parvathipuram Manyam\""}`
@@ -157,10 +152,10 @@ Checked 40 datasets on 2026-09-14 with `validate.mjs`. Each number counts rows, 
 
 ### sasa_mepma_entrepreneurs_promoted_for_circular_economy_api
 
-* 2026-06 to 2026-07: identical for 63 of 118 places.
-* 2026-04 to 2026-05: identical for 73 of 118 places.
-* 2026-03 to 2026-04: identical for 95 of 118 places.
-* 2026-05 to 2026-06: identical for 55 of 118 places.
+* 2026-06 to 2026-07: identical for 65 of 123 places.
+* 2026-04 to 2026-05: identical for 77 of 123 places.
+* 2026-03 to 2026-04: identical for 100 of 123 places.
+* 2026-05 to 2026-06: identical for 58 of 123 places.
 * A1, Quote marks left inside a text value: 2. Example: `{"column":"ulb_name","value":"\"JANGAREDDY GUDEM\""}`
 
 ### sasa_mepma_households_promoted_for_home_composite_api
@@ -225,18 +220,16 @@ Checked 40 datasets on 2026-09-14 with `validate.mjs`. Each number counts rows, 
 
 ### sewage_treated_qty_new1_api
 
-* N7, The same row appears more than once: 6. Example: `{"row":100,"sameAs":99}`
 * A1, Quote marks left inside a text value: 25. Example: `{"column":"pckg_nm","value":"\"STPs Package-II\""}`
 * N4, One district label carries more than one district code in the same file: 2. Example: `{"labelColumn":"dstrt_nm","label":"Chittoor","codeColumn":"lgd_dist_code","codes":["503","753"]}`
 
 ### soak_pits_api
 
-* 2026-06 to 2026-07: identical for 23 of 27 places.
-* 2026-04 to 2026-05: identical for 25 of 27 places.
-* 2026-07 to 2026-08: identical for 26 of 27 places.
-* 2026-05 to 2026-06: identical for 25 of 27 places.
-* N7, The same row appears more than once: 3. Example: `{"row":200,"sameAs":197}`
-* N8, Almost every place repeats the previous month exactly: 26. Example: `{"months":"2026-07 to 2026-08","identical":26,"places":27}`
+* 2026-06 to 2026-07: identical for 24 of 28 places.
+* 2026-04 to 2026-05: identical for 26 of 28 places.
+* 2026-07 to 2026-08: identical for 27 of 28 places.
+* 2026-05 to 2026-06: identical for 26 of 28 places.
+* N8, Almost every place repeats the previous month exactly: 27. Example: `{"months":"2026-07 to 2026-08","identical":27,"places":28}`
 
 ### swacch_survekshan_info_new1_api
 

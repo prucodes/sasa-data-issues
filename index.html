@@ -229,6 +229,7 @@ footer.end{margin-top:70px;padding-top:18px;border-top:1px solid var(--rule);fon
   a{color:inherit;text-decoration:none}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+.status-key{margin:18px 0 0}
 </style>
 </head>
 <body>
@@ -276,6 +277,8 @@ footer.end{margin-top:70px;padding-top:18px;border-top:1px solid var(--rule);fon
     <div data-status="untested"><span class="chip st-untested">Cannot test</span><span class="n">1</span><span class="ids"><a href="#B1">B1</a></span></div>
     <div data-status="new"><span class="chip st-new">New</span><span class="n">8</span><span class="ids"><a href="#N1">N1</a> <a href="#N2">N2</a> <a href="#N3">N3</a> <a href="#N4">N4</a> <a href="#N5">N5</a> <a href="#N6">N6</a> <a href="#N7">N7</a> <a href="#N8">N8</a></span></div>
   </div>
+
+  <p class="sec-lead status-key"><b>How to read the statuses.</b> A status only records what the team that owns the data has changed. Nothing on this list is marked fixed because of my work. What I have done sits in two separate places: <a href="#built">how I worked around these problems in the app</a>, and <a href="#fix-pack">fixes I have proposed</a>, which nobody has adopted yet.</p>
 
   <div class="meta">
     <span><b>Checked:</b> all 42 datasets in the catalogue, live, 11 September 2026</span>
@@ -351,7 +354,7 @@ I exported six districts a second time. <b>The same rows came back, repeated the
 Everything I could get by every route put together: <b>50,634 of 64,368 rows (78.7%)</b>.<br>
 The gaps are not spread evenly. 12 August comes back complete, 1 row is missing for 13 August, and 2,858 are missing for 27 August.<br><br>
 <b>identification_of_bulk_waste_generators_api</b> behaves the same way: 64,528 rows back by export, 32,286 different, 50,777 of 64,528 (78.7%) by every route together.<br><br>
-<b>It happens in small tables too.</b> At the 100 row page boundary a few rows are replaced by repeats from the page before, so the total still matches. Compost pits and soak pits are missing Nellore for April, June and July 2026. Magic drains is missing Guntur for October and December. Legacy waste clearance is missing Tirupati, Venkatagiri and Sullurpet for July. New IHHL identification is missing Kanigiri and Giddalur for July. Sewage repeats 6 rows and the green programme table 5. The same rows repeat, in the same places, in my 28 August copies.</div>
+<b>It happens in small tables too.</b> At the 100 row page boundary a few rows are replaced by repeats from the page before, so the total still matches. Compost pits and soak pits are missing Nellore for April, June and July 2026. Magic drains is missing Guntur for October and December. Legacy waste clearance is missing Tirupati, Venkatagiri and Sullurpet for July. New IHHL identification is missing Kanigiri and Giddalur for July. Sewage repeats 6 rows and the green programme table 5. The same rows repeat, in the same places, in my 28 August copies, and the export route returns exactly the same gaps. A query filtered to one district or one month, small enough to fit a single page, does return the missing rows, which is how I recovered them on 14 September.</div>
     <p class="ask"><b>What would fix this:</b> every row served exactly once, by paging and by export. My guess is that the query underneath has no fixed sort order, so each page is cut from a different ordering, but I cannot confirm that from outside. Until it is fixed, any total built from these files is built on a partial file.</p>
   </div></article>
 
@@ -412,12 +415,11 @@ On 11 September August still holds only 1 to 7 August, more than five weeks afte
   <article data-status="new" class="item single" id="N8"><span class="id">N8</span><div class="body">
     <div class="head"><h3>July repeats June in most urban monthly datasets</h3><div class="tags"><span class="tag o-joint"><i></i>Dept or TCS</span><span class="chip st-new">New</span></div></div>
     <p>In most urban programme tables, July is the same as June for every place, down to the last digit. Nothing in the rows says whether July was reported again with no change, or June was copied forward.</p>
-    <div class="ev">Checked on my 11 September copies, comparing every field except the month.<br>
+    <div class="ev">Checked on my 11 September copies, with the rows lost at page boundaries recovered on 14 September (<a href="#N1">N1</a>), comparing every field except the month.<br>
 <b>Collection vehicles</b>, the one table behind the four vehicle keys (<a href="#N3">N3</a>): identical for all 28 districts from May to June, and again from June to July.<br>
-<b>New IHHL identification:</b> 121 of 121 ULBs. <b>ISWM processing facilities:</b> 108 of 108. <b>Sweeping machines:</b> 13 of 13. <b>Compactors:</b> 12 of 12. <b>CBG units:</b> 6 of 6. <b>C&amp;D waste plants:</b> 3 of 3.<br>
-<b>Legacy waste clearance:</b> 94 of the 97 ULBs with a complete June and July.<br>
-<b>Magic drains:</b> all 28 districts from June to July, and from July to August. <b>Compost pits</b> and soak pits (<a href="#N3">N3</a>): 26 of 27 districts from July to August.<br><br>
-The district target and achievement tables for community sanitary complexes, household toilets and sewage do change between months, so this is not the whole catalogue.</div>
+<b>New IHHL identification:</b> 123 of 123 ULBs. <b>ISWM processing facilities:</b> 108 of 108. <b>Sweeping machines:</b> 13 of 13. <b>Compactors:</b> 12 of 12. <b>CBG units:</b> 6 of 6. <b>C&amp;D waste plants:</b> 3 of 3.<br>
+<b>Magic drains:</b> all 28 districts from June to July, and from July to August. <b>Compost pits</b> and soak pits (<a href="#N3">N3</a>): 27 of 28 districts from July to August.<br><br>
+Legacy waste clearance is different: 95 of 123 ULBs repeat June, but 28 changed, so I have not counted it as a copied month. The district target and achievement tables for community sanitary complexes, household toilets and sewage also change between months, so this is not the whole catalogue.</div>
     <p class="ask"><b>What would fix this:</b> say whether each of these months was reported or carried forward. If a value is carried forward, mark it on the row with the date it was last reported, as in the <a href="https://github.com/prucodes/sasa-data-issues/blob/main/fix-pack/data-contract.md">proposed data contract</a>.</p>
   </div></article>
 </section>
@@ -665,7 +667,7 @@ The district target and achievement tables for community sanitary complexes, hou
   </div></article>
 </section>
 
-<section>
+<section id="built">
   <div class="sec-h"><span class="eyebrow">What I did with the data</span><h2>How I built SASA Intelligence Lab around these problems</h2></div>
   <p class="sec-lead">I could not wait for every item above to be fixed, so the app handles them itself. None of this changes a source value. It decides what gets counted, what gets held out, and what the app refuses to say. The item references show which problem each rule answers.</p>
 

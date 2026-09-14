@@ -24,7 +24,7 @@ A finding means a row cannot be accepted as it stands. The script never decides 
 
 The report was run on 14 September 2026 against:
 
-1. the 36 small tables as I retrieved them on 10 and 11 September;
+1. the 36 small tables as I retrieved them on 10 and 11 September. For six of them (legacy waste clearance, compost pits, soak pits, magic drains, new IHHL identification and sewage), rows lost at a 100-row page boundary were recovered on 14 September with one-page filtered queries, so those six are complete;
 2. door to door collection and waste segregation for 12 August, the one day I could retrieve complete by combining every route;
 3. bulk waste generator identification and on site wet waste processing, from my paged pull on 8 September, which is incomplete (N1).
 

@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-14T17:09:21.045Z",
+  "checkedAt": "2026-09-14T18:21:10.697Z",
   "rules": {
     "response.reconcile": {
       "issue": "N1",
@@ -116,24 +116,24 @@
       "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/compost_pits_api.json",
       "dataset": "compost_pits_api",
       "rows": 336,
-      "distinctRows": 333,
+      "distinctRows": 336,
       "pages": 1,
       "monthPairs": {
         "2026-06 to 2026-07": {
-          "places": 27,
-          "identical": 23
+          "places": 28,
+          "identical": 24
         },
         "2026-04 to 2026-05": {
-          "places": 27,
-          "identical": 25
-        },
-        "2026-07 to 2026-08": {
-          "places": 27,
+          "places": 28,
           "identical": 26
         },
+        "2026-07 to 2026-08": {
+          "places": 28,
+          "identical": 27
+        },
         "2026-05 to 2026-06": {
-          "places": 27,
-          "identical": 25
+          "places": 28,
+          "identical": 26
         }
       },
       "findings": {
@@ -142,33 +142,20 @@
           "examples": []
         },
         "row.exact-duplicate": {
-          "count": 3,
-          "examples": [
-            {
-              "row": 200,
-              "sameAs": 197
-            },
-            {
-              "row": 201,
-              "sameAs": 199
-            },
-            {
-              "row": 202,
-              "sameAs": 198
-            }
-          ]
+          "count": 0,
+          "examples": []
         },
         "row.conflicting-duplicate": {
           "count": 0,
           "examples": []
         },
         "month.carried-forward": {
-          "count": 26,
+          "count": 27,
           "examples": [
             {
               "months": "2026-07 to 2026-08",
-              "identical": 26,
-              "places": 27
+              "identical": 27,
+              "places": 28
             }
           ]
         },
@@ -439,12 +426,12 @@
       "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/ihhl_new_identification_new1_api.json",
       "dataset": "ihhl_new_identification_new1_api",
       "rows": 246,
-      "distinctRows": 244,
+      "distinctRows": 246,
       "pages": 1,
       "monthPairs": {
         "2026-06 to 2026-07": {
-          "places": 121,
-          "identical": 121
+          "places": 123,
+          "identical": 123
         }
       },
       "findings": {
@@ -453,29 +440,20 @@
           "examples": []
         },
         "row.exact-duplicate": {
-          "count": 2,
-          "examples": [
-            {
-              "row": 200,
-              "sameAs": 196
-            },
-            {
-              "row": 201,
-              "sameAs": 197
-            }
-          ]
+          "count": 0,
+          "examples": []
         },
         "row.conflicting-duplicate": {
           "count": 0,
           "examples": []
         },
         "month.carried-forward": {
-          "count": 121,
+          "count": 123,
           "examples": [
             {
               "months": "2026-06 to 2026-07",
-              "identical": 121,
-              "places": 121
+              "identical": 123,
+              "places": 123
             }
           ]
         },
@@ -614,7 +592,7 @@
       "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/magic_drains_api.json",
       "dataset": "magic_drains_api",
       "rows": 336,
-      "distinctRows": 334,
+      "distinctRows": 336,
       "pages": 1,
       "monthPairs": {
         "2026-04 to 2026-05": {
@@ -640,17 +618,8 @@
           "examples": []
         },
         "row.exact-duplicate": {
-          "count": 2,
-          "examples": [
-            {
-              "row": 100,
-              "sameAs": 98
-            },
-            {
-              "row": 101,
-              "sameAs": 99
-            }
-          ]
+          "count": 0,
+          "examples": []
         },
         "row.conflicting-duplicate": {
           "count": 0,
@@ -805,12 +774,12 @@
       "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sasa_100_percent_clearance_of_legacy_waste_api.json",
       "dataset": "sasa_100_percent_clearance_of_legacy_waste_api",
       "rows": 246,
-      "distinctRows": 243,
+      "distinctRows": 246,
       "pages": 1,
       "monthPairs": {
         "2026-06 to 2026-07": {
-          "places": 97,
-          "identical": 94
+          "places": 123,
+          "identical": 95
         }
       },
       "findings": {
@@ -819,35 +788,16 @@
           "examples": []
         },
         "row.exact-duplicate": {
-          "count": 3,
-          "examples": [
-            {
-              "row": 200,
-              "sameAs": 197
-            },
-            {
-              "row": 201,
-              "sameAs": 198
-            },
-            {
-              "row": 202,
-              "sameAs": 199
-            }
-          ]
+          "count": 0,
+          "examples": []
         },
         "row.conflicting-duplicate": {
           "count": 0,
           "examples": []
         },
         "month.carried-forward": {
-          "count": 94,
-          "examples": [
-            {
-              "months": "2026-06 to 2026-07",
-              "identical": 94,
-              "places": 97
-            }
-          ]
+          "count": 0,
+          "examples": []
         },
         "period.mismatch": {
           "count": 0,
@@ -858,7 +808,7 @@
           "examples": []
         },
         "number.stored-as-text": {
-          "count": 561,
+          "count": 569,
           "examples": [
             {
               "column": "target",
@@ -900,7 +850,7 @@
       "pages": 1,
       "monthPairs": {
         "2026-06 to 2026-07": {
-          "places": 192,
+          "places": 193,
           "identical": 157
         }
       },
@@ -1030,7 +980,7 @@
       "pages": 1,
       "monthPairs": {
         "2026-06 to 2026-07": {
-          "places": 192,
+          "places": 193,
           "identical": 157
         }
       },
@@ -1160,7 +1110,7 @@
       "pages": 1,
       "monthPairs": {
         "2026-06 to 2026-07": {
-          "places": 192,
+          "places": 193,
           "identical": 157
         }
       },
@@ -1635,20 +1585,20 @@
       "pages": 1,
       "monthPairs": {
         "2026-06 to 2026-07": {
-          "places": 118,
-          "identical": 63
+          "places": 123,
+          "identical": 65
         },
         "2026-04 to 2026-05": {
-          "places": 118,
-          "identical": 73
+          "places": 123,
+          "identical": 77
         },
         "2026-03 to 2026-04": {
-          "places": 118,
-          "identical": 95
+          "places": 123,
+          "identical": 100
         },
         "2026-05 to 2026-06": {
-          "places": 118,
-          "identical": 55
+          "places": 123,
+          "identical": 58
         }
       },
       "findings": {
@@ -2681,7 +2631,7 @@
       "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/sewage_treated_qty_new1_api.json",
       "dataset": "sewage_treated_qty_new1_api",
       "rows": 242,
-      "distinctRows": 236,
+      "distinctRows": 242,
       "pages": 1,
       "findings": {
         "response.reconcile": {
@@ -2689,21 +2639,8 @@
           "examples": []
         },
         "row.exact-duplicate": {
-          "count": 6,
-          "examples": [
-            {
-              "row": 100,
-              "sameAs": 99
-            },
-            {
-              "row": 101,
-              "sameAs": 78
-            },
-            {
-              "row": 102,
-              "sameAs": 94
-            }
-          ]
+          "count": 0,
+          "examples": []
         },
         "row.conflicting-duplicate": {
           "count": 0,
@@ -2779,24 +2716,24 @@
       "source": "/Users/pruthviyannam/Documents/SASA-AI-Data-Validation/data/current-snapshots/soak_pits_api.json",
       "dataset": "soak_pits_api",
       "rows": 336,
-      "distinctRows": 333,
+      "distinctRows": 336,
       "pages": 1,
       "monthPairs": {
         "2026-06 to 2026-07": {
-          "places": 27,
-          "identical": 23
+          "places": 28,
+          "identical": 24
         },
         "2026-04 to 2026-05": {
-          "places": 27,
-          "identical": 25
-        },
-        "2026-07 to 2026-08": {
-          "places": 27,
+          "places": 28,
           "identical": 26
         },
+        "2026-07 to 2026-08": {
+          "places": 28,
+          "identical": 27
+        },
         "2026-05 to 2026-06": {
-          "places": 27,
-          "identical": 25
+          "places": 28,
+          "identical": 26
         }
       },
       "findings": {
@@ -2805,33 +2742,20 @@
           "examples": []
         },
         "row.exact-duplicate": {
-          "count": 3,
-          "examples": [
-            {
-              "row": 200,
-              "sameAs": 197
-            },
-            {
-              "row": 201,
-              "sameAs": 199
-            },
-            {
-              "row": 202,
-              "sameAs": 198
-            }
-          ]
+          "count": 0,
+          "examples": []
         },
         "row.conflicting-duplicate": {
           "count": 0,
           "examples": []
         },
         "month.carried-forward": {
-          "count": 26,
+          "count": 27,
           "examples": [
             {
               "months": "2026-07 to 2026-08",
-              "identical": 26,
-              "places": 27
+              "identical": 27,
+              "places": 28
             }
           ]
         },
