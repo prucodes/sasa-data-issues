@@ -283,7 +283,7 @@ footer.end{margin-top:70px;padding-top:18px;border-top:1px solid var(--rule);fon
   <div class="meta">
     <span><b>Checked:</b> all 42 datasets in the catalogue, live, 11 September 2026, figures rechecked 14 September</span>
     <span><b>Previous version:</b> 2 September 2026, 33 datasets</span>
-    <span><b>PDF:</b> <a href="SASA-data-issues-2026-09-14.pdf" data-goatcounter-click="pdf-2026-09-14" data-goatcounter-title="PDF opened, 14 September">14 September</a>, <a href="SASA-data-issues-2026-09-11.pdf" data-goatcounter-click="pdf-2026-09-11" data-goatcounter-title="PDF opened, 11 September">11 September</a>, <a href="SASA-data-issues-2026-09-02.pdf" data-goatcounter-click="pdf-2026-09-02" data-goatcounter-title="PDF opened, 2 September">2 September</a></span>
+    <span><b>PDF:</b> <a href="SASA-data-issues-2026-09-14.pdf" data-goatcounter-click="data-issues-pdf-2026-09-14" data-goatcounter-title="PDF opened, 14 September">14 September</a>, <a href="SASA-data-issues-2026-09-11.pdf" data-goatcounter-click="data-issues-pdf-2026-09-11" data-goatcounter-title="PDF opened, 11 September">11 September</a>, <a href="SASA-data-issues-2026-09-02.pdf" data-goatcounter-click="data-issues-pdf-2026-09-02" data-goatcounter-title="PDF opened, 2 September">2 September</a></span>
     <span><b>Walkthrough:</b> <a href="walkthrough/" target="_blank" rel="noopener">4 minute video</a></span>
     <span><b>Owners:</b> <span class="tag o-dept"><i></i>Department</span> <span class="tag o-tcs"><i></i>TCS</span> <span class="tag o-ng"><i></i>NextGen</span> <span class="tag o-joint"><i></i>Either, needs routing</span></span>
   </div>
@@ -345,7 +345,7 @@ footer.end{margin-top:70px;padding-top:18px;border-top:1px solid var(--rule);fon
   <article data-status="new" class="item single" id="N1"><span class="id">N1</span><div class="body">
     <div class="head"><h3>Paging and export do not return the CDMA daily files complete</h3><div class="tags"><span class="tag o-joint"><i></i>NextGen or TCS</span><span class="chip st-new">New</span></div></div>
     <p>The row count is always right. The rows are not. Both ways of getting the data out return the correct number of rows, but about half of them are repeats standing in for rows that never arrive. Nothing in the response says so.</p>
-    <div class="ev"><b>msw_door_to_door_collection_api</b>, captured again on 14 September with every request and response ID kept (<a href="https://github.com/prucodes/sasa-data-issues/blob/main/fix-pack/paging-evidence.md">paging evidence</a>).<br>
+    <div class="ev"><b>msw_door_to_door_collection_api</b>, captured again on 14 September with every request and response ID kept (<a href="https://github.com/prucodes/sasa-data-issues/blob/main/fix-pack/paging-evidence.md" data-goatcounter-click="data-issues-fixpack-paging-evidence" data-goatcounter-title="Fix pack: paging-evidence.md">paging evidence</a>).<br>
 The file should hold one row per secretariat per day. 4,023 secretariats &times; 16 days = <b>64,368</b>, which is exactly the total the API reports.<br><br>
 <b>Export</b>, one call per district for all 26 district codes: 64,368 rows back, only <b>32,206</b> different. Some rows arrive up to 8 times.<br>
 <b>Paging</b> through the whole file on 8 September: 64,368 rows back, <b>40,636</b> different.<br>
@@ -422,7 +422,7 @@ On 11 and 14 September August still holds only 1 to 7 August, more than five wee
 <b>Sewage treatment plants:</b> 121 of 121. <b>FSTP and co-treatment plants:</b> 35 of 35, and those July rows still say JUNE (<a href="#A5">A5</a>): apart from the month number, they are the June rows.<br>
 <b>Magic drains:</b> all 28 districts from June to July, and from July to August. <b>Compost pits</b> and soak pits (<a href="#N3">N3</a>): 27 of 28 districts from July to August.<br><br>
 Legacy waste clearance is different: 95 of 123 ULBs repeat June, but 28 changed, so I have not counted it as a copied month. Other tables do change. From June to July, achievement changed for 25 of 28 districts in community sanitary complexes, 27 in housing IHHL construction and 17 in SBM IHHL construction. The three MEPMA tables changed for 58 to 87 of 123 ULBs, and in the green programme table 24 of the 121 ULBs reported in both months changed. So this is not the whole catalogue.</div>
-    <p class="ask"><b>What would fix this:</b> say whether each of these months was reported or carried forward. If a value is carried forward, mark it on the row with the date it was last reported, as in the <a href="https://github.com/prucodes/sasa-data-issues/blob/main/fix-pack/data-contract.md">proposed data contract</a>.</p>
+    <p class="ask"><b>What would fix this:</b> say whether each of these months was reported or carried forward. If a value is carried forward, mark it on the row with the date it was last reported, as in the <a href="https://github.com/prucodes/sasa-data-issues/blob/main/fix-pack/data-contract.md" data-goatcounter-click="data-issues-fixpack-data-contract" data-goatcounter-title="Fix pack: data-contract.md">proposed data contract</a>.</p>
   </div></article>
 </section>
 
@@ -822,14 +822,14 @@ Legacy waste clearance is different: 95 of 123 ULBs repeat June, but 28 changed,
 
 <section id="fix-pack">
   <div class="sec-h"><span class="eyebrow">Fix pack</span><h2>Fixes ready to adopt</h2></div>
-  <p class="sec-lead">Most of this list can only be fixed by the people who own the data or run the platform. What I can do is make those fixes easier to pick up. None of this is approved. It is a starting point for the QA round, and it is all in <a href="https://github.com/prucodes/sasa-data-issues/tree/main/fix-pack">one folder</a>.</p>
+  <p class="sec-lead">Most of this list can only be fixed by the people who own the data or run the platform. What I can do is make those fixes easier to pick up. None of this is approved. It is a starting point for the QA round, and it is all in <a href="https://github.com/prucodes/sasa-data-issues/tree/main/fix-pack" data-goatcounter-click="data-issues-fixpack-folder" data-goatcounter-title="Fix pack folder">one folder</a>.</p>
   <div class="owners">
     <div class="owner">
       <h3><i style="background:var(--tcs)"></i>Validation script</h3>
       <div class="sub">so problems are caught before data is accepted</div>
       <ul>
         <li>Eleven checks, each tied to an item on this list: repeated rows, conflicting rows, months carried forward, month mismatches, text in counts, numbers stored as text, quote marks, and missing or contradictory codes.<span class="ref">C3</span></li>
-        <li>Run on my copies of all 36 small tables and the daily files. <a href="https://github.com/prucodes/sasa-data-issues/blob/main/fix-pack/validation-report.md">See the results</a>, or <a href="https://github.com/prucodes/sasa-data-issues/blob/main/fix-pack/validate.mjs">the script</a>.</li>
+        <li>Run on my copies of all 36 small tables and the daily files. <a href="https://github.com/prucodes/sasa-data-issues/blob/main/fix-pack/validation-report.md" data-goatcounter-click="data-issues-fixpack-validation-report" data-goatcounter-title="Fix pack: validation-report.md">See the results</a>, or <a href="https://github.com/prucodes/sasa-data-issues/blob/main/fix-pack/validate.mjs" data-goatcounter-click="data-issues-fixpack-validate-script" data-goatcounter-title="Fix pack: validate.mjs">the script</a>.</li>
       </ul>
     </div>
     <div class="owner">
@@ -837,7 +837,7 @@ Legacy waste clearance is different: 95 of 123 ULBs repeat June, but 28 changed,
       <div class="sub">one row for every code problem I could confirm</div>
       <ul>
         <li>12 district or town labels that carry LGD codes from more than one district, 18 rows when each of the three green programme keys is counted. ULBs carrying two mandal codes in the same district: 80 in the Swachh Survekshan table and 77 in the green programme table.<span class="ref">N4 C1</span></li>
-        <li>Markapuram&rsquo;s missing code, <code>ulb_code</code> holding the mandal code, and <code>district_id</code> meaning different places. <a href="https://github.com/prucodes/sasa-data-issues/blob/main/fix-pack/code-defects.csv">code-defects.csv</a>.<span class="ref">N5 A3 A2</span></li>
+        <li>Markapuram&rsquo;s missing code, <code>ulb_code</code> holding the mandal code, and <code>district_id</code> meaning different places. <a href="https://github.com/prucodes/sasa-data-issues/blob/main/fix-pack/code-defects.csv" data-goatcounter-click="data-issues-fixpack-code-defects" data-goatcounter-title="Fix pack: code-defects.csv">code-defects.csv</a>.<span class="ref">N5 A3 A2</span></li>
       </ul>
     </div>
     <div class="owner">
@@ -845,14 +845,14 @@ Legacy waste clearance is different: 95 of 123 ULBs repeat June, but 28 changed,
       <div class="sub">what every row and measure should carry</div>
       <ul>
         <li>A record ID, a revision, the date it was reported, whether it was carried forward, one period format, the LGD codes, a unit, and a reason whenever a value is missing.<span class="ref">A4 A5 A6 A8 A9 N8</span></li>
-        <li>One name per concept, and how the API should behave. <a href="https://github.com/prucodes/sasa-data-issues/blob/main/fix-pack/data-contract.md">data-contract.md</a>.<span class="ref">A7 B2 B4 B6 B7 N2 N3</span></li>
+        <li>One name per concept, and how the API should behave. <a href="https://github.com/prucodes/sasa-data-issues/blob/main/fix-pack/data-contract.md" data-goatcounter-click="data-issues-fixpack-data-contract" data-goatcounter-title="Fix pack: data-contract.md">data-contract.md</a>.<span class="ref">A7 B2 B4 B6 B7 N2 N3</span></li>
       </ul>
     </div>
     <div class="owner">
       <h3><i style="background:var(--ng)"></i>Paging evidence</h3>
       <div class="sub">so the platform team can reproduce N1 without me</div>
       <ul>
-        <li>The requests, how to count, what I found on 14 September with every response ID, the raw responses for two districts, and a three part test that would show it is fixed. <a href="https://github.com/prucodes/sasa-data-issues/blob/main/fix-pack/paging-evidence.md">paging-evidence.md</a>.<span class="ref">N1</span></li>
+        <li>The requests, how to count, what I found on 14 September with every response ID, the raw responses for two districts, and a three part test that would show it is fixed. <a href="https://github.com/prucodes/sasa-data-issues/blob/main/fix-pack/paging-evidence.md" data-goatcounter-click="data-issues-fixpack-paging-evidence" data-goatcounter-title="Fix pack: paging-evidence.md">paging-evidence.md</a>.<span class="ref">N1</span></li>
       </ul>
     </div>
     <div class="owner wide">
@@ -860,7 +860,7 @@ Legacy waste clearance is different: 95 of 123 ULBs repeat June, but 28 changed,
       <div class="sub">one row per ULB, with every code and spelling found</div>
       <ul>
         <li>126 ULBs: the 123 in the MEPMA tables, and 3 that only the CDMA daily files have, B Kothakota, Podili and Alluru. Tadepalli, Anakapalle and Bheemunipatnam are in the MEPMA tables but not in the CDMA daily files.<span class="ref">A1 A11</span></li>
-        <li>Each row carries the MEPMA ID, the CDMA code, the LGD codes and every spelling, and 12 matches are flagged for review. The LGD urban local body code column is empty, because no dataset has one. <a href="https://github.com/prucodes/sasa-data-issues/blob/main/fix-pack/ulb-registry-proposed.csv">ulb-registry-proposed.csv</a>.<span class="ref">A3 C1</span></li>
+        <li>Each row carries the MEPMA ID, the CDMA code, the LGD codes and every spelling, and 12 matches are flagged for review. The LGD urban local body code column is empty, because no dataset has one. <a href="https://github.com/prucodes/sasa-data-issues/blob/main/fix-pack/ulb-registry-proposed.csv" data-goatcounter-click="data-issues-fixpack-ulb-registry" data-goatcounter-title="Fix pack: ulb-registry-proposed.csv">ulb-registry-proposed.csv</a>.<span class="ref">A3 C1</span></li>
       </ul>
     </div>
   </div>
