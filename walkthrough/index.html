@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SASA Intelligence Lab walkthrough</title>
+<meta name="description" content="A four minute walkthrough of SASA Intelligence Lab, recorded on 14 September 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+:root{color-scheme:dark;--paper:#121314;--surface:#1A1B1D;--ink:#ECEDEE;--ink-2:#A3A7AD;--ink-3:#7E838A;--rule:#313336;--link:#77AEEE}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Source Serif 4",Georgia,"Times New Roman",serif;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding:56px 28px 90px;display:grid;gap:26px}
+h1{margin:10px 0 0;font-family:Archivo,"Helvetica Neue",Arial,sans-serif;font-size:clamp(34px,4.8vw,54px);font-weight:800;letter-spacing:-.04em;line-height:1.02;text-wrap:balance}
+a{color:var(--link);text-decoration-thickness:1px;text-underline-offset:2px}
+a:focus-visible{outline:2px solid var(--link);outline-offset:3px;border-radius:3px}
+.eyebrow{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3)}
+.lede{margin:18px 0 0;max-width:62ch;font-size:19px;line-height:1.55;color:var(--ink-2)}
+.player{margin:0}
+video{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:16/9;background:#000;border:1px solid var(--rule);border-radius:10px}
+.chapters{display:grid;gap:10px}
+.chapters ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.chapters a{display:inline-flex;align-items:baseline;gap:8px;padding:8px 12px;border:1px solid var(--rule);border-radius:8px;background:var(--surface);color:var(--ink);text-decoration:none;font-family:Archivo,"Helvetica Neue",Arial,sans-serif;font-size:14px;font-weight:600}
+.chapters a:hover{border-color:var(--ink-3)}
+.chapters .t{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:12px;font-weight:500;color:var(--ink-3)}
+.meta{padding-top:14px;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:6px 26px;font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:12px;color:var(--ink-3)}
+.meta b{color:var(--ink-2);font-weight:500}
+@media (max-width:640px){.wrap{padding:32px 16px 60px}.lede{font-size:16px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <span class="eyebrow">SASA Intelligence Lab &middot; Walkthrough &middot; Recorded 14 September 2026</span>
+    <h1>The app,<br>in four minutes.</h1>
+    <p class="lede">A recorded walkthrough of SASA Intelligence Lab, the review workspace I am building on the SASA datasets. It shows the screens as they were on 14 September 2026. The subtitles are part of the picture, and the voice is synthetic narration in Indian English.</p>
+  </header>
+
+  <figure class="player">
+    <video id="walkthrough" controls playsinline preload="metadata" poster="poster.jpg">
+      <source src="sasa-walkthrough-2026-09-14.mp4" type="video/mp4">
+      Your browser cannot play this video here. <a href="sasa-walkthrough-2026-09-14.mp4">Download it</a> instead.
+    </video>
+  </figure>
+
+  <nav class="chapters" aria-label="Jump to a section">
+    <span class="eyebrow">Jump to</span>
+    <ol>
+      <li><a href="#t=10" data-t="10"><span class="t">0:10</span>Overview</a></li>
+      <li><a href="#t=69" data-t="69"><span class="t">1:09</span>Operational analytics</a></li>
+      <li><a href="#t=109" data-t="109"><span class="t">1:49</span>Gap Radar</a></li>
+      <li><a href="#t=185" data-t="185"><span class="t">3:05</span>ULB diagnostics</a></li>
+      <li><a href="#t=205" data-t="205"><span class="t">3:25</span>Reconciliation and data readiness</a></li>
+    </ol>
+  </nav>
+
+  <div class="meta">
+    <span><b>Length:</b> 4:10</span>
+    <span><b>Download:</b> <a href="sasa-walkthrough-2026-09-14.mp4" download>MP4, 33 MB</a></span>
+    <span><b>Data issues:</b> <a href="../">the full list</a></span>
+  </div>
+</main>
+<script>
+  const video = document.getElementById('walkthrough');
+  document.querySelectorAll('.chapters a').forEach(link => link.addEventListener('click', event => {
+    event.preventDefault();
+    video.currentTime = Number(link.dataset.t);
+    video.play().catch(() => {});
+    history.replaceState(null, '', '#t=' + link.dataset.t);
+  }));
+  const start = location.hash.match(/^#t=(\d+)$/);
+  if (start) {
+    const seekToStart = () => { video.currentTime = Number(start[1]); };
+    // The metadata can arrive before this script runs, so seek now if it already has.
+    if (video.readyState >= 1) seekToStart();
+    else video.addEventListener('loadedmetadata', seekToStart, { once: true });
+  }
+</script>
+</body>
+</html>
