@@ -856,6 +856,14 @@ Legacy waste clearance is different: 95 of 123 ULBs repeat June, but 28 changed,
       </ul>
     </div>
     <div class="owner wide">
+      <h3><i style="background:var(--joint)"></i>Crosswalk evidence</h3>
+      <div class="sub">what an outside reference table settles about the codes, and what it cannot</div>
+      <ul>
+        <li>On 3 October the catalogue grew from 42 datasets to 61, and the new <code>aware</code> collection carries a district reference table from a different provider. That is the first outside authority these codes can be checked against. I checked all 28 LGD district codes against it, one district at a time. All 28 agree, so the district codes are sound, and <a href="#N4">N4</a> is a problem with the departmental label rather than with the code.<span class="ref">N4 A2</span></li>
+        <li><code>lgd_mandal_code</code> holds two code systems in bands that never overlap. The lower one is the CDMA urban body code: for all 122 ULBs in the proposed registry that carry one, it is the same value as that ULB&rsquo;s <code>cdma_ulb_code</code>. The upper one is the LGD mandal code, which the AWARE mandal table returns for those same places. So a join on this column misses silently rather than matching wrongly, and <a href="#C1">C1</a> can be closed by publishing the two as separate columns. <a href="https://github.com/prucodes/sasa-data-issues/blob/main/fix-pack/crosswalk-evidence.md" data-goatcounter-click="data-issues-fixpack-crosswalk-evidence" data-goatcounter-title="Fix pack: crosswalk-evidence.md">crosswalk-evidence.md</a>.<span class="ref">C1 A3</span></li>
+      </ul>
+    </div>
+    <div class="owner wide">
       <h3><i style="background:var(--joint)"></i>Proposed ULB registry</h3>
       <div class="sub">one row per ULB, with every code and spelling found</div>
       <ul>
