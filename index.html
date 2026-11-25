@@ -236,7 +236,7 @@ footer.end{margin-top:70px;padding-top:18px;border-top:1px solid var(--rule);fon
 <div class="wrap">
 
 <header class="top">
-  <span class="eyebrow">SASA Intelligence Lab &middot; Data issues &middot; Updated 14 September 2026</span>
+  <span class="eyebrow">SASA Intelligence Lab &middot; Data issues &middot; Updated 18 November 2026</span>
   <h1>What I found<br>in the data.</h1>
   <p class="lede">
     I am building SASA Intelligence Lab on the SASA datasets in the Data Lake. On 2 September I shared a
@@ -244,6 +244,40 @@ footer.end{margin-top:70px;padding-top:18px;border-top:1px solid var(--rule);fon
     <b>11 September</b>. For each item it shows what I reported then and what I see now. It also covers
     what is new since then, and how I have handled these problems in the app so far.
   </p>
+
+  <div class="note" id="update-18-november">
+    <h2>Update, 18 November 2026</h2>
+    <p>
+      I read the catalogue and sampled the SASA tables again on 18 November, through the portal's own API playground in a
+      signed-in session. This was a sample, not the full re-test I did on 11 September, so the item statuses below are still
+      those of 14 September unless an item carries an 18 November line.
+    </p>
+    <p>
+      <b>Acknowledged.</b> The catalogue now has a <code>contractNote</code> field, and two of its notes cover items on this
+      list: <code>soak_pits_api</code> serves a Compost Pits record "retained pending upstream correction"
+      (<a href="#N3">N3</a>, <a href="#A12">A12</a>), and the FSTP table labels month 7 as JUNE, with the numeric month to be used
+      (<a href="#A5">A5</a>). The data itself is unchanged in both, so their status stays the same. Two more notes cover
+      datasets outside this list.
+    </p>
+    <p>
+      <b>New catalogue fields.</b> <code>documentedFilters</code>, <code>exportRequiresFilter</code>, <code>supersedes</code> and
+      <code>versionStatus</code> now appear on some entries. They may help with <a href="#B5">B5</a>, <a href="#B6">B6</a> and
+      <a href="#B7">B7</a>; I have not tested that yet. The catalogue grew from 61 to 150 entries, all 89 new ones AWARE open data.
+    </p>
+    <p>
+      <b>No new data.</b> No SASA table carries a newer period than my September copies. The door to door collection and waste
+      segregation files still report 64,368 rows each and start at 12 August; the plastic ban returns only August 2026, and
+      asking for September or October returns nothing; legacy waste, IHHL, sewage and FSTP still end at July.
+    </p>
+    <p>
+      <b>Unstable reads.</b> Seven SASA keys answered "The Data Lake API could not complete this request" on the first attempt,
+      among them <code>waste_egregation_api</code> and the PR door to door file; several answered on a later attempt.
+    </p>
+    <p>
+      <b>Not rechecked.</b> The paging fault (<a href="#N1">N1</a>) needs a full pull to test and was last measured on
+      14 September. Every other item was not re-tested on 18 November.
+    </p>
+  </div>
 
   <div class="note">
     <h2>Where things stand on 11 September</h2>
@@ -373,7 +407,7 @@ The old keys still answer, so anyone reading them gets different data under the 
     <div class="ev">The door to door e-autos, push carts and tri-cycles keys, and the machinery e-autos service model key, all return the <b>same 84 rows</b>. The API names <code>d2d_collection_vehicles_api</code> as the table behind all four.<br>
 The three 50 percent green programme keys return the <b>same 400 rows</b>, from <code>apgbc_info_new1_api</code>.<br>
 <code>soak_pits_api</code> returns all <b>336 Compost Pits rows</b>, identical, and its own <code>work_name</code> column says Compost Pits.<br><code>waste_egregation_api</code> is the door to door collection file without the <code>collected_households</code> column. Across all 26 district exports on 14 September, every one of the 64,368 segregation rows matches a collection row column for column.<br><br>
-Read as separate programmes, these get counted two, three or four times.</div>
+Read as separate programmes, these get counted two, three or four times.<br><br><b>18 November:</b> the catalogue now notes that <code>soak_pits_api</code> serves Compost Pits, pending correction. The other shared keys carry no such note.</div>
     <p class="ask"><b>What would fix this:</b> one key per table. Where keys have to share a table, say so in the catalogue.</p>
   </div></article>
 
@@ -472,6 +506,7 @@ Legacy waste clearance is different: 95 of 123 ULBs repeat June, but 28 changed,
     <div class="when">
       <div><span class="label">2 September</span><p>All 35 July FSTP rows had month number 7 and month name JUNE. SERP had <code>"July "</code> with a trailing space. Case varied between datasets.</p></div>
       <div class="now"><span class="label">11 September</span><p>The same 35 rows are unchanged, and they have been copied into the replacement dataset <code>fstps_stps_cotreatment_new1_api</code>. Each SERP dataset still has 3 rows with <code>"July "</code>. Case still varies: May and may, June, JUNE and june, July, july and JULY.</p></div>
+      <div><span class="label">18 November</span><p>The catalogue's contract note for <code>fstps_stps_cotreatment_new1_api</code> now says month 7 is labelled JUNE and the numeric month should be used. The rows are unchanged.</p></div>
     </div>
     <p class="ask"><b>What would fix this:</b> one standard period field, and values in a row that agree with each other.</p>
   </div></article>
@@ -536,6 +571,7 @@ Legacy waste clearance is different: 95 of 123 ULBs repeat June, but 28 changed,
     <div class="when">
       <div><span class="label">2 September</span><p>The waste segregation key was spelled two ways, and the Soak Pits sample in the guide was a copy of Compost Pits.</p></div>
       <div class="now"><span class="label">11 September</span><p><code>waste_segregation_api</code> spelled correctly returns <b>404 dataset_not_found</b>. The live key is the misspelled <code>waste_egregation_api</code>. The Soak Pits copy is no longer only in the guide: the live <code>soak_pits_api</code> returns the Compost Pits rows (<a href="#N3">N3</a>).</p></div>
+      <div><span class="label">18 November</span><p>The catalogue's contract note for <code>soak_pits_api</code> now says it serves a Compost Pits record, retained pending upstream correction. The data is unchanged.</p></div>
     </div>
     <p class="ask"><b>What would fix this:</b> the correct key, and real Soak Pits data.</p>
   </div></article>

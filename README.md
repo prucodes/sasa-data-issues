@@ -1,7 +1,9 @@
-# SASA data issues, updated 14 September 2026
+# SASA data issues, updated 18 November 2026
 
 Data and API issues I found while building SASA Intelligence Lab on the AP AI Living Labs
 Data Lake.
+
+On 18 November 2026 I sampled the catalogue and the SASA tables again. The page opens with what changed (two items now acknowledged in the catalogue's contract notes, no newer data) and what was not re-tested.
 
 I first shared this on 2 September 2026. On 11 September I checked every item again against
 the live API, and on 14 September I checked every figure on the page again. Each item shows
